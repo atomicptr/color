@@ -1,8 +1,8 @@
 <?php
 
-namespace matthieumastadenis\couleur\tests;
+namespace Atomicptr\Color\tests;
 
-use       matthieumastadenis\couleur\CssColor;
+use       Atomicptr\Color\CssColor;
 use       PHPUnit\Framework\TestCase;
 
 class   CssColorTest 

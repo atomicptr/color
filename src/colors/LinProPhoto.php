@@ -1,11 +1,11 @@
 <?php
 
-namespace matthieumastadenis\couleur\colors;
+namespace Atomicptr\Color\colors;
 
-use       matthieumastadenis\couleur\Color;
-use       matthieumastadenis\couleur\ColorFactory;
-use       matthieumastadenis\couleur\ColorInterface;
-use       matthieumastadenis\couleur\utils;
+use       Atomicptr\Color\Color;
+use       Atomicptr\Color\ColorFactory;
+use       Atomicptr\Color\ColorInterface;
+use       Atomicptr\Color\utils;
 
 class      LinProPhoto
 extends    Color

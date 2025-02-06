@@ -1,10 +1,10 @@
 <?php
 
-namespace matthieumastadenis\couleur\utils\css;
+namespace Atomicptr\Color\utils\css;
 
-use       matthieumastadenis\couleur\ColorSpace;
-use       matthieumastadenis\couleur\CssColor;
-use       matthieumastadenis\couleur\utils;
+use       Atomicptr\Color\ColorSpace;
+use       Atomicptr\Color\CssColor;
+use       Atomicptr\Color\utils;
 
 /**
  * Clean a CSS color value expressed as $value. Returns an instance of the CssColor enum.

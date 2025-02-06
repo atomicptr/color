@@ -1,9 +1,9 @@
 <?php
 
-namespace matthieumastadenis\couleur\utils\hexRgb;
+namespace Atomicptr\Color\utils\hexRgb;
 
-use       matthieumastadenis\couleur\ColorSpace;
-use       matthieumastadenis\couleur\utils;
+use       Atomicptr\Color\ColorSpace;
+use       Atomicptr\Color\utils;
 
 function clean(
     mixed    $value,

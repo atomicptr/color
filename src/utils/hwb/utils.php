@@ -1,11 +1,11 @@
 <?php
 
-namespace matthieumastadenis\couleur\utils\hwb;
+namespace Atomicptr\Color\utils\hwb;
 
-use       matthieumastadenis\couleur\ColorSpace;
-use       matthieumastadenis\couleur\Constant;
-use       matthieumastadenis\couleur\exceptions\MissingColorValue;
-use       matthieumastadenis\couleur\utils;
+use       Atomicptr\Color\ColorSpace;
+use       Atomicptr\Color\Constant;
+use       Atomicptr\Color\exceptions\MissingColorValue;
+use       Atomicptr\Color\utils;
 
 function clean(
     mixed     $value,

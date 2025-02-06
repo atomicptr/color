@@ -1,11 +1,11 @@
 <?php
 
-namespace matthieumastadenis\couleur;
+namespace Atomicptr\Color;
 
-use       matthieumastadenis\couleur\colors\Css;
-use       matthieumastadenis\couleur\colors\HexRgb;
-use       matthieumastadenis\couleur\colors\Rgb;
-use       matthieumastadenis\couleur\exceptions\UnsupportedCssColor;
+use       Atomicptr\Color\colors\Css;
+use       Atomicptr\Color\colors\HexRgb;
+use       Atomicptr\Color\colors\Rgb;
+use       Atomicptr\Color\exceptions\UnsupportedCssColor;
 
 /**
  * Represents a named color according to the CSS specification (https://drafts.csswg.org/css-color-4/#named-colors).
@@ -678,9 +678,9 @@ enum CssColor {
     /* #region Public Methods */
 
     /**
-     * Returns a new instance of matthieumastadenis\couleur\colors\Css corresponding to the current CssColor.
+     * Returns a new instance of Atomicptr\Color\colors\Css corresponding to the current CssColor.
      *
-     * @param  Css|null     $fallback An instance of matthieumastadenis\couleur\colors\Css used as a fallback in case of error
+     * @param  Css|null     $fallback An instance of Atomicptr\Color\colors\Css used as a fallback in case of error
      * @param  boolean|null $throw    If false no exception will be thrown, $fallback will be returned instead
      * 
      * @return Css|null
@@ -698,9 +698,9 @@ enum CssColor {
     }
 
     /**
-     * Returns a new instance of matthieumastadenis\couleur\colors\HexRgb corresponding to the current CssColor.
+     * Returns a new instance of Atomicptr\Color\colors\HexRgb corresponding to the current CssColor.
      *
-     * @param HexRgb|null  $fallback An instance of matthieumastadenis\couleur\colors\HexRgb used as a fallback in case of error
+     * @param HexRgb|null  $fallback An instance of Atomicptr\Color\colors\HexRgb used as a fallback in case of error
      * @param boolean|null $throw    If false no exception will be thrown, $fallback will be returned instead
      * 
      * @return HexRgb|null
@@ -759,9 +759,9 @@ enum CssColor {
     }
 
     /**
-     * Returns a new instance of matthieumastadenis\couleur\colors\Rgb corresponding to the current CssColor.
+     * Returns a new instance of Atomicptr\Color\colors\Rgb corresponding to the current CssColor.
      *
-     * @param Rgb|null     $fallback An instance of matthieumastadenis\couleur\colors\Rgb used as a fallback in case of error
+     * @param Rgb|null     $fallback An instance of Atomicptr\Color\colors\Rgb used as a fallback in case of error
      * @param boolean|null $throw    If false no exception will be thrown, $fallback will be returned instead
      * 
      * @return Rgb|null

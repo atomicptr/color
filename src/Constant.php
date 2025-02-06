@@ -1,8 +1,8 @@
 <?php
 
-namespace matthieumastadenis\couleur;
+namespace Atomicptr\Color;
 
-use       matthieumastadenis\couleur\utils;
+use       Atomicptr\Color\utils;
 
 /**
  * Represents a configuration constant accepted by Couleur.

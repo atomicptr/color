@@ -1,25 +1,25 @@
 <?php
 
-namespace matthieumastadenis\couleur;
+namespace Atomicptr\Color;
 
-use       matthieumastadenis\couleur\colors\Css;
-use       matthieumastadenis\couleur\colors\HexRgb;
-use       matthieumastadenis\couleur\colors\Hsl;
-use       matthieumastadenis\couleur\colors\Hsv;
-use       matthieumastadenis\couleur\colors\Hwb;
-use       matthieumastadenis\couleur\colors\Lab;
-use       matthieumastadenis\couleur\colors\Lch;
-use       matthieumastadenis\couleur\colors\LinP3;
-use       matthieumastadenis\couleur\colors\LinProPhoto;
-use       matthieumastadenis\couleur\colors\LinRgb;
-use       matthieumastadenis\couleur\colors\OkLab;
-use       matthieumastadenis\couleur\colors\OkLch;
-use       matthieumastadenis\couleur\colors\P3;
-use       matthieumastadenis\couleur\colors\ProPhoto;
-use       matthieumastadenis\couleur\colors\Rgb;
-use       matthieumastadenis\couleur\colors\XyzD50;
-use       matthieumastadenis\couleur\colors\XyzD65;
-use       matthieumastadenis\couleur\exceptions\UnsupportedColorSpace;
+use       Atomicptr\Color\colors\Css;
+use       Atomicptr\Color\colors\HexRgb;
+use       Atomicptr\Color\colors\Hsl;
+use       Atomicptr\Color\colors\Hsv;
+use       Atomicptr\Color\colors\Hwb;
+use       Atomicptr\Color\colors\Lab;
+use       Atomicptr\Color\colors\Lch;
+use       Atomicptr\Color\colors\LinP3;
+use       Atomicptr\Color\colors\LinProPhoto;
+use       Atomicptr\Color\colors\LinRgb;
+use       Atomicptr\Color\colors\OkLab;
+use       Atomicptr\Color\colors\OkLch;
+use       Atomicptr\Color\colors\P3;
+use       Atomicptr\Color\colors\ProPhoto;
+use       Atomicptr\Color\colors\Rgb;
+use       Atomicptr\Color\colors\XyzD50;
+use       Atomicptr\Color\colors\XyzD65;
+use       Atomicptr\Color\exceptions\UnsupportedColorSpace;
 
 /**
  * Represents a color space supported by Couleur. 
@@ -123,7 +123,7 @@ enum ColorSpace :string {
 
     /**
      * Returns the complete name of the clean() function dedicated to the current ColorSpace
-     * (example: ColorSpace::Rgb->cleanCallback() returns "matthieumastadenis\couleur\utils\rgb\clean()')
+     * (example: ColorSpace::Rgb->cleanCallback() returns "Atomicptr\Color\utils\rgb\clean()')
      *
      * @return string
      */
@@ -135,7 +135,7 @@ enum ColorSpace :string {
 
     /**
      * Returns the complete name of the from() function dedicated to the current ColorSpace
-     * (example: ColorSpace::Rgb->fromCallback() returns "matthieumastadenis\couleur\utils\rgb\from()')
+     * (example: ColorSpace::Rgb->fromCallback() returns "Atomicptr\Color\utils\rgb\from()')
      *
      * @return string
      */
@@ -147,7 +147,7 @@ enum ColorSpace :string {
 
     /**
      * Returns the complete name of the stringify() function dedicated to the current ColorSpace
-     * (example: ColorSpace::Rgb->stringifyCallback() returns "matthieumastadenis\couleur\utils\rgb\stringify()')
+     * (example: ColorSpace::Rgb->stringifyCallback() returns "Atomicptr\Color\utils\rgb\stringify()')
      *
      * @return string
      */
@@ -159,7 +159,7 @@ enum ColorSpace :string {
 
     /**
      * Returns the complete name of the verifiy() function dedicated to the current ColorSpace
-     * (example: ColorSpace::Rgb->verifyCallback() returns "matthieumastadenis\couleur\utils\rgb\verify()')
+     * (example: ColorSpace::Rgb->verifyCallback() returns "Atomicptr\Color\utils\rgb\verify()')
      *
      * @return string
      */
