@@ -1,13 +1,13 @@
 <?php
 
-namespace Atomicptr\Color\colors;
+namespace Atomicptr\Color\Colors;
 
 use       Atomicptr\Color\Color;
 use       Atomicptr\Color\ColorFactory;
 use       Atomicptr\Color\ColorInterface;
 use       Atomicptr\Color\utils;
 
-class      XyzD50
+class      XyzD65
 extends    Color
 implements ColorInterface {
 
@@ -30,9 +30,10 @@ implements ColorInterface {
 
     ) :array {
         return [
-            'xyz-d50',
-            'xyz_d50',
-            'xyzd50',
+            'xyz-d65',
+            'xyz_d65',
+            'xyzd65',
+            'xyz',
         ];
     }
     
@@ -45,12 +46,12 @@ implements ColorInterface {
         \Stringable|string|int|float|null $y        = null,
         \Stringable|string|int|float|null $z        = null,
         \Stringable|string|int|float|null $opacity  = null,
-        XyzD50|null                       $fallback = null,
+        XyzD65|null                       $fallback = null,
         bool|null                         $throw    = null,
-    ) :XyzD50 {
+    ) :XyzD65 {
         $changeThrow = $throw ?? true;
 
-        return ColorFactory::newXyzD50(
+        return ColorFactory::newXyzD65(
             value    : [
                 utils\changeCoordinate($this->x,       $y,       false, $changeThrow),
                 utils\changeCoordinate($this->y,       $y,       false, $changeThrow),
@@ -68,7 +69,7 @@ implements ColorInterface {
         bool|null $alpha     = null,
         int|null  $precision = null,
     ) :string {
-        return utils\xyzD50\stringify(
+        return utils\xyzD65\stringify(
             x         : $this->x,
             y         : $this->y,
             z         : $this->z,
@@ -79,5 +80,6 @@ implements ColorInterface {
     }
 
     /* #endregion */
+
 
 }

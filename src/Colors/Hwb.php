@@ -1,22 +1,22 @@
 <?php
 
-namespace Atomicptr\Color\colors;
+namespace Atomicptr\Color\Colors;
 
 use       Atomicptr\Color\Color;
 use       Atomicptr\Color\ColorFactory;
 use       Atomicptr\Color\ColorInterface;
 use       Atomicptr\Color\utils;
 
-class      Lab
+class      Hwb
 extends    Color
 implements ColorInterface {
 
     /* #region Constructor */
 
     public function __construct(
-        public readonly float $lightness = 0,
-        public readonly float $a         = 0,
-        public readonly float $b         = 0,
+        public readonly float $hue       = 0,
+        public readonly float $whiteness = 0,
+        public readonly float $blackness = 0,
         public readonly float $opacity   = 100,
     ) {
 
@@ -30,10 +30,7 @@ implements ColorInterface {
 
     ) :array {
         return [
-            'lab',
-            'cielab',
-            'cie-lab',
-            'cie_lab',
+            'hwb',
         ];
     }
 
@@ -42,37 +39,37 @@ implements ColorInterface {
     /* #region Public Methods */
 
     public function change(
-        \Stringable|string|int|float|null $lightness  = null,
-        \Stringable|string|int|float|null $a          = null,
-        \Stringable|string|int|float|null $b          = null,
-        \Stringable|string|int|float|null $opacity    = null,
-        Lab|null                          $fallback   = null,
-        bool|null                         $throw      = null,
-    ) :Lab {
+        \Stringable|string|int|float|null $hue       = null,
+        \Stringable|string|int|float|null $whiteness = null,
+        \Stringable|string|int|float|null $blackness = null,
+        \Stringable|string|int|float|null $opacity   = null,
+        Hwb|null                          $fallback  = null,
+        bool|null                         $throw     = null,
+    ) :Hwb {
         $changeThrow = $throw ?? true;
 
-        return ColorFactory::newLab(
+        return ColorFactory::newHwb(
             value    : [
-                utils\changeCoordinate($this->lightness, $lightness, false, $changeThrow),
-                utils\changeCoordinate($this->a,         $a,         false, $changeThrow),
-                utils\changeCoordinate($this->b,         $b,         false, $changeThrow),
+                utils\changeCoordinate($this->hue,       $hue,       false, $changeThrow),
+                utils\changeCoordinate($this->whiteness, $whiteness, false, $changeThrow),
+                utils\changeCoordinate($this->blackness, $blackness, false, $changeThrow),
                 utils\changeCoordinate($this->opacity,   $opacity,   false, $changeThrow),
             ],
             from     : $this::space(),
             fallback : $fallback,
             throw    : $throw,
         );
-    }
+    } 
     
     public function stringify(
         bool|null $legacy    = null,
         bool|null $alpha     = null,
         int|null  $precision = null,
     ) :string {
-        return utils\lab\stringify(
-            lightness : $this->lightness,
-            a         : $this->a,
-            b         : $this->b,
+        return utils\hwb\stringify(
+            hue       : $this->hue,
+            whiteness : $this->whiteness,
+            blackness : $this->blackness,
             opacity   : $this->opacity,
             legacy    : $legacy,
             alpha     : $alpha,
@@ -81,5 +78,4 @@ implements ColorInterface {
     }
 
     /* #endregion */
-
 }

@@ -2,23 +2,23 @@
 
 namespace Atomicptr\Color;
 
-use       Atomicptr\Color\colors\Css;
-use       Atomicptr\Color\colors\HexRgb;
-use       Atomicptr\Color\colors\Hsl;
-use       Atomicptr\Color\colors\Hsv;
-use       Atomicptr\Color\colors\Hwb;
-use       Atomicptr\Color\colors\Lab;
-use       Atomicptr\Color\colors\Lch;
-use       Atomicptr\Color\colors\LinP3;
-use       Atomicptr\Color\colors\LinProPhoto;
-use       Atomicptr\Color\colors\LinRgb;
-use       Atomicptr\Color\colors\OkLab;
-use       Atomicptr\Color\colors\OkLch;
-use       Atomicptr\Color\colors\P3;
-use       Atomicptr\Color\colors\ProPhoto;
-use       Atomicptr\Color\colors\Rgb;
-use       Atomicptr\Color\colors\XyzD50;
-use       Atomicptr\Color\colors\XyzD65;
+use       Atomicptr\Color\Colors\Css;
+use       Atomicptr\Color\Colors\HexRgb;
+use       Atomicptr\Color\Colors\Hsl;
+use       Atomicptr\Color\Colors\Hsv;
+use       Atomicptr\Color\Colors\Hwb;
+use       Atomicptr\Color\Colors\Lab;
+use       Atomicptr\Color\Colors\Lch;
+use       Atomicptr\Color\Colors\LinP3;
+use       Atomicptr\Color\Colors\LinProPhoto;
+use       Atomicptr\Color\Colors\LinRgb;
+use       Atomicptr\Color\Colors\OkLab;
+use       Atomicptr\Color\Colors\OkLch;
+use       Atomicptr\Color\Colors\P3;
+use       Atomicptr\Color\Colors\ProPhoto;
+use       Atomicptr\Color\Colors\Rgb;
+use       Atomicptr\Color\Colors\XyzD50;
+use       Atomicptr\Color\Colors\XyzD65;
 use       Atomicptr\Color\utils;
 
 abstract class ColorFactory {
