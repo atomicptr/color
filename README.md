@@ -2,10 +2,9 @@
 
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](https://github.com/atomicptr/color/blob/main/LICENSE)
 [![PHP Version](https://img.shields.io/packagist/php-v/atomicptr/color?style=flat)](https://packagist.org/packages/atomicptr/color)
-[![Lines of Code](https://img.shields.io/tokei/lines/github/atomicptr/color?style=flat)](https://github.com/atomicptr/color)
-[![Release date](https://img.shields.io/github/release-date-pre/atomicptr/color.svg?style=flat)](https://github.com/atomicptr/color)
-[![Last commit on main branch](https://img.shields.io/github/last-commit/atomicptr/color/main.svg?style=flat)](https://github.com/atomicptr/color)
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/atomicptr/color.svg?style=flat)](https://packagist.org/packages/atomicptr/color)
+[![Last commit on main branch](https://img.shields.io/github/last-commit/atomicptr/color)](https://github.com/atomicptr/color)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/atomicptr/color)](https://packagist.org/packages/atomicptr/color)
+[![Total Packagist downloads](https://img.shields.io/github/last-commit/atomicptr/color/main.svg?style=flat)](https://packagist.org/packages/atomicptr/color)
 
 **Color** is a modern **PHP 8.3+ color library**, intended to be compatible with **[CSS Color Module Level 4](https://drafts.csswg.org/css-color-4)**, and inspired by **[Color.js](https://github.com/LeaVerou/color.js)** from [Lea Verou](https://github.com/LeaVerou) and [Chris Lilley](https://github.com/svgeesus).
 
