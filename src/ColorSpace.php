@@ -19,7 +19,7 @@ use       Atomicptr\Color\Colors\ProPhoto;
 use       Atomicptr\Color\Colors\Rgb;
 use       Atomicptr\Color\Colors\XyzD50;
 use       Atomicptr\Color\Colors\XyzD65;
-use       Atomicptr\Color\exceptions\UnsupportedColorSpace;
+use       Atomicptr\Color\Exceptions\UnsupportedColorSpace;
 
 /**
  * Represents a color space supported by Couleur. 

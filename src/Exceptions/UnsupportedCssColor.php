@@ -1,17 +1,17 @@
 <?php
 
-namespace Atomicptr\Color\exceptions;
+namespace Atomicptr\Color\Exceptions;
 
-class   CallbackDoesNotExist 
+class   UnsupportedCssColor 
 extends \Exception {
 
     public function __construct(
-        string          $callback, 
+        string          $name,
         int             $code     = 0, 
         \Throwable|null $previous = null,
     ) {
         parent::__construct(
-            message  : "Callback $callback does not exist",
+            message  : "Css color \"$name\" is not supported",
             code     : $code,
             previous : $previous,
         );
