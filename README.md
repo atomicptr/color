@@ -7,8 +7,6 @@
 [![Last commit on main branch](https://img.shields.io/github/last-commit/atomicptr/color/main.svg?style=flat)](https://github.com/atomicptr/color)
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/atomicptr/color.svg?style=flat)](https://packagist.org/packages/atomicptr/color)
 
-## 👋 Presentation
-
 **Color** is a modern **PHP 8.3+ color library**, intended to be compatible with **[CSS Color Module Level 4](https://drafts.csswg.org/css-color-4)**, and inspired by **[Color.js](https://github.com/LeaVerou/color.js)** from [Lea Verou](https://github.com/LeaVerou) and [Chris Lilley](https://github.com/svgeesus).
 
 This is a hard fork of [matthieumastadenis/couleur](https://github.com/matthieumastadenis/couleur)
@@ -1362,17 +1360,9 @@ In **Color**, the `Css` color space refers to the  **named colors** according to
 
 [↑ Back to Top](#-color-a-modern-php-83-color-library)
 
-## 🤝 Contributing
-
-You're welcome to contribute to this package by using [issues](https://github.com/matthieumastadenis/couleur/issues) and [pull requests](https://github.com/matthieumastadenis/couleur/pulls).
-
-Before submitting any breaking change, please consider contacting me (either by directly [submitting an issue](https://github.com/matthieumastadenis/couleur/issues/new), or by sending me a DM on [Twitter](https://twitter.com/matthieu_masta) if you really feel it's more appropriate).
-
-[↑ Back to Top](#-color-a-modern-php-83-color-library)
-
 ## 📜 License
 
-**Color** is publicly shared under the **MIT License**. You can freely use it in any project. For more information, please read the included [License File](https://github.com/matthieumastadenis/couleur/blob/main/LICENSE).
+**Color** is publicly shared under the **MIT License**. You can freely use it in any project. For more information, please read the included [License File](https://github.com/atomicptr/color/blob/main/LICENSE).
 
 [↑ Back to Top](#-color-a-modern-php-83-color-library)
 
