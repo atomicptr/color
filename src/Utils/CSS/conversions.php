@@ -1,6 +1,6 @@
 <?php
 
-namespace Atomicptr\Color\Utils\css;
+namespace Atomicptr\Color\Utils\CSS;
 
 use       Atomicptr\Color\CssColor;
 use       Atomicptr\Color\Utils\hsl;

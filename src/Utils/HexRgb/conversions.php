@@ -1,6 +1,6 @@
 <?php
 
-namespace Atomicptr\Color\Utils\hexRgb;
+namespace Atomicptr\Color\Utils\HexRGB;
 
 use       Atomicptr\Color\CssColor;
 use       Atomicptr\Color\Utils;
