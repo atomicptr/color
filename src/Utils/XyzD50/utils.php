@@ -1,6 +1,6 @@
 <?php
 
-namespace Atomicptr\Color\Utils\xyzD65;
+namespace Atomicptr\Color\Utils\XyzD50;
 
 use       Atomicptr\Color\ColorSpace;
 use       Atomicptr\Color\Constant;
@@ -39,7 +39,7 @@ function from(
 ) :array {
     return utils\to(
         value    : $value, 
-        to       : ColorSpace::XyzD65, 
+        to       : ColorSpace::XyzD50, 
         from     : $from, 
         fallback : $fallback, 
         throw    : $throw, 
@@ -58,7 +58,7 @@ function stringify(
     $precision ??= Constant::PRECISION->value();
     $alpha     ??= ($opacity !== (float) 1);
 
-    $value = "color(xyz-d65 "
+    $value = "color(xyz-d50 "
         .\round($x, $precision)
         .' '
         .\round($y, $precision)
@@ -80,5 +80,5 @@ function stringify(
 function verify(
     mixed $value,
 ) :bool {
-    return utils\isColorString($value, ColorSpace::XyzD65);
+    return utils\isColorString($value, ColorSpace::XyzD50);
 }

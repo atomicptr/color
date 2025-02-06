@@ -1,6 +1,6 @@
 <?php
 
-namespace Atomicptr\Color\Utils\okLch;
+namespace Atomicptr\Color\Utils\Lch;
 
 use       Atomicptr\Color\ColorSpace;
 use       Atomicptr\Color\Constant;
@@ -39,7 +39,7 @@ function from(
 ) :array {
     return utils\to(
         value    : $value, 
-        to       : ColorSpace::OkLch, 
+        to       : ColorSpace::Lch, 
         from     : $from, 
         fallback : $fallback, 
         throw    : $throw, 
@@ -72,7 +72,7 @@ function stringify(
         $s2       = ',';
     }
 
-    $value = "oklch("
+    $value = "lch("
         .\round($lightness, $precision)
         .$lUnit
         .$s1
@@ -98,5 +98,5 @@ function stringify(
 function verify(
     mixed $value,
 ) :bool {
-    return utils\isColorString($value, ColorSpace::OkLch);
+    return utils\isColorString($value, ColorSpace::Lch);
 }

@@ -1,18 +1,18 @@
 <?php
 
-namespace Atomicptr\Color\Utils\okLab;
+namespace Atomicptr\Color\Utils\Lab;
 
 use       Atomicptr\Color\CssColor;
 use       Atomicptr\Color\Utils;
-use       Atomicptr\Color\Utils\hsl;
-use       Atomicptr\Color\Utils\hsv;
-use       Atomicptr\Color\Utils\lab;
-use       Atomicptr\Color\Utils\linP3;
-use       Atomicptr\Color\Utils\linProPhoto;
-use       Atomicptr\Color\Utils\linRgb;
-use       Atomicptr\Color\Utils\rgb;
-use       Atomicptr\Color\Utils\xyzD50;
-use       Atomicptr\Color\Utils\xyzD65;
+use       Atomicptr\Color\Utils\HSL;
+use       Atomicptr\Color\Utils\HSV;
+use       Atomicptr\Color\Utils\LinP3;
+use       Atomicptr\Color\Utils\LinProPhoto;
+use       Atomicptr\Color\Utils\LinRGB;
+use       Atomicptr\Color\Utils\OkLab;
+use       Atomicptr\Color\Utils\RGB;
+use       Atomicptr\Color\Utils\XyzD50;
+use       Atomicptr\Color\Utils\XyzD65;
 
 function toCss(
     float $lightness = 0,
@@ -59,22 +59,24 @@ function toHwb(
     return hsv\toHwb(... toHsv($lightness, $a, $b, $opacity));
 }
 
-function toLab(
-    float $lightness = 0,
-    float $a         = 0,
-    float $b         = 0,
-    float $opacity   = 100,
-) :array {
-    return xyzD50\toLab(... toXyzD50($lightness, $a, $b, $opacity));
-}
-
 function toLch(
     float $lightness = 0,
     float $a         = 0,
     float $b         = 0,
     float $opacity   = 100,
 ) :array {
-    return lab\toLch(... toLab($lightness, $a, $b, $opacity));
+    $lab = [ $lightness, $a, $b ];
+	$hue = \atan2($lab[2], $lab[1]) * 180 / \pi();
+
+	return [
+		$lab[0],
+		\sqrt(\pow($lab[1], 2) + \pow($lab[2], 2)),
+		($hue >= 0 
+            ? $hue 
+            : $hue + 360
+        ),
+        $opacity,
+	];
 }
 
 function toLinP3(
@@ -104,22 +106,22 @@ function toLinRgb(
     return xyzD65\toLinRgb(... toXyzD65($lightness, $a, $b, $opacity));
 }
 
+function toOkLab(
+    float $lightness = 0,
+    float $a         = 0,
+    float $b         = 0,
+    float $opacity   = 100,
+) :array {
+    return xyzD65\toOkLab(... toXyzD65($lightness, $a, $b, $opacity));
+}
+
 function toOkLch(
     float $lightness = 0,
     float $a         = 0,
     float $b         = 0,
     float $opacity   = 100,
 ) :array {
-    $hue = \atan2($b, $a) * 180 / \pi();
-
-    return [
-        $lightness,
-        \sqrt($a ** 2 + $b ** 2),
-        ($hue >= 0)
-            ? $hue
-            : $hue + 360,
-        $opacity,
-    ];
+    return okLab\toOkLch(... toOkLab($lightness, $a, $b, $opacity));
 }
 
 function toP3(
@@ -155,7 +157,39 @@ function toXyzD50(
     float $b         = 0,
     float $opacity   = 100,
 ) :array {
-    return xyzD65\toXyzD50(... toXyzD65($lightness, $a, $b, $opacity));
+    $lab  = [ $lightness, $a, $b ];
+	$a    = 24389/27;
+	$b    = 216/24389;
+	$f    = [];
+	$f[1] = ($lab[0] + 16) / 116;
+	$f[0] = $lab[1] / 500 + $f[1];
+	$f[2] = $f[1] - $lab[2] / 200;
+	$xyz  = [
+		(\pow($f[0], 3) > $b)
+            ? \pow($f[0], 3)
+            : (116 * $f[0] - 16) / $a,
+        ($lab[0] > $a * $b)
+            ? \pow(($lab[0] + 16) / 116, 3)
+            : $lab[0] / $a,
+        (\pow($f[2], 3) > $b)
+            ? \pow($f[2], 3)
+            : (116 * $f[2] - 16) / $a,
+	];
+
+    $d50 = [
+        0.3457 / 0.3585, 
+        1.00000, 
+        (1.0 - 0.3457 - 0.3585) / 0.3585,
+    ];
+    
+    return utils\push(
+        value : (float) ($opacity / 100),
+        array : \array_map(
+            fn ($k, $v) => $v * $d50[$k],
+            \array_keys($xyz),
+            \array_values($xyz),
+        ),
+    );
 }
 
 function toXyzD65(
@@ -164,28 +198,5 @@ function toXyzD65(
     float $b         = 0,
     float $opacity   = 100,
 ) :array {
-    // Divide $lightness by 100 to convert from CSS OkLab:
-    $lightness /= 100;
-
-    return utils\push(
-        value : $opacity / 100,
-        array : utils\multiplyMatrices(
-            a : [
-                	[  1.2268798733741557,  -0.5578149965554813,  0.28139105017721583 ],
-                	[ -0.04057576262431372,  1.1122868293970594, -0.07171106666151701 ],
-                	[ -0.07637294974672142, -0.4214933239627914,  1.5869240244272418  ],
-            ],
-            b : \array_map(
-                callback : fn ($v) => $v ** 3,
-                array    : utils\multiplyMatrices(
-                    a : [
-                            [ 0.99999999845051981432,  0.39633779217376785678,   0.21580375806075880339  ],
-                            [ 1.0000000088817607767,  -0.1055613423236563494,   -0.063854174771705903402 ],
-                            [ 1.0000000546724109177,  -0.089484182094965759684, -1.2914855378640917399   ],
-                    ],
-                    b : [ $lightness, $a, $b ],
-                ),
-            ),
-        ),
-    );    
+    return xyzD50\toXyzD65(... toXyzD50($lightness, $a, $b, $opacity));
 }

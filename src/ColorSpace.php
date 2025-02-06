@@ -123,7 +123,7 @@ enum ColorSpace :string {
 
     /**
      * Returns the complete name of the clean() function dedicated to the current ColorSpace
-     * (example: ColorSpace::Rgb->cleanCallback() returns "Atomicptr\Color\Utils\rgb\clean()')
+     * (example: ColorSpace::Rgb->cleanCallback() returns "Atomicptr\Color\Utils\RGB\clean()')
      *
      * @return string
      */
@@ -135,7 +135,7 @@ enum ColorSpace :string {
 
     /**
      * Returns the complete name of the from() function dedicated to the current ColorSpace
-     * (example: ColorSpace::Rgb->fromCallback() returns "Atomicptr\Color\Utils\rgb\from()')
+     * (example: ColorSpace::Rgb->fromCallback() returns "Atomicptr\Color\Utils\RGB\from()')
      *
      * @return string
      */
@@ -147,7 +147,7 @@ enum ColorSpace :string {
 
     /**
      * Returns the complete name of the stringify() function dedicated to the current ColorSpace
-     * (example: ColorSpace::Rgb->stringifyCallback() returns "Atomicptr\Color\Utils\rgb\stringify()')
+     * (example: ColorSpace::Rgb->stringifyCallback() returns "Atomicptr\Color\Utils\RGB\stringify()')
      *
      * @return string
      */
@@ -159,7 +159,7 @@ enum ColorSpace :string {
 
     /**
      * Returns the complete name of the verifiy() function dedicated to the current ColorSpace
-     * (example: ColorSpace::Rgb->verifyCallback() returns "Atomicptr\Color\Utils\rgb\verify()')
+     * (example: ColorSpace::Rgb->verifyCallback() returns "Atomicptr\Color\Utils\RGB\verify()')
      *
      * @return string
      */

@@ -1,6 +1,6 @@
 <?php
 
-namespace Atomicptr\Color\Utils\rgb;
+namespace Atomicptr\Color\Utils\RGB;
 
 use       Atomicptr\Color\ColorSpace;
 use       Atomicptr\Color\Constant;

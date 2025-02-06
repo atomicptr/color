@@ -1,18 +1,18 @@
 <?php
 
-namespace Atomicptr\Color\Utils\hwb;
+namespace Atomicptr\Color\Utils\HWB;
 
 use       Atomicptr\Color\CssColor;
-use       Atomicptr\Color\Utils\hsl;
-use       Atomicptr\Color\Utils\hsv;
-use       Atomicptr\Color\Utils\lab;
-use       Atomicptr\Color\Utils\linP3;
-use       Atomicptr\Color\Utils\linProPhoto;
-use       Atomicptr\Color\Utils\linRgb;
-use       Atomicptr\Color\Utils\okLab;
-use       Atomicptr\Color\Utils\rgb;
-use       Atomicptr\Color\Utils\xyzD50;
-use       Atomicptr\Color\Utils\xyzD65;
+use       Atomicptr\Color\Utils\HSL;
+use       Atomicptr\Color\Utils\HSV;
+use       Atomicptr\Color\Utils\Lab;
+use       Atomicptr\Color\Utils\LinP3;
+use       Atomicptr\Color\Utils\LinProPhoto;
+use       Atomicptr\Color\Utils\LinRGB;
+use       Atomicptr\Color\Utils\OkLab;
+use       Atomicptr\Color\Utils\RGB;
+use       Atomicptr\Color\Utils\XyzD50;
+use       Atomicptr\Color\Utils\XyzD65;
 
 function toCss(
     float $hue       = 0,
