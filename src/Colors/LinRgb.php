@@ -2,15 +2,13 @@
 
 namespace Atomicptr\Color\Colors;
 
-use       Atomicptr\Color\Color;
-use       Atomicptr\Color\ColorFactory;
-use       Atomicptr\Color\ColorInterface;
-use       Atomicptr\Color\Utils;
+use Atomicptr\Color\Color;
+use Atomicptr\Color\ColorFactory;
+use Atomicptr\Color\ColorInterface;
+use Atomicptr\Color\Utils;
 
-class      LinRgb
-extends    Color
-implements ColorInterface {
-
+class LinRgb extends Color implements ColorInterface
+{
     /* #region Constructor */
 
     public function __construct(
@@ -25,23 +23,23 @@ implements ColorInterface {
     /* #endregion */
 
     /* #region Public Static Methods */
-    
+
     public static function aliases(
 
-    ) :array {
+    ): array {
         return [
             'srgb-linear',
             'linrgb',
             'lin-rgb',
-            'lin_rgb',            
+            'lin_rgb',
             'linsrgb',
             'lin-srgb',
-            'lin_srgb',            
+            'lin_srgb',
         ];
     }
 
     /* #endregion */
-    
+
     /* #region Public Methods */
 
     public function change(
@@ -51,27 +49,27 @@ implements ColorInterface {
         \Stringable|string|int|float|null $opacity   = null,
         LinP3|null                        $fallback  = null,
         bool|null                         $throw     = null,
-    ) :LinRgb {
+    ): LinRgb {
         $changeThrow = $throw ?? true;
 
         return ColorFactory::newLinRgb(
             value    : [
-                utils\changeCoordinate($this->red,     $red,     false, $changeThrow),
-                utils\changeCoordinate($this->green,   $green,   false, $changeThrow),
-                utils\changeCoordinate($this->blue,    $blue,    false, $changeThrow),
+                utils\changeCoordinate($this->red, $red, false, $changeThrow),
+                utils\changeCoordinate($this->green, $green, false, $changeThrow),
+                utils\changeCoordinate($this->blue, $blue, false, $changeThrow),
                 utils\changeCoordinate($this->opacity, $opacity, false, $changeThrow),
             ],
             from     : $this::space(),
             fallback : $fallback,
             throw    : $throw,
         );
-    } 
-    
+    }
+
     public function stringify(
         bool|null $legacy    = null,
         bool|null $alpha     = null,
         int|null  $precision = null,
-    ) :string {
+    ): string {
         return utils\linRgb\stringify(
             red       : $this->red,
             green     : $this->green,

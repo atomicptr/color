@@ -2,23 +2,22 @@
 
 namespace Atomicptr\Color\Tests\Utils\HexRgb;
 
-use       Atomicptr\Color\Utils\HexRGB;
-use       PHPUnit\Framework\TestCase;
+use Atomicptr\Color\Utils\HexRGB;
+use PHPUnit\Framework\TestCase;
 
-class   StringifyTest 
-extends TestCase {
-
-    const LOOPS = 30;
-    const CHARS = [ 
-        '0', '1', '2', '3', 
-        '4', '5', '6', '7', 
-        '8', '9', 'A', 'B', 
+class StringifyTest extends TestCase
+{
+    public const LOOPS = 30;
+    public const CHARS = [
+        '0', '1', '2', '3',
+        '4', '5', '6', '7',
+        '8', '9', 'A', 'B',
         'C', 'D', 'E', 'F',
     ];
 
     protected function randomChar(
         string|null $not = null,
-    ) :string {
+    ): string {
         $char = null;
 
         while (\in_array($char, [ null, $not ], true)) {
@@ -31,7 +30,7 @@ extends TestCase {
     protected function randomNumber(
         bool        $same = false,
         string|null $not  = null,
-    ) :string {
+    ): string {
         $c1     = $this->randomChar();
         $number = $same
             ? $c1.$c1
@@ -47,7 +46,7 @@ extends TestCase {
 
     public function test_resultStartsWithSharpByDefault(
 
-    ) :void {
+    ): void {
         for ($i = 0; $i < $this::LOOPS; $i++) {
             $same = (bool) $i % 2;
             $r    = $this->randomNumber($same);
@@ -63,7 +62,7 @@ extends TestCase {
 
     public function test_resultStartsWithSharpIfSharpParamIsTrue(
 
-    ) :void {
+    ): void {
         for ($i = 0; $i < $this::LOOPS; $i++) {
             $same = (bool) $i % 2;
             $r    = $this->randomNumber($same);
@@ -79,7 +78,7 @@ extends TestCase {
 
     public function test_resultDoesNotStartWithSharpIfSharpParamIsFalse(
 
-    ) :void {
+    ): void {
         for ($i = 0; $i < $this::LOOPS; $i++) {
             $same = (bool) $i % 2;
             $r    = $this->randomNumber($same);
@@ -95,7 +94,7 @@ extends TestCase {
 
     public function test_resultDoesNotIncludeOpacityByDefault(
 
-    ) :void {
+    ): void {
         for ($i = 0; $i < $this::LOOPS; $i++) {
             $same = (bool) $i % 2;
             $r    = $this->randomNumber($same);
@@ -111,7 +110,7 @@ extends TestCase {
 
     public function test_resultDoesNotIncludeOpacityIfItsFFByDefault(
 
-    ) :void {
+    ): void {
         for ($i = 0; $i < $this::LOOPS; $i++) {
             $same = (bool) $i % 2;
             $r    = $this->randomNumber($same);
@@ -128,7 +127,7 @@ extends TestCase {
 
     public function test_resultIncludesOpacityIfItsNotFFByDefault(
 
-    ) :void {
+    ): void {
         for ($i = 0; $i < $this::LOOPS; $i++) {
             $same = (bool) $i % 2;
             $r    = $this->randomNumber($same);
@@ -151,7 +150,7 @@ extends TestCase {
 
     public function test_resultDoesNotIncludeOpacityIfAlphaParamIsFalse(
 
-    ) :void {
+    ): void {
         for ($i = 0; $i < $this::LOOPS; $i++) {
             $same = (bool) $i % 2;
             $r    = $this->randomNumber($same);
@@ -168,7 +167,7 @@ extends TestCase {
 
     public function test_resultAlwaysIncludeOpacityIfAlphaParamIsTrue(
 
-    ) :void {
+    ): void {
         for ($i = 0; $i < $this::LOOPS; $i++) {
             $same = (bool) $i % 2;
             $r    = $this->randomNumber($same);
@@ -191,7 +190,7 @@ extends TestCase {
 
     public function test_shortValuesProduceTheSameResultAsLongValuesByDefault(
 
-    ) :void {
+    ): void {
         for ($i = 0; $i < $this::LOOPS; $i++) {
             $r = $this->randomChar();
             $g = $this->randomChar();
@@ -206,7 +205,7 @@ extends TestCase {
 
     public function test_shortValuesProduceTheSameResultAsLongValuesIfShortParamMatches(
 
-    ) :void {
+    ): void {
         for ($i = 0; $i < $this::LOOPS; $i++) {
             $r     = $this->randomChar();
             $g     = $this->randomChar();
@@ -222,7 +221,7 @@ extends TestCase {
 
     public function test_returnsShortValuesIfPossibleByDefault(
 
-    ) :void {
+    ): void {
         for ($i = 0; $i < $this::LOOPS; $i++) {
             $r1 = $this->randomNumber(true);
             $g1 = $this->randomNumber(true);
@@ -245,7 +244,7 @@ extends TestCase {
 
     public function test_alwaysReturnsShortValuesIfPossibleAndIfShortParamIsTrue(
 
-    ) :void {
+    ): void {
         for ($i = 0; $i < $this::LOOPS; $i++) {
             $r1 = $this->randomNumber(true);
             $g1 = $this->randomNumber(true);
@@ -268,7 +267,7 @@ extends TestCase {
 
     public function test_alwaysReturnsLongValuesIfShortParamIsFalse(
 
-    ) :void {
+    ): void {
         for ($i = 0; $i < $this::LOOPS; $i++) {
             $r1 = $this->randomNumber(true);
             $g1 = $this->randomNumber(true);
@@ -291,7 +290,7 @@ extends TestCase {
 
     public function test_resultCaseMatchesInputCaseByDefault(
 
-    ) :void {
+    ): void {
         for ($i = 0; $i < $this::LOOPS; $i++) {
             $upper = (bool) $i % 2;
             $r1    = $this->randomNumber(true);
@@ -302,8 +301,7 @@ extends TestCase {
                 $r1   = \strtoupper($r1);
                 $g1   = \strtoupper($g1);
                 $b1   = \strtoupper($b1);
-            }
-            else {
+            } else {
                 $r1   = \strtolower($r1);
                 $g1   = \strtolower($g1);
                 $b1   = \strtolower($b1);
@@ -320,7 +318,7 @@ extends TestCase {
 
     public function test_resultIsInUppercaseIfUppercaseParamIsTrue(
 
-    ) :void {
+    ): void {
         for ($i = 0; $i < $this::LOOPS; $i++) {
             $upper = (bool) $i % 2;
             $r1    = $this->randomNumber(true);
@@ -331,8 +329,7 @@ extends TestCase {
                 $r1   = \strtoupper($r1);
                 $g1   = \strtoupper($g1);
                 $b1   = \strtoupper($b1);
-            }
-            else {
+            } else {
                 $r1   = \strtolower($r1);
                 $g1   = \strtolower($g1);
                 $b1   = \strtolower($b1);
@@ -349,7 +346,7 @@ extends TestCase {
 
     public function test_resultIsInLowercaseIfUppercaseParamIsFalse(
 
-    ) :void {
+    ): void {
         for ($i = 0; $i < $this::LOOPS; $i++) {
             $upper = (bool) $i % 2;
             $r1    = $this->randomNumber(true);
@@ -360,13 +357,12 @@ extends TestCase {
                 $r1   = \strtoupper($r1);
                 $g1   = \strtoupper($g1);
                 $b1   = \strtoupper($b1);
-            }
-            else {
+            } else {
                 $r1   = \strtolower($r1);
                 $g1   = \strtolower($g1);
                 $b1   = \strtolower($b1);
             }
-            
+
             $hex = hexRgb\stringify($r1, $g1, $b1, uppercase : false);
 
             $this->assertSame(

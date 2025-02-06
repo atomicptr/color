@@ -2,15 +2,13 @@
 
 namespace Atomicptr\Color\Colors;
 
-use       Atomicptr\Color\Color;
-use       Atomicptr\Color\ColorFactory;
-use       Atomicptr\Color\ColorInterface;
-use       Atomicptr\Color\Utils;
+use Atomicptr\Color\Color;
+use Atomicptr\Color\ColorFactory;
+use Atomicptr\Color\ColorInterface;
+use Atomicptr\Color\Utils;
 
-class      P3
-extends    Color
-implements ColorInterface {
-
+class P3 extends Color implements ColorInterface
+{
     /* #region Constructor */
 
     public function __construct(
@@ -25,10 +23,10 @@ implements ColorInterface {
     /* #endregion */
 
     /* #region Public Static Methods */
-    
+
     public static function aliases(
 
-    ) :array {
+    ): array {
         return [
             'display-p3',
             'display_p3',
@@ -37,7 +35,7 @@ implements ColorInterface {
     }
 
     /* #endregion */
-    
+
     /* #region Public Methods */
 
     public function change(
@@ -47,26 +45,26 @@ implements ColorInterface {
         \Stringable|string|int|float|null $opacity   = null,
         LinP3|null                        $fallback  = null,
         bool|null                         $throw     = null,
-    ) :P3 {
+    ): P3 {
         $changeThrow = $throw ?? true;
 
         return ColorFactory::newP3(
             value    : [
-                utils\changeCoordinate($this->red,     $red,     false, $changeThrow),
-                utils\changeCoordinate($this->green,   $green,   false, $changeThrow),
-                utils\changeCoordinate($this->blue,    $blue,    false, $changeThrow),
+                utils\changeCoordinate($this->red, $red, false, $changeThrow),
+                utils\changeCoordinate($this->green, $green, false, $changeThrow),
+                utils\changeCoordinate($this->blue, $blue, false, $changeThrow),
                 utils\changeCoordinate($this->opacity, $opacity, false, $changeThrow),
             ],
             from     : $this::space(),
             fallback : $fallback,
             throw    : $throw,
         );
-    } 
-    
+    }
+
     public function stringify(
         bool|null $alpha     = null,
         int|null  $precision = null,
-    ) :string {
+    ): string {
         return utils\p3\stringify(
             red       : $this->red,
             green     : $this->green,

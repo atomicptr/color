@@ -2,33 +2,33 @@
 
 namespace Atomicptr\Color;
 
-use       Atomicptr\Color\Colors\Css;
-use       Atomicptr\Color\Colors\HexRgb;
-use       Atomicptr\Color\Colors\Hsl;
-use       Atomicptr\Color\Colors\Hsv;
-use       Atomicptr\Color\Colors\Hwb;
-use       Atomicptr\Color\Colors\Lab;
-use       Atomicptr\Color\Colors\Lch;
-use       Atomicptr\Color\Colors\LinP3;
-use       Atomicptr\Color\Colors\LinProPhoto;
-use       Atomicptr\Color\Colors\LinRgb;
-use       Atomicptr\Color\Colors\OkLab;
-use       Atomicptr\Color\Colors\OkLch;
-use       Atomicptr\Color\Colors\P3;
-use       Atomicptr\Color\Colors\ProPhoto;
-use       Atomicptr\Color\Colors\Rgb;
-use       Atomicptr\Color\Colors\XyzD50;
-use       Atomicptr\Color\Colors\XyzD65;
-use       Atomicptr\Color\Exceptions\UnsupportedColorSpace;
+use Atomicptr\Color\Colors\Css;
+use Atomicptr\Color\Colors\HexRgb;
+use Atomicptr\Color\Colors\Hsl;
+use Atomicptr\Color\Colors\Hsv;
+use Atomicptr\Color\Colors\Hwb;
+use Atomicptr\Color\Colors\Lab;
+use Atomicptr\Color\Colors\Lch;
+use Atomicptr\Color\Colors\LinP3;
+use Atomicptr\Color\Colors\LinProPhoto;
+use Atomicptr\Color\Colors\LinRgb;
+use Atomicptr\Color\Colors\OkLab;
+use Atomicptr\Color\Colors\OkLch;
+use Atomicptr\Color\Colors\P3;
+use Atomicptr\Color\Colors\ProPhoto;
+use Atomicptr\Color\Colors\Rgb;
+use Atomicptr\Color\Colors\XyzD50;
+use Atomicptr\Color\Colors\XyzD65;
+use Atomicptr\Color\Exceptions\UnsupportedColorSpace;
 
 /**
- * Represents a color space supported by Couleur. 
- * 
+ * Represents a color space supported by Couleur.
+ *
  * Can be accessed using aliases (all accepted alias are documented at https://github.com/matthieumastadenis/couleur-dev#-color-spaces).
  * Provides access to dedicated functions (clean(), from(), stringify(), verify()).
  */
-enum ColorSpace :string {
-    
+enum ColorSpace: string
+{
     /* #region Cases */
 
     case Css         = Css::class;
@@ -50,17 +50,17 @@ enum ColorSpace :string {
     case XyzD65      = XyzD65::class;
 
     /* #endregion */
-    
+
     /* #region Public Static Methods */
-    
+
     /**
      * Returns an array containing all supported aliases and the corresponding ColorSpace instances.
      *
      * @return array
      */
     public static function allAliases(
-        
-    ) :array {
+
+    ): array {
         $aliases = [];
 
         foreach (static::cases() as $space) {
@@ -76,21 +76,21 @@ enum ColorSpace :string {
 
     /**
      * Returns the ColorSpace instance corresponding to the alias $name, if it exists.
-     * 
-     * If $name does not match a supported alias, an UnsupportedColorSpace Exception will be thrown by default, 
+     *
+     * If $name does not match a supported alias, an UnsupportedColorSpace Exception will be thrown by default,
      * unless a $fallback is provided or $throw is set to false. In that case, the method will return $fallback.
      *
      * @param  \Stringable|string $name     Name or alias of the desired ColorSpace
      * @param  ColorSpace|null    $fallback Fallback returned if $name is not a supported alias
      * @param  boolean|null       $throw    If false the method will not throw exceptions, $fallback will be returned instead
-     * 
+     *
      * @return static|null                  The ColorSpace instance matching the $name alias, $fallback instead
      */
     public static function fromAlias(
         \Stringable|string $name,
         ColorSpace|null    $fallback = null,
         bool|null          $throw    = null,
-    ) :static|null {
+    ): static|null {
         $lcName  = \strtolower((string) $name);
         $throw ??= !$fallback;
 
@@ -107,7 +107,7 @@ enum ColorSpace :string {
     }
 
     /* #endregion */
-    
+
     /* #region Public Methods */
 
     /**
@@ -116,8 +116,8 @@ enum ColorSpace :string {
      * @return array
      */
     public function aliases(
-        
-    ) :array {
+
+    ): array {
         return ($this->value)::aliases();
     }
 
@@ -129,7 +129,7 @@ enum ColorSpace :string {
      */
     public function cleanCallback(
 
-    ) :string {
+    ): string {
         return $this->callback('clean');
     }
 
@@ -141,7 +141,7 @@ enum ColorSpace :string {
      */
     public function fromCallback(
 
-    ) :string {
+    ): string {
         return $this->callback('from');
     }
 
@@ -153,7 +153,7 @@ enum ColorSpace :string {
      */
     public function stringifyCallback(
 
-    ) :string {
+    ): string {
         return $this->callback('stringify');
     }
 
@@ -165,7 +165,7 @@ enum ColorSpace :string {
      */
     public function verifyCallback(
 
-    ) :string {
+    ): string {
         return $this->callback('verify');
     }
 
@@ -180,7 +180,7 @@ enum ColorSpace :string {
      */
     protected function callback(
         \Stringable|string $name,
-    ) :string {
+    ): string {
         return __NAMESPACE__
             .'\\utils\\'
             .\lcfirst($this->name)
@@ -189,5 +189,5 @@ enum ColorSpace :string {
     }
 
     /* #endregion */
-    
+
 }

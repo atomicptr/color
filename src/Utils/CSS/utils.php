@@ -2,22 +2,22 @@
 
 namespace Atomicptr\Color\Utils\CSS;
 
-use       Atomicptr\Color\ColorSpace;
-use       Atomicptr\Color\CssColor;
-use       Atomicptr\Color\Utils;
+use Atomicptr\Color\ColorSpace;
+use Atomicptr\Color\CssColor;
+use Atomicptr\Color\Utils;
 
 /**
  * Clean a CSS color value expressed as $value. Returns an instance of the CssColor enum.
  *
  * @param  mixed    $value
  * @param  boolean  $throw
- * 
+ *
  * @return CssColor
  */
 function clean(
     mixed    $value,
     bool     $throw = true,
-) :CssColor {
+): CssColor {
     if (\is_array($value)) {
         $value = $value[0] ?? 'black';
     }
@@ -33,19 +33,19 @@ function from(
     ColorSpace|\Stringable|string|null $from     = null,
     array|null                         $fallback = null,
     bool|null                          $throw    = null,
-) :array {
+): array {
     return utils\to(
-        value    : $value, 
-        to       : ColorSpace::Css, 
-        from     : $from,  
-        fallback : $fallback, 
-        throw    : $throw, 
+        value    : $value,
+        to       : ColorSpace::Css,
+        from     : $from,
+        fallback : $fallback,
+        throw    : $throw,
     );
 }
 
 function stringify(
     mixed $value,
-) :string {
+): string {
     return ($value instanceof CssColor)
         ? $value->name
         : (string) $value
@@ -54,11 +54,12 @@ function stringify(
 
 function verify(
     mixed $value,
-) :bool {
+): bool {
     return ($value instanceof CssColor)
         || (\is_string($value) && CssColor::exists($value))
-        || (\is_array($value)
-            && (\count($value) === 1) 
+        || (
+            \is_array($value)
+            && (\count($value) === 1)
             && (($value[0] instanceof CssColor) || (
                 \is_string($value[0] ?? null)
                 && CssColor::exists($value[0])

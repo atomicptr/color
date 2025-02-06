@@ -2,19 +2,18 @@
 
 namespace Atomicptr\Color\Utils\HexRGB;
 
-use       Atomicptr\Color\ColorSpace;
-use       Atomicptr\Color\Utils;
+use Atomicptr\Color\ColorSpace;
+use Atomicptr\Color\Utils;
 
 function clean(
     mixed    $value,
     bool     $throw = true,
-) :array {
+): array {
     $values = [];
 
     if (\is_array($value)) {
         $values = $value;
-    }
-    else if (\is_string($value)) {
+    } elseif (\is_string($value)) {
         $value  = \trim($value, '#');
         $values = (\strlen($value) > 3)
             ? \str_split($value, 2)
@@ -38,13 +37,13 @@ function from(
     ColorSpace|\Stringable|string|null $from     = null,
     array|null                         $fallback = null,
     bool|null                          $throw    = null,
-) :array {
+): array {
     return utils\to(
-        value    : $value, 
-        to       : ColorSpace::HexRgb, 
-        from     : $from, 
-        fallback : $fallback, 
-        throw    : $throw, 
+        value    : $value,
+        to       : ColorSpace::HexRgb,
+        from     : $from,
+        fallback : $fallback,
+        throw    : $throw,
     );
 }
 
@@ -57,13 +56,13 @@ function stringify(
     bool      $short     = true,
     bool|null $uppercase = null,
     bool      $sharp     = true,
-) :string {
+): string {
     $red   = utils\cleanHexValue($red);
     $green = utils\cleanHexValue($green);
     $blue  = utils\cleanHexValue($blue);
     $value = $red.$green.$blue;
     $lower = null;
-    
+
     if ($alpha ?? (\strtoupper($opacity) !== 'FF')) {
         $value .= $opacity;
     }
@@ -79,8 +78,7 @@ function stringify(
     foreach (\str_split($value, 2) as $v) {
         if ($v[0] === $v[1]) {
             $initials[] = $v[0];
-        }
-        else {
+        } else {
             $short = false;
             break;
         }
@@ -98,9 +96,9 @@ function stringify(
 
 function verify(
     mixed $value,
-) :bool {
+): bool {
     return \is_string($value) && \preg_match(
-        pattern : '/^#?[0-9A-Fa-f]{3,8}$/', 
+        pattern : '/^#?[0-9A-Fa-f]{3,8}$/',
         subject : $value,
     );
 }

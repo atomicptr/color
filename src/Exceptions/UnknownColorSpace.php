@@ -2,12 +2,11 @@
 
 namespace Atomicptr\Color\Exceptions;
 
-class   UnknownColorSpace 
-extends \Exception {
-
+class UnknownColorSpace extends \Exception
+{
     public function __construct(
         string|null     $space    = null,
-        int             $code     = 0, 
+        int             $code     = 0,
         \Throwable|null $previous = null,
     ) {
         parent::__construct(

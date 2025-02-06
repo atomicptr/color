@@ -2,15 +2,15 @@
 
 namespace Atomicptr\Color\Utils\Lab;
 
-use       Atomicptr\Color\ColorSpace;
-use       Atomicptr\Color\Constant;
-use       Atomicptr\Color\Exceptions\MissingColorValue;
-use       Atomicptr\Color\Utils;
+use Atomicptr\Color\ColorSpace;
+use Atomicptr\Color\Constant;
+use Atomicptr\Color\Exceptions\MissingColorValue;
+use Atomicptr\Color\Utils;
 
 function clean(
     mixed     $value,
     bool|null $throw = null,
-) :array {
+): array {
     $values    = utils\parseColorValue($value, 100);
     $lightness = $values['lightness'] ?? $values['l'] ?? $values[0] ?? null;
     $a         =                         $values['a'] ?? $values[1] ?? null;
@@ -24,10 +24,10 @@ function clean(
         ($b         === null) => throw new MissingColorValue('b'),
         default               => null,
     } ?? [
-        utils\cleanCoordinate($lightness ?? 0,   0,    100),
-        utils\cleanCoordinate($a         ?? 0,   null, null),
-        utils\cleanCoordinate($b         ?? 0,   null, null),
-        utils\cleanCoordinate($opacity   ?? 100, 0,    100),
+        utils\cleanCoordinate($lightness ?? 0, 0, 100),
+        utils\cleanCoordinate($a         ?? 0, null, null),
+        utils\cleanCoordinate($b         ?? 0, null, null),
+        utils\cleanCoordinate($opacity   ?? 100, 0, 100),
     ];
 }
 
@@ -36,13 +36,13 @@ function from(
     ColorSpace|\Stringable|string|null $from     = null,
     array|null                         $fallback = null,
     bool|null                          $throw    = null,
-) :array {
+): array {
     return utils\to(
-        value    : $value, 
-        to       : ColorSpace::Lab, 
-        from     : $from, 
-        fallback : $fallback, 
-        throw    : $throw, 
+        value    : $value,
+        to       : ColorSpace::Lab,
+        from     : $from,
+        fallback : $fallback,
+        throw    : $throw,
     );
 }
 
@@ -54,7 +54,7 @@ function stringify(
     bool|null $legacy    = null,
     bool|null $alpha     = null,
     int|null  $precision = null,
-) :string {
+): string {
     $legacy    ??= Constant::LEGACY->value();
     $precision ??= Constant::PRECISION->value();
     $s1          = ' ';
@@ -96,6 +96,6 @@ function stringify(
 
 function verify(
     mixed $value,
-) :bool {
+): bool {
     return utils\isColorString($value, ColorSpace::Lab);
 }
