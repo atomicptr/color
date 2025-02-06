@@ -1,23 +1,27 @@
 {
-    "name"        : "matthieumastadenis/couleur",
-    "description" : "A modern PHP 8.1+ color library, compatible with CSS Color Module Level 4",
-    "type"        : "library",
-    "license"     : "MIT",
-    "authors"     : [
+    "name": "atomicptr/color",
+    "description": "A modern PHP 8.3+ color library, compatible with CSS Color Module Level 4",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
         {
-            "name"  : "Matthieu Masta Denis",
-            "email" : "matthieu.denis@abitus.net"
+            "name": "Christopher Kaster",
+            "email": "me@atomicptr.de"
+        },
+        {
+            "name": "Matthieu Masta Denis",
+            "email": "matthieu.denis@abitus.net"
         }
     ],
     "require": {
-        "php" : "~8.1"
+        "php": ">=8.3"
     },
-    "require-dev" : {
-        "php"             : "~8.1",
-        "phpunit/phpunit" : "^9.5"
+    "require-dev": {
+        "php": ">=8.3",
+        "phpunit/phpunit": "^9.5"
     },
-    "autoload" : {
-        "files" : [
+    "autoload": {
+        "files": [
             "src/utils/utils.php",
             "src/utils/css/conversions.php",
             "src/utils/css/utils.php",
@@ -55,7 +59,7 @@
             "src/utils/xyzD65/utils.php"
         ],
         "psr-4": {
-            "matthieumastadenis\\couleur\\": "src/"
+            "Atomicptr\\Color\\": "src/"
         }
     }
 }

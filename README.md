@@ -1,77 +1,31 @@
-# 🎨 Couleur: A modern PHP 8.1+ color library
+# 🎨 Color: A modern PHP 8.3+ color library
 
-[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](https://github.com/matthieumastadenis/couleur/blob/main/LICENSE)
-[![PHP Version](https://img.shields.io/packagist/php-v/matthieumastadenis/couleur?style=flat)](https://packagist.org/packages/matthieumastadenis/couleur)
-[![Lines of Code](https://img.shields.io/tokei/lines/github/matthieumastadenis/couleur?style=flat)](https://github.com/matthieumastadenis/couleur)
-[![Release date](https://img.shields.io/github/release-date-pre/matthieumastadenis/couleur.svg?style=flat)](https://github.com/matthieumastadenis/couleur)
-[![Last commit on main branch](https://img.shields.io/github/last-commit/matthieumastadenis/couleur/main.svg?style=flat)](https://github.com/matthieumastadenis/couleur)
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/matthieumastadenis/couleur.svg?style=flat)](https://packagist.org/packages/matthieumastadenis/couleur)
-
-- [🎨 Couleur: A modern PHP 8.1+ color library](#-couleur-a-modern-php-81-color-library)
-  - [👋 Presentation](#-presentation)
-  - [⚙️ Installation](#️-installation)
-  - [🏁 Quick Start](#-quick-start)
-  - [📚 Usage](#-usage)
-    - [🏭 Immutable Objects and the `ColorFactory`](#-immutable-objects-and-the-colorfactory)
-      - [Direct instanciation](#direct-instanciation)
-      - [Using the `ColorFactory`](#using-the-colorfactory)
-      - [Using immutable color objects](#using-immutable-color-objects)
-    - [🧰 Pure Functions](#-pure-functions)
-      - [Color Space Functions](#color-space-functions)
-      - [Conversion Functions](#conversion-functions)
-      - [Generic Functions](#generic-functions)
-    - [🛠️ Enums and Constants](#️-enums-and-constants)
-      - [The `Constant` Enum](#the-constant-enum)
-      - [The `ColorSpace` Enum](#the-colorspace-enum)
-      - [The `CssColor` Enum](#the-csscolor-enum)
-  - [🌈 Color Spaces](#-color-spaces)
-    - [CSS](#css)
-    - [Hexadecimal RGB](#hexadecimal-rgb)
-    - [HSL](#hsl)
-    - [HSV](#hsv)
-    - [HWB](#hwb)
-    - [Lab](#lab)
-    - [Lch](#lch)
-    - [Linear RGB](#linear-rgb)
-    - [Linear P3](#linear-p3)
-    - [Linear ProPhoto](#linear-prophoto)
-    - [OkLab](#oklab)
-    - [OkLch](#oklch)
-    - [P3](#p3)
-    - [ProPhoto](#prophoto)
-    - [RGB](#rgb)
-    - [XYZ-D50](#xyz-d50)
-    - [XYZ-D65](#xyz-d65)
-  - [🤝 Contributing](#-contributing)
-  - [📜 License](#-license)
-  - [❤️ Thanks](#️-thanks)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](https://github.com/atomicptr/color/blob/main/LICENSE)
+[![PHP Version](https://img.shields.io/packagist/php-v/atomicptr/color?style=flat)](https://packagist.org/packages/atomicptr/color)
+[![Lines of Code](https://img.shields.io/tokei/lines/github/atomicptr/color?style=flat)](https://github.com/atomicptr/color)
+[![Release date](https://img.shields.io/github/release-date-pre/atomicptr/color.svg?style=flat)](https://github.com/atomicptr/color)
+[![Last commit on main branch](https://img.shields.io/github/last-commit/atomicptr/color/main.svg?style=flat)](https://github.com/atomicptr/color)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/atomicptr/color.svg?style=flat)](https://packagist.org/packages/atomicptr/color)
 
 ## 👋 Presentation
 
-**Couleur** is a modern **PHP 8.1+ color library**, intended to be compatible with **[CSS Color Module Level 4](https://drafts.csswg.org/css-color-4)**, and inspired by **[Color.js](https://github.com/LeaVerou/color.js)** from [Lea Verou](https://github.com/LeaVerou) and [Chris Lilley](https://github.com/svgeesus).
+**Color** is a modern **PHP 8.3+ color library**, intended to be compatible with **[CSS Color Module Level 4](https://drafts.csswg.org/css-color-4)**, and inspired by **[Color.js](https://github.com/LeaVerou/color.js)** from [Lea Verou](https://github.com/LeaVerou) and [Chris Lilley](https://github.com/svgeesus).
+
+This is a hard fork of [matthieumastadenis/couleur](https://github.com/matthieumastadenis/couleur)
 
 The main goal of this package is to allow **color conversions** between multiple, old and new [🌈 Color Spaces](#-color-spaces), like the famous **LCH** which provides [many advantages for design purpose](https://lea.verou.me/2020/04/lch-colors-in-css-what-why-and-how/).
 
-**Couleur** is made to be usable with an **[OOP](https://en.wikipedia.org/wiki/Object-oriented_programming)** approach as well as with a **[FP](https://en.wikipedia.org/wiki/Functional_programming)** approach:
+**Color** is made to be usable with an **[OOP](https://en.wikipedia.org/wiki/Object-oriented_programming)** approach as well as with a **[FP](https://en.wikipedia.org/wiki/Functional_programming)** approach:
 
 - If you prefer **OOP**, you can use [🏭 Immutable Objects and the `ColorFactory`](#-immutable-objects-and-the-colorfactory) ;
 - If you prefer **FP**, you can directly use the multiple [🧰 Pure Functions](#-pure-functions) ;
 
-> **Warning**:
-> This package is currently under development.
->
-> The current version may include bugs, untested code, undocumented code, unfinished code, or simply code that will change. More specifically, for the moment there is a lack of *unit tests*, and a few *color spaces* as well as *distance calculation functions* and *gammut correction* remain to be implemented. All of these will come soon.
->
-> In the meantime, it is recommended to avoid using this package in production.
-
-[↑ Back to Top](#-couleur-a-modern-php-81-color-library)
-
 ## ⚙️ Installation
 
-Use the following command to add **Couleur** to your project with [Composer](https://getcomposer.org/):
+Use the following command to add **Color** to your project with [Composer](https://getcomposer.org/):
 
 ```bash
-composer require matthieumastadenis/couleur
+composer require atomicptr/color
 ```
 
 Don't forget to include the [autoloader](https://getcomposer.org/doc/01-basic-usage.md#autoloading) provided by Composer:
@@ -82,17 +36,17 @@ Don't forget to include the [autoloader](https://getcomposer.org/doc/01-basic-us
 require 'vendor/autoload.php';
 ```
 
-[↑ Back to Top](#-couleur-a-modern-php-81-color-library)
+[↑ Back to Top](#-color-a-modern-php-83-color-library)
 
 ## 🏁 Quick Start
 
-The following is a quick *tl;dr* example of the simplest way to use **Couleur**, based on an OOP approach. For more detailed instructions, please read the [📚 Usage](#-usage) section.
+The following is a quick *tl;dr* example of the simplest way to use **Color**, based on an OOP approach. For more detailed instructions, please read the [📚 Usage](#-usage) section.
 
 ```php
 <?php
 
-use matthieumastadenis\couleur\ColorFactory;
-use matthieumastadenis\couleur\ColorSpace;
+use Atomicptr\Color\ColorFactory;
+use Atomicptr\Color\ColorSpace;
 
 require 'vendor/autoload.php';
 
@@ -128,7 +82,7 @@ echo $p3; // Prints 'color(display-p3 0.791710722 0.191507424 0.257366748)'
 
 ```
 
-[↑ Back to Top](#-couleur-a-modern-php-81-color-library)
+[↑ Back to Top](#-color-a-modern-php-83-color-library)
 
 ## 📚 Usage
 
@@ -136,13 +90,13 @@ echo $p3; // Prints 'color(display-p3 0.791710722 0.191507424 0.257366748)'
 
 #### Direct instanciation
 
-**Couleur** provides one **immutable class** for each supported [🌈 Color Space](#-color-spaces). You can of course instantiate these classes manually:
+**Color** provides one **immutable class** for each supported [🌈 Color Space](#-color-spaces). You can of course instantiate these classes manually:
 
 ```php
 <?php
 
-use matthieumastadenis\couleur\colors\Rgb;
-use matthieumastadenis\couleur\colors\Hsl;
+use Atomicptr\Color\colors\Rgb;
+use Atomicptr\Color\colors\Hsl;
 
 require 'vendor/autoload.php';
 
@@ -167,7 +121,7 @@ $rgb = new Rgb(255, 0, 0, 127.5);
 >
 > Because of this, you may prefer to avoid instanciating these classes yourself. A simpler solution is to [use the ColorFactory](#using-the-colorfactory) like in the following examples. It will automatically handle *values conversion* for you.
 
-[↑ Back to Top](#-couleur-a-modern-php-81-color-library)
+[↑ Back to Top](#-color-a-modern-php-83-color-library)
 
 #### Using the `ColorFactory`
 
@@ -176,7 +130,7 @@ The best and simplest way to create color objects is by using the `ColorFactory`
 ```php
 <?php
 
-use matthieumastadenis\couleur\ColorFactory;
+use Atomicptr\Color\ColorFactory;
 
 require 'vendor/autoload.php';
 
@@ -201,7 +155,7 @@ Note that by default these methods are **automatically guessing** the input synt
 ```php
 <?php
 
-use matthieumastadenis\couleur\ColorFactory;
+use Atomicptr\Color\ColorFactory;
 
 require 'vendor/autoload.php';
 
@@ -221,7 +175,7 @@ If you use an incorrectly formated value, a `UnknownColorSpace` **Exception** wi
 ```php
 <?php
 
-use matthieumastadenis\couleur\ColorFactory;
+use Atomicptr\Color\ColorFactory;
 
 require 'vendor/autoload.php';
 
@@ -240,7 +194,7 @@ Also if you use an incomplete value, a `MissingColorValue` **Exception** will be
 ```php
 <?php
 
-use matthieumastadenis\couleur\ColorFactory;
+use Atomicptr\Color\ColorFactory;
 
 require 'vendor/autoload.php';
 
@@ -261,8 +215,8 @@ Specifying this is particularly helpful when you're using an array as input, to 
 ```php
 <?php
 
-use matthieumastadenis\couleur\ColorFactory;
-use matthieumastadenis\couleur\ColorSpace;
+use Atomicptr\Color\ColorFactory;
+use Atomicptr\Color\ColorSpace;
 
 require 'vendor/autoload.php';
 
@@ -286,8 +240,8 @@ You can alternatively use the `new()` **static method**, which adds a `$to` para
 ```php
 <?php
 
-use matthieumastadenis\couleur\ColorFactory;
-use matthieumastadenis\couleur\ColorSpace;
+use Atomicptr\Color\ColorFactory;
+use Atomicptr\Color\ColorSpace;
 
 require 'vendor/autoload.php';
 
@@ -314,7 +268,7 @@ $okLab = ColorFactory::new([ 255, 0, 0 ], ColorSpace::OkLab, ColorSpace::Rgb);
 
 ```
 
-[↑ Back to Top](#-couleur-a-modern-php-81-color-library)
+[↑ Back to Top](#-color-a-modern-php-83-color-library)
 
 #### Using immutable color objects
 
@@ -323,8 +277,8 @@ Once you have a color instance, you can easily convert it to another color space
 ```php
 <?php
 
-use matthieumastadenis\couleur\ColorFactory;
-use matthieumastadenis\couleur\ColorSpace;
+use Atomicptr\Color\ColorFactory;
+use Atomicptr\Color\ColorSpace;
 
 require 'vendor/autoload.php';
 
@@ -346,7 +300,7 @@ Note that **any color** can be converted to CSS with the `toCss()` method. It wi
 ```php
 <?php
 
-use matthieumastadenis\couleur\ColorFactory;
+use Atomicptr\Color\ColorFactory;
 
 require 'vendor/autoload.php';
 
@@ -363,8 +317,8 @@ All color objects are directly **stringable**. They also provide a `stringify()`
 ```php
 <?php
 
-use matthieumastadenis\couleur\ColorFactory;
-use matthieumastadenis\couleur\ColorSpace;
+use Atomicptr\Color\ColorFactory;
+use Atomicptr\Color\ColorSpace;
 
 require 'vendor/autoload.php';
 
@@ -391,7 +345,7 @@ All color objects also have a `coordinates()` method which returns an array:
 ```php
 <?php
 
-use matthieumastadenis\couleur\ColorFactory;
+use Atomicptr\Color\ColorFactory;
 
 require 'vendor/autoload.php';
 
@@ -407,7 +361,7 @@ You can also directly access **readonly properties** from each color object:
 ```php
 <?php
 
-use matthieumastadenis\couleur\ColorFactory;
+use Atomicptr\Color\ColorFactory;
 
 require 'vendor/autoload.php';
 
@@ -428,8 +382,8 @@ All color objects have a `change()` method which always return a *new object* co
 ```php
 <?php
 
-use matthieumastadenis\couleur\ColorFactory;
-use matthieumastadenis\couleur\ColorSpace;
+use Atomicptr\Color\ColorFactory;
+use Atomicptr\Color\ColorSpace;
 
 require 'vendor/autoload.php';
 
@@ -474,8 +428,8 @@ echo $hsl7; // hsl(150deg 0% 10% / 32%)
 ```php
 <?php
 
-use matthieumastadenis\couleur\ColorFactory;
-use matthieumastadenis\couleur\ColorSpace;
+use Atomicptr\Color\ColorFactory;
+use Atomicptr\Color\ColorSpace;
 
 require 'vendor/autoload.php';
 
@@ -516,8 +470,8 @@ echo $hex7; // #29023208 (29 dechex(184%(184*4/100)) 32 08)
 ```php
 <?php
 
-use matthieumastadenis\couleur\ColorFactory;
-use matthieumastadenis\couleur\CssColor;
+use Atomicptr\Color\ColorFactory;
+use Atomicptr\Color\CssColor;
 
 require 'vendor/autoload.php';
 
@@ -538,16 +492,16 @@ $css4 = $css3->change('invalid');
 
 ```
 
-[↑ Back to Top](#-couleur-a-modern-php-81-color-library)
+[↑ Back to Top](#-color-a-modern-php-83-color-library)
 
 ### 🧰 Pure Functions
 
-Objects in **Couleur** are all based on a collection of **pure functions** under the hood. These functions can be used directly if you don't want to use objects.
+Objects in **Color** are all based on a collection of **pure functions** under the hood. These functions can be used directly if you don't want to use objects.
 
 > **Note**:
 > Choosing this *functional programming approach* is better in terms of performance, but can be a bit more tedious because you have to manipulate arrays of values instead of objects.
 
-There are three main types of functions provided by **Couleur** : dedicated [Color Space Functions](#color-space-functions), dedicated [Conversion Functions](#conversion-functions), and [Generic Functions](#generic-functions):
+There are three main types of functions provided by **Color** : dedicated [Color Space Functions](#color-space-functions), dedicated [Conversion Functions](#conversion-functions), and [Generic Functions](#generic-functions):
 
 #### Color Space Functions
 
@@ -559,9 +513,9 @@ Each supported [🌈 Color Space](#-color-spaces) has its own dedicated function
 
 <?php
 
-use matthieumastadenis\couleur\utils\css;
-use matthieumastadenis\couleur\utils\rgb;
-use matthieumastadenis\couleur\utils\lch;
+use Atomicptr\Color\utils\css;
+use Atomicptr\Color\utils\rgb;
+use Atomicptr\Color\utils\lch;
 
 require 'vendor/autoload.php';
 
@@ -593,9 +547,9 @@ $lch6 = lch\clean('color(lch 54.2905429% 106.837191 40.8576688deg / 100%)');
 ```php
 <?php
 
-use matthieumastadenis\couleur\utils\rgb;
-use matthieumastadenis\couleur\utils\lch;
-use matthieumastadenis\couleur\ColorSpace;
+use Atomicptr\Color\utils\rgb;
+use Atomicptr\Color\utils\lch;
+use Atomicptr\Color\ColorSpace;
 
 require 'vendor/autoload.php';
 
@@ -625,9 +579,9 @@ $hsl4 = hsl\from('rgba(255,0,0,1)', ColorSpace::Rgb);
 ```php
 <?php
 
-use matthieumastadenis\couleur\utils\hexRgb;
-use matthieumastadenis\couleur\utils\rgb;
-use matthieumastadenis\couleur\utils\xyzD65;
+use Atomicptr\Color\utils\hexRgb;
+use Atomicptr\Color\utils\rgb;
+use Atomicptr\Color\utils\xyzD65;
 
 require 'vendor/autoload.php';
 
@@ -677,9 +631,9 @@ echo xyzD65\stringify(0.412390799, 0.212639006, 0.019330819, alpha : true);
 ```php
 <?php
 
-use matthieumastadenis\couleur\utils\css;
-use matthieumastadenis\couleur\utils\hexRgb;
-use matthieumastadenis\couleur\utils\hsl;
+use Atomicptr\Color\utils\css;
+use Atomicptr\Color\utils\hexRgb;
+use Atomicptr\Color\utils\hsl;
 
 require 'vendor/autoload.php';
 
@@ -726,7 +680,7 @@ require 'vendor/autoload.php';
 
 ```
 
-[↑ Back to Top](#-couleur-a-modern-php-81-color-library)
+[↑ Back to Top](#-color-a-modern-php-83-color-library)
 
 #### Conversion Functions
 
@@ -735,9 +689,9 @@ Each supported [🌈 Color Space](#-color-spaces) has a complete set of dedicate
 ```php
 <?php
 
-use matthieumastadenis\couleur\utils\css;
-use matthieumastadenis\couleur\utils\rgb;
-use matthieumastadenis\couleur\CssColor;
+use Atomicptr\Color\utils\css;
+use Atomicptr\Color\utils\rgb;
+use Atomicptr\Color\CssColor;
 
 require 'vendor/autoload.php';
 
@@ -752,20 +706,20 @@ $xyzD50 = hsl\toXyzD50(... $hsl);
 
 ```
 
-[↑ Back to Top](#-couleur-a-modern-php-81-color-library)
+[↑ Back to Top](#-color-a-modern-php-83-color-library)
 
 #### Generic Functions
 
-**Couleur** also offers an ensemble of **generic utilitary functions**, all located under the namespace `matthieumastadenis\couleur\utils`.
+**Color** also offers an ensemble of **generic utilitary functions**, all located under the namespace `matthieumastadenis\couleur\utils`.
 
-If the majority of these functions are mostly made for interal usages, a few can be useful to you if you prefer to use **Couleur** with a *functional programming approcach*. These are described below.
+If the majority of these functions are mostly made for interal usages, a few can be useful to you if you prefer to use **Color** with a *functional programming approcach*. These are described below.
 
 The `constant()` function can be used to access and declare **configuration constants** direclty, without the need to use [the `Constant` Enum](#the-constant-enum):
 
 ```php
 <?php
 
-use matthieumastadenis\couleur\utils;
+use Atomicptr\Color\utils;
 
 require 'vendor/autoload.php';
 
@@ -792,8 +746,8 @@ In case of failure, the function will throw a `UnknownColorSpace` by default, ex
 ```php
 <?php
 
-use matthieumastadenis\couleur\utils;
-use matthieumastadenis\couleur\ColorSpace;
+use Atomicptr\Color\utils;
+use Atomicptr\Color\ColorSpace;
 
 require 'vendor/autoload.php';
 
@@ -830,8 +784,8 @@ If you want a more precise check, you can use the `$spaces` parameter to provide
 ```php
 <?php
 
-use matthieumastadenis\couleur\utils;
-use matthieumastadenis\couleur\ColorSpace;
+use Atomicptr\Color\utils;
+use Atomicptr\Color\ColorSpace;
 
 require 'vendor/autoload.php';
 
@@ -862,8 +816,8 @@ The `$opacityFactor` parameter is useful to convert opacity into the correct ran
 ```php
 <?php
 
-use matthieumastadenis\couleur\utils;
-use matthieumastadenis\couleur\CssColor;
+use Atomicptr\Color\utils;
+use Atomicptr\Color\CssColor;
 
 require 'vendor/autoload.php';
 
@@ -898,8 +852,8 @@ If these parameters are null, they will be guessed by interpreting the format of
 ```php
 <?php
 
-use matthieumastadenis\couleur\utils;
-use matthieumastadenis\couleur\ColorSpace;
+use Atomicptr\Color\utils;
+use Atomicptr\Color\ColorSpace;
 
 require 'vendor/autoload.php';
 
@@ -933,13 +887,13 @@ $proPhoto = utils\to('color(xyz-d65 0.4124 0.2126 0.0193 / 100%)', ColorSpace::P
 
 ```
 
-[↑ Back to Top](#-couleur-a-modern-php-81-color-library)
+[↑ Back to Top](#-color-a-modern-php-83-color-library)
 
 ### 🛠️ Enums and Constants
 
 #### The `Constant` Enum
 
-**Couleur** can be preconfigured with dedicated **constants**. These act as default values used by multiple functions when the corresponding parameter is missing or set to null. All constants are written in uppercase and prefixed with `COULEUR_`.
+**Color** can be preconfigured with dedicated **constants**. These act as default values used by multiple functions when the corresponding parameter is missing or set to null. All constants are written in uppercase and prefixed with `COULEUR_`.
 
 Currently, the following constants are used:
 
@@ -951,7 +905,7 @@ You can use the `Constant` enum to easily access and manage these constants and 
 ```php
 <?php
 
-use matthieumastadenis\couleur\Constant;
+use Atomicptr\Color\Constant;
 
 require 'vendor/autoload.php';
 
@@ -984,16 +938,16 @@ Constant::PRECISION->value(3, true);
 
 ```
 
-[↑ Back to Top](#-couleur-a-modern-php-81-color-library)
+[↑ Back to Top](#-color-a-modern-php-83-color-library)
 
 #### The `ColorSpace` Enum
 
-This enum is the simplest way to access all **color spaces** supported by **Couleur**:
+This enum is the simplest way to access all **color spaces** supported by **Color**:
 
 ```php
 <?php
 
-use matthieumastadenis\couleur\ColorSpace;
+use Atomicptr\Color\ColorSpace;
 
 require 'vendor/autoload.php';
 
@@ -1007,10 +961,10 @@ You can access a `ColorSpace` instance by the corresponding color `class`:
 ```php
 <?php
 
-use matthieumastadenis\couleur\ColorSpace;
-use matthieumastadenis\couleur\colors\Lch;
-use matthieumastadenis\couleur\colors\LinP3;
-use matthieumastadenis\couleur\colors\Rgb;
+use Atomicptr\Color\ColorSpace;
+use Atomicptr\Color\colors\Lch;
+use Atomicptr\Color\colors\LinP3;
+use Atomicptr\Color\colors\Rgb;
 
 require 'vendor/autoload.php';
 
@@ -1030,7 +984,7 @@ Each `ColorSpace` is accessible from multiple **aliases** with the `fromAlias()`
 ```php
 <?php
 
-use matthieumastadenis\couleur\ColorSpace;
+use Atomicptr\Color\ColorSpace;
 
 require 'vendor/autoload.php';
 
@@ -1057,8 +1011,8 @@ You can easily access [dedicated functions](#color-space-functions) from each `C
 ```php
 <?php
 
-use matthieumastadenis\couleur\ColorSpace;
-use matthieumastadenis\couleur\CssColor;
+use Atomicptr\Color\ColorSpace;
+use Atomicptr\Color\CssColor;
 
 require 'vendor/autoload.php';
 
@@ -1100,7 +1054,7 @@ ColorSpace::HexRgb->verifyCallback()('#ff');
 
 ```
 
-[↑ Back to Top](#-couleur-a-modern-php-81-color-library)
+[↑ Back to Top](#-color-a-modern-php-83-color-library)
 
 #### The `CssColor` Enum
 
@@ -1109,7 +1063,7 @@ This enum helps managing `CSS` **named colors**. With its multiple methods, you 
 ```php
 <?php
 
-use matthieumastadenis\couleur\CssColor;
+use Atomicptr\Color\CssColor;
 
 require 'vendor/autoload.php';
 
@@ -1138,7 +1092,7 @@ The `fromCss()` method allows you to get a specific `CssColor` by its name. If n
 ```php
 <?php
 
-use matthieumastadenis\couleur\CssColor;
+use Atomicptr\Color\CssColor;
 
 require 'vendor/autoload.php';
 
@@ -1163,7 +1117,7 @@ By default these functions will return the supported CSS color which is the **cl
 ```php
 <?php
 
-use matthieumastadenis\couleur\CssColor;
+use Atomicptr\Color\CssColor;
 
 require 'vendor/autoload.php';
 
@@ -1198,7 +1152,7 @@ You can **stringify** a `CssColor` with the `toHexRgbString()` and `toRgbString`
 ```php
 <?php
 
-use matthieumastadenis\couleur\CssColor;
+use Atomicptr\Color\CssColor;
 
 require 'vendor/autoload.php';
 
@@ -1245,7 +1199,7 @@ You can also get a new `Color` **object** from any `CssColor` by using the `toCs
 ```php
 <?php
 
-use matthieumastadenis\couleur\CssColor;
+use Atomicptr\Color\CssColor;
 
 require 'vendor/autoload.php';
 
@@ -1260,15 +1214,15 @@ CssColor::red->toRgb();
 
 ```
 
-[↑ Back to Top](#-couleur-a-modern-php-81-color-library)
+[↑ Back to Top](#-color-a-modern-php-83-color-library)
 
 ## 🌈 Color Spaces
 
-**Couleur** currently supports the following **color spaces** and formats:
+**Color** currently supports the following **color spaces** and formats:
 
 ### CSS
 
-In **Couleur**, the `Css` color space refers to the  **named colors** according to the [CSS specification](https://drafts.csswg.org/css-color-4/#named-colors). Because they are a predefined and standardized list of exact colors, they all can be accessed easily with [the CssColor Enum](#the-csscolor-enum).
+In **Color**, the `Css` color space refers to the  **named colors** according to the [CSS specification](https://drafts.csswg.org/css-color-4/#named-colors). Because they are a predefined and standardized list of exact colors, they all can be accessed easily with [the CssColor Enum](#the-csscolor-enum).
 
 > **Note** :
 > `Css` colors **cannot** have an opacity value. If you want to apply transparency to a `Css` color, you first **have to** convert it into another color space. In the same way, if you convert a color with transparency into its `Css` equivalent, it will **lose** the transparency.
@@ -1406,7 +1360,7 @@ In **Couleur**, the `Css` color space refers to the  **named colors** according 
 - **Accepted aliases** : `xyz-d65`, `xyz_d65`, `xyzd65`, `xyz` ;
 - **Coordinates** : `x`, `y`, `z` ;
 
-[↑ Back to Top](#-couleur-a-modern-php-81-color-library)
+[↑ Back to Top](#-color-a-modern-php-83-color-library)
 
 ## 🤝 Contributing
 
@@ -1414,16 +1368,18 @@ You're welcome to contribute to this package by using [issues](https://github.co
 
 Before submitting any breaking change, please consider contacting me (either by directly [submitting an issue](https://github.com/matthieumastadenis/couleur/issues/new), or by sending me a DM on [Twitter](https://twitter.com/matthieu_masta) if you really feel it's more appropriate).
 
-[↑ Back to Top](#-couleur-a-modern-php-81-color-library)
+[↑ Back to Top](#-color-a-modern-php-83-color-library)
 
 ## 📜 License
 
-**Couleur** is publicly shared under the **MIT License**. You can freely use it in any project. For more information, please read the included [License File](https://github.com/matthieumastadenis/couleur/blob/main/LICENSE).
+**Color** is publicly shared under the **MIT License**. You can freely use it in any project. For more information, please read the included [License File](https://github.com/matthieumastadenis/couleur/blob/main/LICENSE).
 
-[↑ Back to Top](#-couleur-a-modern-php-81-color-library)
+[↑ Back to Top](#-color-a-modern-php-83-color-library)
 
 ## ❤️ Thanks
 
 A huge thanks to [Lea Verou](https://github.com/LeaVerou) and [Chris Lilley](https://github.com/svgeesus) for their incredible work and their precise articles on the subject. With a special thanks to Chris for the time and the answers he gave me during the implementation of this library.
 
-[↑ Back to Top](#-couleur-a-modern-php-81-color-library)
+Also since this is a fork, a huge thanks to [Matthieu Masta Denis](https://github.com/matthieumastadenis) for developing the original project.
+
+[↑ Back to Top](#-color-a-modern-php-83-color-library)
