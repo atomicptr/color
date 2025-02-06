@@ -2,7 +2,7 @@
 
 namespace Atomicptr\Color\tests\utils\hexRgb;
 
-use       Atomicptr\Color\utils\hexRgb;
+use       Atomicptr\Color\Utils\hexRgb;
 use       PHPUnit\Framework\TestCase;
 
 class   StringifyTest 

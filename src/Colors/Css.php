@@ -6,7 +6,7 @@ use       Atomicptr\Color\Color;
 use       Atomicptr\Color\ColorFactory;
 use       Atomicptr\Color\ColorInterface;
 use       Atomicptr\Color\CssColor;
-use       Atomicptr\Color\utils;
+use       Atomicptr\Color\Utils;
 
 class      Css
 extends    Color
