@@ -1,8 +1,8 @@
 <?php
 
-namespace matthieumastadenis\couleur\tests\utils\hexRgb;
+namespace Atomicptr\Color\tests\utils\hexRgb;
 
-use       matthieumastadenis\couleur\utils\hexRgb;
+use       Atomicptr\Color\utils\hexRgb;
 use       PHPUnit\Framework\TestCase;
 
 class   StringifyTest 

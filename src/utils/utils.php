@@ -1,11 +1,11 @@
 <?php
 
-namespace matthieumastadenis\couleur\utils;
+namespace Atomicptr\Color\utils;
 
-use       matthieumastadenis\couleur\ColorSpace;
-use       matthieumastadenis\couleur\exceptions\CallbackDoesNotExist;
-use       matthieumastadenis\couleur\exceptions\UnknownColorSpace;
-use       matthieumastadenis\couleur\exceptions\UnsupportedCoordinateModifier;
+use       Atomicptr\Color\ColorSpace;
+use       Atomicptr\Color\exceptions\CallbackDoesNotExist;
+use       Atomicptr\Color\exceptions\UnknownColorSpace;
+use       Atomicptr\Color\exceptions\UnsupportedCoordinateModifier;
 
 /**
  * Add leading zero to $value if it is a stringable value starting with a dot. 
@@ -317,7 +317,7 @@ function decToHex(
 /**
  * Attempts to guess a color space by interpreting $value. 
  * 
- * This fonction only works with color spaces handled by the matthieumastadenis\couleur\ColorSpace enum.
+ * This fonction only works with color spaces handled by the Atomicptr\Color\ColorSpace enum.
  * 
  * If $value does not correspond to any of these color spaces, a UnknownColorSpace exception will be thrown by default. 
  * If the $throw parameter is set to false, $fallback will be returned instead.

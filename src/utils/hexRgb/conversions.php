@@ -1,19 +1,19 @@
 <?php
 
-namespace matthieumastadenis\couleur\utils\hexRgb;
+namespace Atomicptr\Color\utils\hexRgb;
 
-use       matthieumastadenis\couleur\CssColor;
-use       matthieumastadenis\couleur\utils;
-use       matthieumastadenis\couleur\utils\hsl;
-use       matthieumastadenis\couleur\utils\hsv;
-use       matthieumastadenis\couleur\utils\lab;
-use       matthieumastadenis\couleur\utils\linP3;
-use       matthieumastadenis\couleur\utils\linProPhoto;
-use       matthieumastadenis\couleur\utils\linRgb;
-use       matthieumastadenis\couleur\utils\okLab;
-use       matthieumastadenis\couleur\utils\rgb;
-use       matthieumastadenis\couleur\utils\xyzD50;
-use       matthieumastadenis\couleur\utils\xyzD65;
+use       Atomicptr\Color\CssColor;
+use       Atomicptr\Color\utils;
+use       Atomicptr\Color\utils\hsl;
+use       Atomicptr\Color\utils\hsv;
+use       Atomicptr\Color\utils\lab;
+use       Atomicptr\Color\utils\linP3;
+use       Atomicptr\Color\utils\linProPhoto;
+use       Atomicptr\Color\utils\linRgb;
+use       Atomicptr\Color\utils\okLab;
+use       Atomicptr\Color\utils\rgb;
+use       Atomicptr\Color\utils\xyzD50;
+use       Atomicptr\Color\utils\xyzD65;
 
 function toCss(
     string $red     = '00',

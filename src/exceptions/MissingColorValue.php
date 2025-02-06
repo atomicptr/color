@@ -1,6 +1,6 @@
 <?php
 
-namespace matthieumastadenis\couleur\exceptions;
+namespace Atomicptr\Color\exceptions;
 
 class   MissingColorValue 
 extends \Exception {
