@@ -4,7 +4,7 @@ namespace Atomicptr\Color\Utils\HSV;
 
 use       Atomicptr\Color\ColorSpace;
 use       Atomicptr\Color\Constant;
-use       Atomicptr\Color\exceptions\MissingColorValue;
+use       Atomicptr\Color\Exceptions\MissingColorValue;
 use       Atomicptr\Color\Utils;
 
 function clean(

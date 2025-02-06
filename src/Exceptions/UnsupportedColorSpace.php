@@ -1,17 +1,17 @@
 <?php
 
-namespace Atomicptr\Color\exceptions;
+namespace Atomicptr\Color\Exceptions;
 
-class   UnknownColorSpace 
+class   UnsupportedColorSpace 
 extends \Exception {
 
     public function __construct(
-        string|null     $space    = null,
+        string          $space, 
         int             $code     = 0, 
         \Throwable|null $previous = null,
     ) {
         parent::__construct(
-            message  : "Unknown color space",
+            message  : "The color space \"$space\" is not supported",
             code     : $code,
             previous : $previous,
         );

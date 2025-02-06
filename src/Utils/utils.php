@@ -3,9 +3,9 @@
 namespace Atomicptr\Color\Utils;
 
 use       Atomicptr\Color\ColorSpace;
-use       Atomicptr\Color\exceptions\CallbackDoesNotExist;
-use       Atomicptr\Color\exceptions\UnknownColorSpace;
-use       Atomicptr\Color\exceptions\UnsupportedCoordinateModifier;
+use       Atomicptr\Color\Exceptions\CallbackDoesNotExist;
+use       Atomicptr\Color\Exceptions\UnknownColorSpace;
+use       Atomicptr\Color\Exceptions\UnsupportedCoordinateModifier;
 
 /**
  * Add leading zero to $value if it is a stringable value starting with a dot. 

@@ -5,7 +5,7 @@ namespace Atomicptr\Color;
 use       Atomicptr\Color\Colors\Css;
 use       Atomicptr\Color\Colors\HexRgb;
 use       Atomicptr\Color\Colors\Rgb;
-use       Atomicptr\Color\exceptions\UnsupportedCssColor;
+use       Atomicptr\Color\Exceptions\UnsupportedCssColor;
 
 /**
  * Represents a named color according to the CSS specification (https://drafts.csswg.org/css-color-4/#named-colors).

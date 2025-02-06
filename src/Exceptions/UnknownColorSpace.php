@@ -1,17 +1,17 @@
 <?php
 
-namespace Atomicptr\Color\exceptions;
+namespace Atomicptr\Color\Exceptions;
 
-class   UnsupportedCoordinateModifier 
+class   UnknownColorSpace 
 extends \Exception {
 
     public function __construct(
-        string          $modifier, 
+        string|null     $space    = null,
         int             $code     = 0, 
         \Throwable|null $previous = null,
     ) {
         parent::__construct(
-            message  : "The coordinate modifier \"$modifier\" is not supported",
+            message  : "Unknown color space",
             code     : $code,
             previous : $previous,
         );

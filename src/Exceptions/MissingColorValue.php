@@ -1,17 +1,17 @@
 <?php
 
-namespace Atomicptr\Color\exceptions;
+namespace Atomicptr\Color\Exceptions;
 
-class   ClassDoesNotExist
+class   MissingColorValue 
 extends \Exception {
 
     public function __construct(
-        string          $class, 
+        string          $name,
         int             $code     = 0, 
         \Throwable|null $previous = null,
     ) {
         parent::__construct(
-            message  : "Class $class does not exist",
+            message  : "Color value \"$name\" is missing",
             code     : $code,
             previous : $previous,
         );
