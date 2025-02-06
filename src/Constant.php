@@ -2,7 +2,7 @@
 
 namespace Atomicptr\Color;
 
-use       Atomicptr\Color\utils;
+use       Atomicptr\Color\Utils;
 
 /**
  * Represents a configuration constant accepted by Couleur.
