@@ -1,6 +1,6 @@
 <?php
 
-namespace Atomicptr\Color\Utils\proPhoto;
+namespace Atomicptr\Color\Utils\ProPhoto;
 
 use       Atomicptr\Color\ColorSpace;
 use       Atomicptr\Color\Constant;

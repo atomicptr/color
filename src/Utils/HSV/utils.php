@@ -1,6 +1,6 @@
 <?php
 
-namespace Atomicptr\Color\Utils\hsv;
+namespace Atomicptr\Color\Utils\HSV;
 
 use       Atomicptr\Color\ColorSpace;
 use       Atomicptr\Color\Constant;

@@ -514,8 +514,8 @@ Each supported [🌈 Color Space](#-color-spaces) has its own dedicated function
 <?php
 
 use Atomicptr\Color\Utils\CSS;
-use Atomicptr\Color\Utils\rgb;
-use Atomicptr\Color\Utils\lch;
+use Atomicptr\Color\Utils\RGB;
+use Atomicptr\Color\Utils\Lch;
 
 require 'vendor/autoload.php';
 
@@ -547,8 +547,8 @@ $lch6 = lch\clean('color(lch 54.2905429% 106.837191 40.8576688deg / 100%)');
 ```php
 <?php
 
-use Atomicptr\Color\Utils\rgb;
-use Atomicptr\Color\Utils\lch;
+use Atomicptr\Color\Utils\RGB;
+use Atomicptr\Color\Utils\Lch;
 use Atomicptr\Color\ColorSpace;
 
 require 'vendor/autoload.php';
@@ -580,8 +580,8 @@ $hsl4 = hsl\from('rgba(255,0,0,1)', ColorSpace::Rgb);
 <?php
 
 use Atomicptr\Color\Utils\HexRGB;
-use Atomicptr\Color\Utils\rgb;
-use Atomicptr\Color\Utils\xyzD65;
+use Atomicptr\Color\Utils\RGB;
+use Atomicptr\Color\Utils\XyzD65;
 
 require 'vendor/autoload.php';
 
@@ -633,7 +633,7 @@ echo xyzD65\stringify(0.412390799, 0.212639006, 0.019330819, alpha : true);
 
 use Atomicptr\Color\Utils\CSS;
 use Atomicptr\Color\Utils\HexRGB;
-use Atomicptr\Color\Utils\hsl;
+use Atomicptr\Color\Utils\HSL;
 
 require 'vendor/autoload.php';
 
@@ -690,7 +690,7 @@ Each supported [🌈 Color Space](#-color-spaces) has a complete set of dedicate
 <?php
 
 use Atomicptr\Color\Utils\CSS;
-use Atomicptr\Color\Utils\rgb;
+use Atomicptr\Color\Utils\RGB;
 use Atomicptr\Color\CssColor;
 
 require 'vendor/autoload.php';
@@ -1016,7 +1016,7 @@ use Atomicptr\Color\CssColor;
 
 require 'vendor/autoload.php';
 
-// Returns 'Atomicptr\Color\Utils\xyzD50\clean':
+// Returns 'Atomicptr\Color\Utils\XyzD50\clean':
 ColorSpace::XyzD50->cleanCallback();
 
 // Returns [ 255, 127.5, 0, 255 ]:
@@ -1025,7 +1025,7 @@ ColorSpace::Rgb->cleanCallback()('rgb(100%,50%,0)');
 // Returns [ 'FF', '00', '00', 'FF' ]:
 ColorSpace::HexRgb->cleanCallback()('#f00');
 
-// Returns 'Atomicptr\Color\Utils\xyzD50\from':
+// Returns 'Atomicptr\Color\Utils\XyzD50\from':
 ColorSpace::XyzD50->fromCallback();
 
 // Returns [ 255, 0, 0, 255 ]:
@@ -1034,7 +1034,7 @@ ColorSpace::Rgb->fromCallback()('hsl(0deg,100%,50%)');
 // Returns CssColor::red:
 ColorSpace::Css->fromCallback()('#f00');
 
-// Returns 'Atomicptr\Color\Utils\xyzD50\stringify':
+// Returns 'Atomicptr\Color\Utils\XyzD50\stringify':
 ColorSpace::XyzD50->stringifyCallback();
 
 // Returns 'rgb(100% 0% 0% / 50%):
@@ -1244,7 +1244,7 @@ In **Color**, the `Css` color space refers to the  **named colors** according to
 
 - **ColorSpace** case: `ColorSpace::Hsl` ;
 - **Color class** : `Atomicptr\Color\Colors\Hsl` ;
-- **Dedicated functions** namespace : `Atomicptr\Color\Utils\hsl` ;
+- **Dedicated functions** namespace : `Atomicptr\Color\Utils\HSL` ;
 - **Accepted aliases** : `hsl`, `hsla` ;
 - **Coordinates** : `hue`, `saturation`, `lightness` ;
   
@@ -1252,7 +1252,7 @@ In **Color**, the `Css` color space refers to the  **named colors** according to
 
 - **ColorSpace** case: `ColorSpace::Hsv` ;
 - **Color class** : `Atomicptr\Color\Colors\Hsv` ;
-- **Dedicated functions** namespace : `Atomicptr\Color\Utils\hsv` ;
+- **Dedicated functions** namespace : `Atomicptr\Color\Utils\HSV` ;
 - **Accepted aliases** : `hsv`, `hsb` ;
 - **Coordinates** : `hue`, `saturation`, `value` ;
   
@@ -1260,7 +1260,7 @@ In **Color**, the `Css` color space refers to the  **named colors** according to
 
 - **ColorSpace** case: `ColorSpace::Hwb` ;
 - **Color class** : `Atomicptr\Color\Colors\Hwb` ;
-- **Dedicated functions** namespace : `Atomicptr\Color\Utils\hwb` ;
+- **Dedicated functions** namespace : `Atomicptr\Color\Utils\HWB` ;
 - **Accepted aliases** : `hwb` ;
 - **Coordinates** : `hue`, `whiteness`, `blackness` ;
 
@@ -1268,7 +1268,7 @@ In **Color**, the `Css` color space refers to the  **named colors** according to
 
 - **ColorSpace** case: `ColorSpace::Lab` ;
 - **Color class** : `Atomicptr\Color\Colors\Lab` ;
-- **Dedicated functions** namespace : `Atomicptr\Color\Utils\lab` ;
+- **Dedicated functions** namespace : `Atomicptr\Color\Utils\Lab` ;
 - **Accepted aliases** : `lab`, `cielab`, `cie-lab`, `cie_lab` ;
 - **Coordinates** : `lightness`, `b`, `a` ;
 
@@ -1276,7 +1276,7 @@ In **Color**, the `Css` color space refers to the  **named colors** according to
 
 - **ColorSpace** case: `ColorSpace::Lch` ;
 - **Color class** : `Atomicptr\Color\Colors\Lch` ;
-- **Dedicated functions** namespace : `Atomicptr\Color\Utils\lch` ;
+- **Dedicated functions** namespace : `Atomicptr\Color\Utils\Lch` ;
 - **Accepted aliases** : `lch`, `cielch`, `cie-lch`, `cie_lch` ;
 - **Coordinates** : `lightness`, `chroma`, `hue` ;
 
@@ -1284,7 +1284,7 @@ In **Color**, the `Css` color space refers to the  **named colors** according to
 
 - **ColorSpace** case: `ColorSpace::LinRgb` ;
 - **Color class** : `Atomicptr\Color\Colors\LinRgb` ;
-- **Dedicated functions** namespace : `Atomicptr\Color\Utils\linRgb` ;
+- **Dedicated functions** namespace : `Atomicptr\Color\Utils\LinRGB` ;
 - **Accepted aliases** : `srgb-linear`, `linrgb`, `linsrgb`, `lin-rgb`, `lin_rgb`, `lin-srgb`, `lin_srgb` ;
 - **Coordinates** : `red`, `green`, `blue` ;
 
@@ -1292,7 +1292,7 @@ In **Color**, the `Css` color space refers to the  **named colors** according to
 
 - **ColorSpace** case: `ColorSpace::LinP3` ;
 - **Color class** : `Atomicptr\Color\Colors\LinP3` ;
-- **Dedicated functions** namespace : `Atomicptr\Color\Utils\linP3` ;
+- **Dedicated functions** namespace : `Atomicptr\Color\Utils\LinP3` ;
 - **Accepted aliases** : `p3-linear`, `p3_linear`, `linp3`, `lin-p3`, `lin_p3` ;
 - **Coordinates** : `red`, `green`, `blue` ;
 
@@ -1300,7 +1300,7 @@ In **Color**, the `Css` color space refers to the  **named colors** according to
 
 - **ColorSpace** case: `ColorSpace::LinProPhoto` ;
 - **Color class** : `Atomicptr\Color\Colors\LinProPhoto` ;
-- **Dedicated functions** namespace : `Atomicptr\Color\Utils\linProPhoto` ;
+- **Dedicated functions** namespace : `Atomicptr\Color\Utils\LinProPhoto` ;
 - **Accepted aliases** : `prophoto-linear`, `prophoto_linear`, `linprophoto`, `lin-prophoto`, `lin_prophoto` ;
 - **Coordinates** : `red`, `green`, `blue` ;
 
@@ -1308,7 +1308,7 @@ In **Color**, the `Css` color space refers to the  **named colors** according to
 
 - **ColorSpace** case: `ColorSpace::OkLab` ;
 - **Color class** : `Atomicptr\Color\Colors\OkLab` ;
-- **Dedicated functions** namespace : `Atomicptr\Color\Utils\okLab` ;
+- **Dedicated functions** namespace : `Atomicptr\Color\Utils\OkLab` ;
 - **Accepted aliases** : `oklab`, `ok-lab`, `ok_lab` ;
 - **Coordinates** : `lightness`, `a`, `b` ;
 
@@ -1316,7 +1316,7 @@ In **Color**, the `Css` color space refers to the  **named colors** according to
 
 - **ColorSpace** case: `ColorSpace::OkLch` ;
 - **Color class** : `Atomicptr\Color\Colors\OkLch` ;
-- **Dedicated functions** namespace : `Atomicptr\Color\Utils\okLch` ;
+- **Dedicated functions** namespace : `Atomicptr\Color\Utils\OkLch` ;
 - **Accepted aliases** : `oklch`, `ok-lch`, `ok_lch` ;
 - **Coordinates** : `lightness`, `chroma`, `hue` ;
 
@@ -1324,7 +1324,7 @@ In **Color**, the `Css` color space refers to the  **named colors** according to
 
 - **ColorSpace** case: `ColorSpace::LinP3` ;
 - **Color class** : `Atomicptr\Color\Colors\LinP3` ;
-- **Dedicated functions** namespace : `Atomicptr\Color\Utils\linP3` ;
+- **Dedicated functions** namespace : `Atomicptr\Color\Utils\LinP3` ;
 - **Accepted aliases** : `display-p3`, `display_p3`, `p3` ;
 - **Coordinates** : `red`, `green`, `blue` ;
 
@@ -1332,7 +1332,7 @@ In **Color**, the `Css` color space refers to the  **named colors** according to
 
 - **ColorSpace** case: `ColorSpace::ProPhoto` ;
 - **Color class** : `Atomicptr\Color\Colors\ProPhoto` ;
-- **Dedicated functions** namespace : `Atomicptr\Color\Utils\proPhoto` ;
+- **Dedicated functions** namespace : `Atomicptr\Color\Utils\ProPhoto` ;
 - **Accepted aliases** : `prophoto`, `prophoto-rgb`, `prophoto_rgb` ;
 - **Coordinates** : `red`, `green`, `blue` ;
 
@@ -1340,7 +1340,7 @@ In **Color**, the `Css` color space refers to the  **named colors** according to
 
 - **ColorSpace** case: `ColorSpace::Rgb` ;
 - **Color class** : `Atomicptr\Color\Colors\Rgb` ;
-- **Dedicated functions** namespace : `Atomicptr\Color\Utils\rgb` ;
+- **Dedicated functions** namespace : `Atomicptr\Color\Utils\RGB` ;
 - **Accepted aliases** : `rgb`, `rgba`, `srgb`, `s-rgb`, `s_rgb` ;
 - **Coordinates** : `red`, `green`, `blue` ;
 
@@ -1348,7 +1348,7 @@ In **Color**, the `Css` color space refers to the  **named colors** according to
 
 - **ColorSpace** case: `ColorSpace::XyzD50` ;
 - **Color class** : `Atomicptr\Color\Colors\XyzD50` ;
-- **Dedicated functions** namespace : `Atomicptr\Color\Utils\xyzD50` ;
+- **Dedicated functions** namespace : `Atomicptr\Color\Utils\XyzD50` ;
 - **Accepted aliases** : `xyz-d50`, `xyz_d50`, `xyzd50` ;
 - **Coordinates** : `x`, `y`, `z` ;
 
@@ -1356,7 +1356,7 @@ In **Color**, the `Css` color space refers to the  **named colors** according to
 
 - **ColorSpace** case: `ColorSpace::XyzD65` ;
 - **Color class** : `Atomicptr\Color\Colors\XyzD65` ;
-- **Dedicated functions** namespace : `Atomicptr\Color\Utils\xyzD65` ;
+- **Dedicated functions** namespace : `Atomicptr\Color\Utils\XyzD65` ;
 - **Accepted aliases** : `xyz-d65`, `xyz_d65`, `xyzd65`, `xyz` ;
 - **Coordinates** : `x`, `y`, `z` ;
 

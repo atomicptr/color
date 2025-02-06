@@ -1,6 +1,6 @@
 <?php
 
-namespace Atomicptr\Color\Utils\linP3;
+namespace Atomicptr\Color\Utils\LinP3;
 
 use       Atomicptr\Color\ColorSpace;
 use       Atomicptr\Color\Constant;

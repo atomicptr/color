@@ -1,6 +1,6 @@
 <?php
 
-namespace Atomicptr\Color\Utils\lab;
+namespace Atomicptr\Color\Utils\Lab;
 
 use       Atomicptr\Color\ColorSpace;
 use       Atomicptr\Color\Constant;

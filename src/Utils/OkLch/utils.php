@@ -1,6 +1,6 @@
 <?php
 
-namespace Atomicptr\Color\Utils\okLab;
+namespace Atomicptr\Color\Utils\OkLch;
 
 use       Atomicptr\Color\ColorSpace;
 use       Atomicptr\Color\Constant;
@@ -13,21 +13,21 @@ function clean(
 ) :array {
     $values    = utils\parseColorValue($value, 100);
     $lightness = $values['lightness'] ?? $values['l'] ?? $values[0] ?? null;
-    $a         =                         $values['a'] ?? $values[1] ?? null;
-    $b         =                         $values['b'] ?? $values[2] ?? null;
+    $chroma    = $values['chroma']    ?? $values['c'] ?? $values[1] ?? null;
+    $hue       = $values['hue']       ?? $values['h'] ?? $values[2] ?? null;
     $opacity   = $values['opacity']   ?? $values['o'] ?? $values[3] ?? null;
 
     return match (true) {
         !$throw               => null,
         ($lightness === null) => throw new MissingColorValue('lightness'),
-        ($a         === null) => throw new MissingColorValue('a'),
-        ($b         === null) => throw new MissingColorValue('b'),
+        ($chroma    === null) => throw new MissingColorValue('chroma'),
+        ($hue       === null) => throw new MissingColorValue('hue'),
         default               => null,
     } ?? [
-        utils\cleanCoordinate($lightness ?? 0,   0,    100),
-        utils\cleanCoordinate($a         ?? 0,   null, null),
-        utils\cleanCoordinate($b         ?? 0,   null, null),
-        utils\cleanCoordinate($opacity   ?? 100, 0,    100),
+        utils\cleanCoordinate($lightness ?? 0,   0,    100,  false),
+        utils\cleanCoordinate($chroma    ?? 0,   null, null, false),
+        utils\cleanCoordinate($hue       ?? 0,   0,    360,  true),
+        utils\cleanCoordinate($opacity   ?? 100, 0,    100,  false),
     ];
 }
 
@@ -39,7 +39,7 @@ function from(
 ) :array {
     return utils\to(
         value    : $value, 
-        to       : ColorSpace::OkLab, 
+        to       : ColorSpace::OkLch, 
         from     : $from, 
         fallback : $fallback, 
         throw    : $throw, 
@@ -48,8 +48,8 @@ function from(
 
 function stringify(
     float     $lightness,
-    float     $a,
-    float     $b,
+    float     $chroma,
+    float     $hue,
     float     $opacity   = 100,
     bool|null $legacy    = null,
     bool|null $alpha     = null,
@@ -60,7 +60,8 @@ function stringify(
     $s1          = ' ';
     $s2          = ' / ';
     $lUnit       = '%';
-    $abUnit      = '';
+    $cUnit       = '';
+    $hUnit       = 'deg';
     $aUnit       = '%';
     $alpha     ??= ($opacity !== (float) 100);
 
@@ -71,15 +72,15 @@ function stringify(
         $s2       = ',';
     }
 
-    $value = "oklab("
+    $value = "oklch("
         .\round($lightness, $precision)
         .$lUnit
         .$s1
-        .\round($a, $precision)
-        .$abUnit
+        .\round($chroma, $precision)
+        .$cUnit
         .$s1
-        .\round($b, $precision)
-        .$abUnit
+        .\round($hue, $precision)
+        .$hUnit
     ;
 
     if (!$alpha) {
@@ -97,5 +98,5 @@ function stringify(
 function verify(
     mixed $value,
 ) :bool {
-    return utils\isColorString($value, ColorSpace::OkLab);
+    return utils\isColorString($value, ColorSpace::OkLch);
 }
