@@ -1,6 +1,6 @@
 <?php
 
-namespace Atomicptr\Color\tests\utils\hexRgb;
+namespace Atomicptr\Color\Tests\Utils\HexRgb;
 
 use       Atomicptr\Color\Utils\hexRgb;
 use       PHPUnit\Framework\TestCase;
