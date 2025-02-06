@@ -513,7 +513,7 @@ Each supported [🌈 Color Space](#-color-spaces) has its own dedicated function
 
 <?php
 
-use Atomicptr\Color\Utils\css;
+use Atomicptr\Color\Utils\CSS;
 use Atomicptr\Color\Utils\rgb;
 use Atomicptr\Color\Utils\lch;
 
@@ -579,7 +579,7 @@ $hsl4 = hsl\from('rgba(255,0,0,1)', ColorSpace::Rgb);
 ```php
 <?php
 
-use Atomicptr\Color\Utils\hexRgb;
+use Atomicptr\Color\Utils\HexRGB;
 use Atomicptr\Color\Utils\rgb;
 use Atomicptr\Color\Utils\xyzD65;
 
@@ -631,8 +631,8 @@ echo xyzD65\stringify(0.412390799, 0.212639006, 0.019330819, alpha : true);
 ```php
 <?php
 
-use Atomicptr\Color\Utils\css;
-use Atomicptr\Color\Utils\hexRgb;
+use Atomicptr\Color\Utils\CSS;
+use Atomicptr\Color\Utils\HexRGB;
 use Atomicptr\Color\Utils\hsl;
 
 require 'vendor/autoload.php';
@@ -689,7 +689,7 @@ Each supported [🌈 Color Space](#-color-spaces) has a complete set of dedicate
 ```php
 <?php
 
-use Atomicptr\Color\Utils\css;
+use Atomicptr\Color\Utils\CSS;
 use Atomicptr\Color\Utils\rgb;
 use Atomicptr\Color\CssColor;
 
@@ -1043,7 +1043,7 @@ ColorSpace::Rgb->stringifyCallback()(255, 0 , 0, 127.5);
 // Returns '#F00':
 ColorSpace::Css->stringifyCallback()(CssColor::red);
 
-// Returns 'Atomicptr\Color\Utils\css\verify':
+// Returns 'Atomicptr\Color\Utils\CSS\verify':
 ColorSpace::Css->verifyCallback();
 
 // Returns true:
@@ -1229,14 +1229,14 @@ In **Color**, the `Css` color space refers to the  **named colors** according to
 
 - **ColorSpace enum case** : `ColorSpace::Css` ;
 - **Color class** : `Atomicptr\Color\Colors\Css` ;
-- **Dedicated functions namespace** : `Atomicptr\Color\Utils\css` ;
+- **Dedicated functions namespace** : `Atomicptr\Color\Utils\CSS` ;
 - **Accepted aliases** : `css`, `html`, `web` ;
 
 ### Hexadecimal RGB
 
 - **ColorSpace** case: `ColorSpace::HexRgb` ;
 - **Color class** : `Atomicptr\Color\Colors\HexRgb` ;
-- **Dedicated functions** namespace : `Atomicptr\Color\Utils\hexRgb` ;
+- **Dedicated functions** namespace : `Atomicptr\Color\Utils\HexRGB` ;
 - **Accepted aliases** : `hex`, `hexrgb`, `hex-rgb`, `hex_rgb`, `hexadecimal` ;
 - **Coordinates** : `red`, `green`, `blue` ;
   
