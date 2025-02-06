@@ -15,72 +15,72 @@ use Atomicptr\Color\Utils\RGB;
 use Atomicptr\Color\Utils\XyzD50;
 
 function toCss(
-    float $x       = 0,
-    float $y       = 0,
-    float $z       = 0,
+    float $x = 0,
+    float $y = 0,
+    float $z = 0,
     float $opacity = 1,
 ): CssColor {
     return rgb\toCss(... toRgb($x, $y, $z, $opacity));
 }
 
 function toHexRgb(
-    float $x       = 0,
-    float $y       = 0,
-    float $z       = 0,
+    float $x = 0,
+    float $y = 0,
+    float $z = 0,
     float $opacity = 1,
 ): array {
     return rgb\toHexRgb(... toRgb($x, $y, $z, $opacity));
 }
 
 function toHsl(
-    float    $x       = 0,
-    float    $y       = 0,
-    float    $z       = 0,
+    float    $x = 0,
+    float    $y = 0,
+    float    $z = 0,
     float    $opacity = 1,
 ): array {
     return rgb\toHsl(... toRgb($x, $y, $z, $opacity));
 }
 
 function toHsv(
-    float    $x       = 0,
-    float    $y       = 0,
-    float    $z       = 0,
+    float    $x = 0,
+    float    $y = 0,
+    float    $z = 0,
     float    $opacity = 1,
 ): array {
     return hsl\toHsv(... toHsl($x, $y, $z, $opacity));
 }
 
 function toHwb(
-    float    $x       = 0,
-    float    $y       = 0,
-    float    $z       = 0,
+    float    $x = 0,
+    float    $y = 0,
+    float    $z = 0,
     float    $opacity = 1,
 ): array {
     return hsv\toHwb(... toHsv($x, $y, $z, $opacity));
 }
 
 function toLab(
-    float $x       = 0,
-    float $y       = 0,
-    float $z       = 0,
+    float $x = 0,
+    float $y = 0,
+    float $z = 0,
     float $opacity = 1,
 ): array {
     return xyzD50\toLab(... toXyzD50($x, $y, $z, $opacity));
 }
 
 function toLch(
-    float $x       = 0,
-    float $y       = 0,
-    float $z       = 0,
+    float $x = 0,
+    float $y = 0,
+    float $z = 0,
     float $opacity = 1,
 ): array {
     return lab\toLch(... toLab($x, $y, $z, $opacity));
 }
 
 function toLinP3(
-    float $x       = 0,
-    float $y       = 0,
-    float $z       = 0,
+    float $x = 0,
+    float $y = 0,
+    float $z = 0,
     float $opacity = 1,
 ): array {
     return utils\push(
@@ -97,18 +97,18 @@ function toLinP3(
 }
 
 function toLinProPhoto(
-    float $x       = 0,
-    float $y       = 0,
-    float $z       = 0,
+    float $x = 0,
+    float $y = 0,
+    float $z = 0,
     float $opacity = 1,
 ): array {
     return xyzD50\toLinProPhoto(... toXyzD50($x, $y, $z, $opacity));
 }
 
 function toLinRgb(
-    float $x       = 0,
-    float $y       = 0,
-    float $z       = 0,
+    float $x = 0,
+    float $y = 0,
+    float $z = 0,
     float $opacity = 1,
 ): array {
     return utils\push(
@@ -125,9 +125,9 @@ function toLinRgb(
 }
 
 function toOkLab(
-    float $x       = 0,
-    float $y       = 0,
-    float $z       = 0,
+    float $x = 0,
+    float $y = 0,
+    float $z = 0,
     float $opacity = 1,
 ): array {
     $okLab = utils\push(
@@ -159,45 +159,45 @@ function toOkLab(
 }
 
 function toOkLch(
-    float $x       = 0,
-    float $y       = 0,
-    float $z       = 0,
+    float $x = 0,
+    float $y = 0,
+    float $z = 0,
     float $opacity = 1,
 ): array {
     return okLab\toOkLch(... toOkLab($x, $y, $z, $opacity));
 }
 
 function toP3(
-    float $x       = 0,
-    float $y       = 0,
-    float $z       = 0,
+    float $x = 0,
+    float $y = 0,
+    float $z = 0,
     float $opacity = 1,
 ): array {
     return linP3\toP3(... toLinP3($x, $y, $z, $opacity));
 }
 
 function toProPhoto(
-    float $x       = 0,
-    float $y       = 0,
-    float $z       = 0,
+    float $x = 0,
+    float $y = 0,
+    float $z = 0,
     float $opacity = 1,
 ): array {
     return linProPhoto\toProPhoto(... toLinProPhoto($x, $y, $z, $opacity));
 }
 
 function toRgb(
-    float $x       = 0,
-    float $y       = 0,
-    float $z       = 0,
+    float $x = 0,
+    float $y = 0,
+    float $z = 0,
     float $opacity = 1,
 ): array {
     return linRgb\toRgb(... toLinRgb($x, $y, $z, $opacity));
 }
 
 function toXyzD50(
-    float $x       = 0,
-    float $y       = 0,
-    float $z       = 0,
+    float $x = 0,
+    float $y = 0,
+    float $z = 0,
     float $opacity = 1,
 ): array {
     return utils\push(

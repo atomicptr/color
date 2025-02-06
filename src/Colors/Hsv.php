@@ -12,10 +12,10 @@ class Hsv extends Color implements ColorInterface
     /* #region Constructor */
 
     public function __construct(
-        public readonly float $hue        = 0,
+        public readonly float $hue = 0,
         public readonly float $saturation = 0,
-        public readonly float $value      = 0,
-        public readonly float $opacity    = 100,
+        public readonly float $value = 0,
+        public readonly float $opacity = 100,
     ) {
 
     }
@@ -38,12 +38,12 @@ class Hsv extends Color implements ColorInterface
     /* #region Public Methods */
 
     public function change(
-        \Stringable|string|int|float|null $hue        = null,
+        \Stringable|string|int|float|null $hue = null,
         \Stringable|string|int|float|null $saturation = null,
-        \Stringable|string|int|float|null $value      = null,
-        \Stringable|string|int|float|null $opacity    = null,
-        Hsv|null                          $fallback   = null,
-        bool|null                         $throw      = null,
+        \Stringable|string|int|float|null $value = null,
+        \Stringable|string|int|float|null $opacity = null,
+        Hsv|null                          $fallback = null,
+        bool|null                         $throw = null,
     ): Hsv {
         $changeThrow = $throw ?? true;
 
@@ -61,8 +61,8 @@ class Hsv extends Color implements ColorInterface
     }
 
     public function stringify(
-        bool|null $legacy    = null,
-        bool|null $alpha     = null,
+        bool|null $legacy = null,
+        bool|null $alpha = null,
         int|null  $precision = null,
     ): string {
         return utils\hsv\stringify(

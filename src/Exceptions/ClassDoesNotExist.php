@@ -6,7 +6,7 @@ class ClassDoesNotExist extends \Exception
 {
     public function __construct(
         string          $class,
-        int             $code     = 0,
+        int             $code = 0,
         \Throwable|null $previous = null,
     ) {
         parent::__construct(

@@ -29,9 +29,9 @@ class StringifyTest extends TestCase
 
     protected function randomNumber(
         bool        $same = false,
-        string|null $not  = null,
+        string|null $not = null,
     ): string {
-        $c1     = $this->randomChar();
+        $c1 = $this->randomChar();
         $number = $same
             ? $c1.$c1
             : $c1.$this->randomChar($c1)
@@ -49,9 +49,9 @@ class StringifyTest extends TestCase
     ): void {
         for ($i = 0; $i < $this::LOOPS; $i++) {
             $same = (bool) $i % 2;
-            $r    = $this->randomNumber($same);
-            $g    = $this->randomNumber($same);
-            $b    = $this->randomNumber($same);
+            $r = $this->randomNumber($same);
+            $g = $this->randomNumber($same);
+            $b = $this->randomNumber($same);
 
             $this->assertStringStartsWith(
                 prefix : '#',
@@ -65,9 +65,9 @@ class StringifyTest extends TestCase
     ): void {
         for ($i = 0; $i < $this::LOOPS; $i++) {
             $same = (bool) $i % 2;
-            $r    = $this->randomNumber($same);
-            $g    = $this->randomNumber($same);
-            $b    = $this->randomNumber($same);
+            $r = $this->randomNumber($same);
+            $g = $this->randomNumber($same);
+            $b = $this->randomNumber($same);
 
             $this->assertStringStartsWith(
                 prefix : '#',
@@ -81,9 +81,9 @@ class StringifyTest extends TestCase
     ): void {
         for ($i = 0; $i < $this::LOOPS; $i++) {
             $same = (bool) $i % 2;
-            $r    = $this->randomNumber($same);
-            $g    = $this->randomNumber($same);
-            $b    = $this->randomNumber($same);
+            $r = $this->randomNumber($same);
+            $g = $this->randomNumber($same);
+            $b = $this->randomNumber($same);
 
             $this->assertStringStartsNotWith(
                 prefix : '#',
@@ -97,9 +97,9 @@ class StringifyTest extends TestCase
     ): void {
         for ($i = 0; $i < $this::LOOPS; $i++) {
             $same = (bool) $i % 2;
-            $r    = $this->randomNumber($same);
-            $g    = $this->randomNumber($same);
-            $b    = $this->randomNumber($same);
+            $r = $this->randomNumber($same);
+            $g = $this->randomNumber($same);
+            $b = $this->randomNumber($same);
 
             $this->assertSame(
                 expected : $same ? 4 : 7,
@@ -113,10 +113,10 @@ class StringifyTest extends TestCase
     ): void {
         for ($i = 0; $i < $this::LOOPS; $i++) {
             $same = (bool) $i % 2;
-            $r    = $this->randomNumber($same);
-            $g    = $this->randomNumber($same);
-            $b    = $this->randomNumber($same);
-            $o    = $same ? 'FF' : 'ff';
+            $r = $this->randomNumber($same);
+            $g = $this->randomNumber($same);
+            $b = $this->randomNumber($same);
+            $o = $same ? 'FF' : 'ff';
 
             $this->assertSame(
                 expected : $same ? 4 : 7,
@@ -130,11 +130,11 @@ class StringifyTest extends TestCase
     ): void {
         for ($i = 0; $i < $this::LOOPS; $i++) {
             $same = (bool) $i % 2;
-            $r    = $this->randomNumber($same);
-            $g    = $this->randomNumber($same);
-            $b    = $this->randomNumber($same);
-            $o    = $this->randomNumber($same, 'FF');
-            $hex  = hexRgb\stringify($r, $g, $b, $o);
+            $r = $this->randomNumber($same);
+            $g = $this->randomNumber($same);
+            $b = $this->randomNumber($same);
+            $o = $this->randomNumber($same, 'FF');
+            $hex = hexRgb\stringify($r, $g, $b, $o);
 
             $this->assertSame(
                 expected : $same ? 5 : 9,
@@ -153,10 +153,10 @@ class StringifyTest extends TestCase
     ): void {
         for ($i = 0; $i < $this::LOOPS; $i++) {
             $same = (bool) $i % 2;
-            $r    = $this->randomNumber($same);
-            $g    = $this->randomNumber($same);
-            $b    = $this->randomNumber($same);
-            $o    = $this->randomNumber($same);
+            $r = $this->randomNumber($same);
+            $g = $this->randomNumber($same);
+            $b = $this->randomNumber($same);
+            $o = $this->randomNumber($same);
 
             $this->assertSame(
                 expected : $same ? 4 : 7,
@@ -170,11 +170,11 @@ class StringifyTest extends TestCase
     ): void {
         for ($i = 0; $i < $this::LOOPS; $i++) {
             $same = (bool) $i % 2;
-            $r    = $this->randomNumber($same);
-            $g    = $this->randomNumber($same);
-            $b    = $this->randomNumber($same);
-            $o    = $i ? $this->randomNumber($same) : 'FF';
-            $hex  = hexRgb\stringify($r, $g, $b, $o, alpha : true);
+            $r = $this->randomNumber($same);
+            $g = $this->randomNumber($same);
+            $b = $this->randomNumber($same);
+            $o = $i ? $this->randomNumber($same) : 'FF';
+            $hex = hexRgb\stringify($r, $g, $b, $o, alpha : true);
 
             $this->assertSame(
                 expected : $same ? 5 : 9,
@@ -207,9 +207,9 @@ class StringifyTest extends TestCase
 
     ): void {
         for ($i = 0; $i < $this::LOOPS; $i++) {
-            $r     = $this->randomChar();
-            $g     = $this->randomChar();
-            $b     = $this->randomChar();
+            $r = $this->randomChar();
+            $g = $this->randomChar();
+            $b = $this->randomChar();
             $short = (bool) $i % 2;
 
             $this->assertSame(
@@ -293,18 +293,18 @@ class StringifyTest extends TestCase
     ): void {
         for ($i = 0; $i < $this::LOOPS; $i++) {
             $upper = (bool) $i % 2;
-            $r1    = $this->randomNumber(true);
-            $g1    = $this->randomNumber(true);
-            $b1    = $this->randomNumber(true);
+            $r1 = $this->randomNumber(true);
+            $g1 = $this->randomNumber(true);
+            $b1 = $this->randomNumber(true);
 
             if ($upper) {
-                $r1   = \strtoupper($r1);
-                $g1   = \strtoupper($g1);
-                $b1   = \strtoupper($b1);
+                $r1 = \strtoupper($r1);
+                $g1 = \strtoupper($g1);
+                $b1 = \strtoupper($b1);
             } else {
-                $r1   = \strtolower($r1);
-                $g1   = \strtolower($g1);
-                $b1   = \strtolower($b1);
+                $r1 = \strtolower($r1);
+                $g1 = \strtolower($g1);
+                $b1 = \strtolower($b1);
             }
 
             $hex = hexRgb\stringify($r1, $g1, $b1);
@@ -321,18 +321,18 @@ class StringifyTest extends TestCase
     ): void {
         for ($i = 0; $i < $this::LOOPS; $i++) {
             $upper = (bool) $i % 2;
-            $r1    = $this->randomNumber(true);
-            $g1    = $this->randomNumber(true);
-            $b1    = $this->randomNumber(true);
+            $r1 = $this->randomNumber(true);
+            $g1 = $this->randomNumber(true);
+            $b1 = $this->randomNumber(true);
 
             if ($upper) {
-                $r1   = \strtoupper($r1);
-                $g1   = \strtoupper($g1);
-                $b1   = \strtoupper($b1);
+                $r1 = \strtoupper($r1);
+                $g1 = \strtoupper($g1);
+                $b1 = \strtoupper($b1);
             } else {
-                $r1   = \strtolower($r1);
-                $g1   = \strtolower($g1);
-                $b1   = \strtolower($b1);
+                $r1 = \strtolower($r1);
+                $g1 = \strtolower($g1);
+                $b1 = \strtolower($b1);
             }
 
             $hex = hexRgb\stringify($r1, $g1, $b1, uppercase : true);
@@ -349,18 +349,18 @@ class StringifyTest extends TestCase
     ): void {
         for ($i = 0; $i < $this::LOOPS; $i++) {
             $upper = (bool) $i % 2;
-            $r1    = $this->randomNumber(true);
-            $g1    = $this->randomNumber(true);
-            $b1    = $this->randomNumber(true);
+            $r1 = $this->randomNumber(true);
+            $g1 = $this->randomNumber(true);
+            $b1 = $this->randomNumber(true);
 
             if ($upper) {
-                $r1   = \strtoupper($r1);
-                $g1   = \strtoupper($g1);
-                $b1   = \strtoupper($b1);
+                $r1 = \strtoupper($r1);
+                $g1 = \strtoupper($g1);
+                $b1 = \strtoupper($b1);
             } else {
-                $r1   = \strtolower($r1);
-                $g1   = \strtolower($g1);
-                $b1   = \strtolower($b1);
+                $r1 = \strtolower($r1);
+                $g1 = \strtolower($g1);
+                $b1 = \strtolower($b1);
             }
 
             $hex = hexRgb\stringify($r1, $g1, $b1, uppercase : false);

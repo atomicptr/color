@@ -14,7 +14,7 @@ function clean(
     if (\is_array($value)) {
         $values = $value;
     } elseif (\is_string($value)) {
-        $value  = \trim($value, '#');
+        $value = \trim($value, '#');
         $values = (\strlen($value) > 3)
             ? \str_split($value, 2)
             : \array_map(
@@ -34,9 +34,9 @@ function clean(
 
 function from(
     mixed                              $value,
-    ColorSpace|\Stringable|string|null $from     = null,
+    ColorSpace|\Stringable|string|null $from = null,
     array|null                         $fallback = null,
-    bool|null                          $throw    = null,
+    bool|null                          $throw = null,
 ): array {
     return utils\to(
         value    : $value,
@@ -51,15 +51,15 @@ function stringify(
     string    $red,
     string    $green,
     string    $blue,
-    string    $opacity   = 'FF',
-    bool|null $alpha     = null,
-    bool      $short     = true,
+    string    $opacity = 'FF',
+    bool|null $alpha = null,
+    bool      $short = true,
     bool|null $uppercase = null,
-    bool      $sharp     = true,
+    bool      $sharp = true,
 ): string {
-    $red   = utils\cleanHexValue($red);
+    $red = utils\cleanHexValue($red);
     $green = utils\cleanHexValue($green);
-    $blue  = utils\cleanHexValue($blue);
+    $blue = utils\cleanHexValue($blue);
     $value = $red.$green.$blue;
     $lower = null;
 
@@ -68,8 +68,8 @@ function stringify(
     }
 
     $value = match ($uppercase) {
-        true    => \strtoupper($value),
-        false   => \strtolower($value),
+        true => \strtoupper($value),
+        false => \strtolower($value),
         default => $value,
     };
 

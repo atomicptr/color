@@ -12,9 +12,9 @@ class XyzD50 extends Color implements ColorInterface
     /* #region Constructor */
 
     public function __construct(
-        public readonly float $x       = 0,
-        public readonly float $y       = 0,
-        public readonly float $z       = 0,
+        public readonly float $x = 0,
+        public readonly float $y = 0,
+        public readonly float $z = 0,
         public readonly float $opacity = 1,
     ) {
 
@@ -39,12 +39,12 @@ class XyzD50 extends Color implements ColorInterface
     /* #region Public Methods */
 
     public function change(
-        \Stringable|string|int|float|null $x        = null,
-        \Stringable|string|int|float|null $y        = null,
-        \Stringable|string|int|float|null $z        = null,
-        \Stringable|string|int|float|null $opacity  = null,
+        \Stringable|string|int|float|null $x = null,
+        \Stringable|string|int|float|null $y = null,
+        \Stringable|string|int|float|null $z = null,
+        \Stringable|string|int|float|null $opacity = null,
         XyzD50|null                       $fallback = null,
-        bool|null                         $throw    = null,
+        bool|null                         $throw = null,
     ): XyzD50 {
         $changeThrow = $throw ?? true;
 
@@ -62,8 +62,8 @@ class XyzD50 extends Color implements ColorInterface
     }
 
     public function stringify(
-        bool|null $legacy    = null,
-        bool|null $alpha     = null,
+        bool|null $legacy = null,
+        bool|null $alpha = null,
         int|null  $precision = null,
     ): string {
         return utils\xyzD50\stringify(

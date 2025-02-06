@@ -12,7 +12,7 @@ enum Constant: int
 {
     /* #region Cases */
 
-    case LEGACY    = 0;
+    case LEGACY = 0;
     case PRECISION = 9;
 
     /* #endregion */
@@ -33,7 +33,7 @@ enum Constant: int
      * @return mixed           The constant value if it exists and is declared, its default value or $value otherwise
      */
     public function value(
-        int|null $value  = null,
+        int|null $value = null,
         bool     $create = false,
     ): int {
         return (int) utils\constant(

@@ -106,9 +106,9 @@ interface ColorInterface extends \Stringable
      * @return ColorInterface                               The converted color object
      */
     public function to(
-        ColorSpace|\Stringable|string|null $to       = null,
+        ColorSpace|\Stringable|string|null $to = null,
         ColorInterface|null                $fallback = null,
-        bool|null                          $throw    = null,
+        bool|null                          $throw = null,
     ): ColorInterface;
 
     /**
@@ -121,7 +121,7 @@ interface ColorInterface extends \Stringable
      */
     public function toCss(
         Css|null  $fallback = null,
-        bool|null $throw    = null,
+        bool|null $throw = null,
     ): Css;
 
     /**
@@ -134,7 +134,7 @@ interface ColorInterface extends \Stringable
      */
     public function toHexRgb(
         HexRgb|null $fallback = null,
-        bool|null   $throw    = null,
+        bool|null   $throw = null,
     ): HexRgb;
 
     /**
@@ -147,7 +147,7 @@ interface ColorInterface extends \Stringable
      */
     public function toHsl(
         Hsl|null  $fallback = null,
-        bool|null $throw    = null,
+        bool|null $throw = null,
     ): Hsl;
 
     /**
@@ -160,7 +160,7 @@ interface ColorInterface extends \Stringable
      */
     public function toHsv(
         Hsv|null  $fallback = null,
-        bool|null $throw    = null,
+        bool|null $throw = null,
     ): Hsv;
 
     /**
@@ -173,7 +173,7 @@ interface ColorInterface extends \Stringable
      */
     public function toHwb(
         Hwb|null  $fallback = null,
-        bool|null $throw    = null,
+        bool|null $throw = null,
     ): Hwb;
 
     /**
@@ -186,7 +186,7 @@ interface ColorInterface extends \Stringable
      */
     public function toLab(
         Lab|null  $fallback = null,
-        bool|null $throw    = null,
+        bool|null $throw = null,
     ): Lab;
 
     /**
@@ -199,7 +199,7 @@ interface ColorInterface extends \Stringable
      */
     public function toLch(
         Lch|null  $fallback = null,
-        bool|null $throw    = null,
+        bool|null $throw = null,
     ): Lch;
 
     /**
@@ -212,7 +212,7 @@ interface ColorInterface extends \Stringable
      */
     public function toLinP3(
         LinP3|null $fallback = null,
-        bool|null  $throw    = null,
+        bool|null  $throw = null,
     ): LinP3;
 
     /**
@@ -225,7 +225,7 @@ interface ColorInterface extends \Stringable
      */
     public function toLinProPhoto(
         LinProPhoto|null $fallback = null,
-        bool|null        $throw    = null,
+        bool|null        $throw = null,
     ): LinProPhoto;
 
     /**
@@ -238,7 +238,7 @@ interface ColorInterface extends \Stringable
      */
     public function toLinRgb(
         LinRgb|null $fallback = null,
-        bool|null   $throw    = null,
+        bool|null   $throw = null,
     ): LinRgb;
 
     /**
@@ -251,7 +251,7 @@ interface ColorInterface extends \Stringable
      */
     public function toOkLab(
         OkLab|null $fallback = null,
-        bool|null  $throw    = null,
+        bool|null  $throw = null,
     ): OkLab;
 
     /**
@@ -264,7 +264,7 @@ interface ColorInterface extends \Stringable
      */
     public function toOkLch(
         OkLch|null $fallback = null,
-        bool|null  $throw    = null,
+        bool|null  $throw = null,
     ): OkLch;
 
     /**
@@ -277,7 +277,7 @@ interface ColorInterface extends \Stringable
      */
     public function toP3(
         P3|null   $fallback = null,
-        bool|null $throw    = null,
+        bool|null $throw = null,
     ): P3;
 
     /**
@@ -290,7 +290,7 @@ interface ColorInterface extends \Stringable
      */
     public function toProPhoto(
         ProPhoto|null $fallback = null,
-        bool|null     $throw    = null,
+        bool|null     $throw = null,
     ): ProPhoto;
 
     /**
@@ -303,7 +303,7 @@ interface ColorInterface extends \Stringable
      */
     public function toRgb(
         Rgb|null  $fallback = null,
-        bool|null $throw    = null,
+        bool|null $throw = null,
     ): Rgb;
 
     /**
@@ -316,7 +316,7 @@ interface ColorInterface extends \Stringable
      */
     public function toXyzD50(
         XyzD50|null $fallback = null,
-        bool|null   $throw    = null,
+        bool|null   $throw = null,
     ): XyzD50;
 
     /**
@@ -329,7 +329,7 @@ interface ColorInterface extends \Stringable
      */
     public function toXyzD65(
         XyzD65|null $fallback = null,
-        bool|null   $throw    = null,
+        bool|null   $throw = null,
     ): XyzD65;
 
     /* #endregion */

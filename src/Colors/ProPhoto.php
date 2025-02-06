@@ -12,9 +12,9 @@ class ProPhoto extends Color implements ColorInterface
     /* #region Constructor */
 
     public function __construct(
-        public readonly float $red     = 0,
-        public readonly float $green   = 0,
-        public readonly float $blue    = 0,
+        public readonly float $red = 0,
+        public readonly float $green = 0,
+        public readonly float $blue = 0,
         public readonly float $opacity = 1,
     ) {
 
@@ -40,12 +40,12 @@ class ProPhoto extends Color implements ColorInterface
     /* #region Public Methods */
 
     public function change(
-        \Stringable|string|int|float|null $red       = null,
-        \Stringable|string|int|float|null $green     = null,
-        \Stringable|string|int|float|null $blue      = null,
-        \Stringable|string|int|float|null $opacity   = null,
-        LinP3|null                        $fallback  = null,
-        bool|null                         $throw     = null,
+        \Stringable|string|int|float|null $red = null,
+        \Stringable|string|int|float|null $green = null,
+        \Stringable|string|int|float|null $blue = null,
+        \Stringable|string|int|float|null $opacity = null,
+        LinP3|null                        $fallback = null,
+        bool|null                         $throw = null,
     ): ProPhoto {
         $changeThrow = $throw ?? true;
 
@@ -63,8 +63,8 @@ class ProPhoto extends Color implements ColorInterface
     }
 
     public function stringify(
-        bool|null $legacy    = null,
-        bool|null $alpha     = null,
+        bool|null $legacy = null,
+        bool|null $alpha = null,
         int|null  $precision = null,
     ): string {
         return utils\proPhoto\stringify(

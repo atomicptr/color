@@ -31,23 +31,23 @@ enum ColorSpace: string
 {
     /* #region Cases */
 
-    case Css         = Css::class;
-    case HexRgb      = HexRgb::class;
-    case Hsl         = Hsl::class;
-    case Hsv         = Hsv::class;
-    case Hwb         = Hwb::class;
-    case Lab         = Lab::class;
-    case Lch         = Lch::class;
-    case LinP3       = LinP3::class;
+    case Css = Css::class;
+    case HexRgb = HexRgb::class;
+    case Hsl = Hsl::class;
+    case Hsv = Hsv::class;
+    case Hwb = Hwb::class;
+    case Lab = Lab::class;
+    case Lch = Lch::class;
+    case LinP3 = LinP3::class;
     case LinProPhoto = LinProPhoto::class;
-    case LinRgb      = LinRgb::class;
-    case OkLab       = OkLab::class;
-    case OkLch       = OkLch::class;
-    case P3          = P3::class;
-    case ProPhoto    = ProPhoto::class;
-    case Rgb         = Rgb::class;
-    case XyzD50      = XyzD50::class;
-    case XyzD65      = XyzD65::class;
+    case LinRgb = LinRgb::class;
+    case OkLab = OkLab::class;
+    case OkLch = OkLch::class;
+    case P3 = P3::class;
+    case ProPhoto = ProPhoto::class;
+    case Rgb = Rgb::class;
+    case XyzD50 = XyzD50::class;
+    case XyzD65 = XyzD65::class;
 
     /* #endregion */
 
@@ -89,9 +89,9 @@ enum ColorSpace: string
     public static function fromAlias(
         \Stringable|string $name,
         ColorSpace|null    $fallback = null,
-        bool|null          $throw    = null,
+        bool|null          $throw = null,
     ): static|null {
-        $lcName  = \strtolower((string) $name);
+        $lcName = \strtolower((string) $name);
         $throw ??= !$fallback;
 
         foreach (static::allAliases($throw) as $alias => $space) {

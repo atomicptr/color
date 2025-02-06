@@ -13,9 +13,9 @@ class OkLab extends Color implements ColorInterface
 
     public function __construct(
         public readonly float $lightness = 0,
-        public readonly float $a         = 0,
-        public readonly float $b         = 0,
-        public readonly float $opacity   = 100,
+        public readonly float $a = 0,
+        public readonly float $b = 0,
+        public readonly float $opacity = 100,
     ) {
 
     }
@@ -39,12 +39,12 @@ class OkLab extends Color implements ColorInterface
     /* #region Public Methods */
 
     public function change(
-        \Stringable|string|int|float|null $lightness  = null,
-        \Stringable|string|int|float|null $a          = null,
-        \Stringable|string|int|float|null $b          = null,
-        \Stringable|string|int|float|null $opacity    = null,
-        OkLab|null                        $fallback   = null,
-        bool|null                         $throw      = null,
+        \Stringable|string|int|float|null $lightness = null,
+        \Stringable|string|int|float|null $a = null,
+        \Stringable|string|int|float|null $b = null,
+        \Stringable|string|int|float|null $opacity = null,
+        OkLab|null                        $fallback = null,
+        bool|null                         $throw = null,
     ): OkLab {
         $changeThrow = $throw ?? true;
 
@@ -62,8 +62,8 @@ class OkLab extends Color implements ColorInterface
     }
 
     public function stringify(
-        bool|null $legacy    = null,
-        bool|null $alpha     = null,
+        bool|null $legacy = null,
+        bool|null $alpha = null,
         int|null  $precision = null,
     ): string {
         return utils\okLab\stringify(

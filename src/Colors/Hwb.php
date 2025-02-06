@@ -12,10 +12,10 @@ class Hwb extends Color implements ColorInterface
     /* #region Constructor */
 
     public function __construct(
-        public readonly float $hue       = 0,
+        public readonly float $hue = 0,
         public readonly float $whiteness = 0,
         public readonly float $blackness = 0,
-        public readonly float $opacity   = 100,
+        public readonly float $opacity = 100,
     ) {
 
     }
@@ -37,12 +37,12 @@ class Hwb extends Color implements ColorInterface
     /* #region Public Methods */
 
     public function change(
-        \Stringable|string|int|float|null $hue       = null,
+        \Stringable|string|int|float|null $hue = null,
         \Stringable|string|int|float|null $whiteness = null,
         \Stringable|string|int|float|null $blackness = null,
-        \Stringable|string|int|float|null $opacity   = null,
-        Hwb|null                          $fallback  = null,
-        bool|null                         $throw     = null,
+        \Stringable|string|int|float|null $opacity = null,
+        Hwb|null                          $fallback = null,
+        bool|null                         $throw = null,
     ): Hwb {
         $changeThrow = $throw ?? true;
 
@@ -60,8 +60,8 @@ class Hwb extends Color implements ColorInterface
     }
 
     public function stringify(
-        bool|null $legacy    = null,
-        bool|null $alpha     = null,
+        bool|null $legacy = null,
+        bool|null $alpha = null,
         int|null  $precision = null,
     ): string {
         return utils\hwb\stringify(

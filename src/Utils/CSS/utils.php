@@ -30,9 +30,9 @@ function clean(
 
 function from(
     mixed                              $value,
-    ColorSpace|\Stringable|string|null $from     = null,
+    ColorSpace|\Stringable|string|null $from = null,
     array|null                         $fallback = null,
-    bool|null                          $throw    = null,
+    bool|null                          $throw = null,
 ): array {
     return utils\to(
         value    : $value,

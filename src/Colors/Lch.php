@@ -13,9 +13,9 @@ class Lch extends Color implements ColorInterface
 
     public function __construct(
         public readonly float $lightness = 0,
-        public readonly float $chroma    = 0,
-        public readonly float $hue       = 0,
-        public readonly float $opacity   = 100,
+        public readonly float $chroma = 0,
+        public readonly float $hue = 0,
+        public readonly float $opacity = 100,
     ) {
 
     }
@@ -41,11 +41,11 @@ class Lch extends Color implements ColorInterface
 
     public function change(
         \Stringable|string|int|float|null $lightness = null,
-        \Stringable|string|int|float|null $chroma    = null,
-        \Stringable|string|int|float|null $hue       = null,
-        \Stringable|string|int|float|null $opacity   = null,
-        Lch|null                          $fallback  = null,
-        bool|null                         $throw     = null,
+        \Stringable|string|int|float|null $chroma = null,
+        \Stringable|string|int|float|null $hue = null,
+        \Stringable|string|int|float|null $opacity = null,
+        Lch|null                          $fallback = null,
+        bool|null                         $throw = null,
     ): Lch {
         $changeThrow = $throw ?? true;
 
@@ -63,8 +63,8 @@ class Lch extends Color implements ColorInterface
     }
 
     public function stringify(
-        bool|null $legacy    = null,
-        bool|null $alpha     = null,
+        bool|null $legacy = null,
+        bool|null $alpha = null,
         int|null  $precision = null,
     ): string {
         return utils\lch\stringify(

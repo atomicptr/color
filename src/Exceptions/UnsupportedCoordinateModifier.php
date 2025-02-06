@@ -6,7 +6,7 @@ class UnsupportedCoordinateModifier extends \Exception
 {
     public function __construct(
         string          $modifier,
-        int             $code     = 0,
+        int             $code = 0,
         \Throwable|null $previous = null,
     ) {
         parent::__construct(

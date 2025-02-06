@@ -11,31 +11,31 @@ function clean(
     mixed     $value,
     bool|null $throw = null,
 ): array {
-    $values     = utils\parseColorValue($value, 100);
-    $hue        = $values['hue']        ?? $values['h'] ?? $values[0] ?? null;
+    $values = utils\parseColorValue($value, 100);
+    $hue = $values['hue'] ?? $values['h'] ?? $values[0] ?? null;
     $saturation = $values['saturation'] ?? $values['s'] ?? $values[1] ?? null;
-    $lightness  = $values['lightness']  ?? $values['l'] ?? $values[2] ?? null;
-    $opacity    = $values['opacity']    ?? $values['o'] ?? $values[3] ?? null;
+    $lightness = $values['lightness'] ?? $values['l'] ?? $values[2] ?? null;
+    $opacity = $values['opacity'] ?? $values['o'] ?? $values[3] ?? null;
 
     return match (true) {
-        !$throw                => null,
-        ($hue        === null) => throw new MissingColorValue('hue'),
+        !$throw => null,
+        ($hue === null) => throw new MissingColorValue('hue'),
         ($saturation === null) => throw new MissingColorValue('saturation'),
-        ($lightness  === null) => throw new MissingColorValue('lightness'),
-        default                => null,
+        ($lightness === null) => throw new MissingColorValue('lightness'),
+        default => null,
     } ?? [
-        utils\cleanCoordinate($hue        ?? 0, 0, 360, true),
+        utils\cleanCoordinate($hue ?? 0, 0, 360, true),
         utils\cleanCoordinate($saturation ?? 0, 0, 100, false),
-        utils\cleanCoordinate($lightness  ?? 0, 0, 100, false),
-        utils\cleanCoordinate($opacity    ?? 100, 0, 100, false),
+        utils\cleanCoordinate($lightness ?? 0, 0, 100, false),
+        utils\cleanCoordinate($opacity ?? 100, 0, 100, false),
     ];
 }
 
 function from(
     mixed                              $value,
-    ColorSpace|\Stringable|string|null $from     = null,
+    ColorSpace|\Stringable|string|null $from = null,
     array|null                         $fallback = null,
-    bool|null                          $throw    = null,
+    bool|null                          $throw = null,
 ): array {
     return utils\to(
         value    : $value,
@@ -50,20 +50,20 @@ function stringify(
     float     $hue,
     float     $saturation,
     float     $lightness,
-    float     $opacity   = 100,
-    bool|null $legacy    = null,
-    bool|null $alpha     = null,
+    float     $opacity = 100,
+    bool|null $legacy = null,
+    bool|null $alpha = null,
     int|null  $precision = null,
 ): string {
-    $legacy    ??= Constant::LEGACY->value();
+    $legacy ??= Constant::LEGACY->value();
     $precision ??= Constant::PRECISION->value();
-    $function    = 'hsl';
-    $s1          = ' ';
-    $s2          = ' / ';
-    $hUnit       = 'deg';
-    $slUnit      = '%';
-    $aUnit       = '%';
-    $alpha     ??= ($opacity !== (float) 100);
+    $function = 'hsl';
+    $s1 = ' ';
+    $s2 = ' / ';
+    $hUnit = 'deg';
+    $slUnit = '%';
+    $aUnit = '%';
+    $alpha ??= ($opacity !== (float) 100);
 
     if ($legacy) {
         if ($alpha) {
@@ -71,9 +71,9 @@ function stringify(
         }
 
         $opacity /= 100;
-        $aUnit    = '';
-        $s1       =
-        $s2       = ',';
+        $aUnit = '';
+        $s1 =
+        $s2 = ',';
     }
 
     $value = "$function("

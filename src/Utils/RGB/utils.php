@@ -11,31 +11,31 @@ function clean(
     mixed     $value,
     bool|null $throw = null,
 ): array {
-    $values  = utils\parseColorValue($value, 255);
-    $red     = $values['red']     ?? $values['r'] ?? $values[0] ?? null;
-    $green   = $values['green']   ?? $values['g'] ?? $values[1] ?? null;
-    $blue    = $values['blue']    ?? $values['b'] ?? $values[2] ?? null;
+    $values = utils\parseColorValue($value, 255);
+    $red = $values['red'] ?? $values['r'] ?? $values[0] ?? null;
+    $green = $values['green'] ?? $values['g'] ?? $values[1] ?? null;
+    $blue = $values['blue'] ?? $values['b'] ?? $values[2] ?? null;
     $opacity = $values['opacity'] ?? $values['o'] ?? $values[3] ?? null;
 
     return match (true) {
-        !$throw           => null,
-        ($red   === null) => throw new MissingColorValue('red'),
+        !$throw => null,
+        ($red === null) => throw new MissingColorValue('red'),
         ($green === null) => throw new MissingColorValue('green'),
-        ($blue  === null) => throw new MissingColorValue('blue'),
-        default           => null,
+        ($blue === null) => throw new MissingColorValue('blue'),
+        default => null,
     } ?? [
-        utils\cleanCoordinate($red     ?? 0, 0, 255),
-        utils\cleanCoordinate($green   ?? 0, 0, 255),
-        utils\cleanCoordinate($blue    ?? 0, 0, 255),
+        utils\cleanCoordinate($red ?? 0, 0, 255),
+        utils\cleanCoordinate($green ?? 0, 0, 255),
+        utils\cleanCoordinate($blue ?? 0, 0, 255),
         utils\cleanCoordinate($opacity ?? 255, 0, 255),
     ];
 }
 
 function from(
     mixed                              $value,
-    ColorSpace|\Stringable|string|null $from     = null,
+    ColorSpace|\Stringable|string|null $from = null,
     array|null                         $fallback = null,
-    bool|null                          $throw    = null,
+    bool|null                          $throw = null,
 ): array {
     return utils\to(
         value    : $value,
@@ -50,19 +50,19 @@ function stringify(
     float     $red,
     float     $green,
     float     $blue,
-    float     $opacity   = 255,
-    bool|null $legacy    = null,
-    bool|null $alpha     = null,
+    float     $opacity = 255,
+    bool|null $legacy = null,
+    bool|null $alpha = null,
     int|null  $precision = null,
 ): string {
-    $legacy    ??= Constant::LEGACY->value();
+    $legacy ??= Constant::LEGACY->value();
     $precision ??= Constant::PRECISION->value();
-    $function    = 'rgb';
-    $s1          = ' ';
-    $s2          = ' / ';
-    $unit        = '%';
-    $aUnit       = '';
-    $alpha     ??= ($opacity !== (float) 255);
+    $function = 'rgb';
+    $s1 = ' ';
+    $s2 = ' / ';
+    $unit = '%';
+    $aUnit = '';
+    $alpha ??= ($opacity !== (float) 255);
 
     if ($legacy) {
         if ($alpha) {
@@ -70,15 +70,15 @@ function stringify(
         }
 
         $opacity /= 255;
-        $unit     = '';
-        $s1       =
-        $s2       = ',';
+        $unit = '';
+        $s1 =
+        $s2 = ',';
     } else {
-        $red     /= 2.55;
-        $green   /= 2.55;
-        $blue    /= 2.55;
+        $red /= 2.55;
+        $green /= 2.55;
+        $blue /= 2.55;
         $opacity /= 2.55;
-        $aUnit    = '%';
+        $aUnit = '%';
     }
 
     $value = "$function("

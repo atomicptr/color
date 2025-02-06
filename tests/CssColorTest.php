@@ -9,34 +9,34 @@ class CssColorTest extends TestCase
 {
     public const COLORS = [
         'lightpink' => [
-            'case'   => CssColor::lightpink,
+            'case' => CssColor::lightpink,
             'hexRgb' => [ 'FF', 'B6', 'C1' ],
-            'rgb'    => [ 255,  182,  193  ],
+            'rgb' => [ 255,  182,  193  ],
         ],
         'lightsteelblue' => [
-            'case'   => CssColor::lightsteelblue,
+            'case' => CssColor::lightsteelblue,
             'hexRgb' => [ 'B0', 'C4', 'DE' ],
-            'rgb'    => [ 176,  196,  222  ],
+            'rgb' => [ 176,  196,  222  ],
         ],
         'mediumorchid' => [
-            'case'   => CssColor::mediumorchid,
+            'case' => CssColor::mediumorchid,
             'hexRgb' => [ 'BA', '55', 'D3' ],
-            'rgb'    => [ 186,  85,   211  ],
+            'rgb' => [ 186,  85,   211  ],
         ],
         'papayawhip' => [
-            'case'   => CssColor::papayawhip,
+            'case' => CssColor::papayawhip,
             'hexRgb' => [ 'FF', 'EF', 'D5' ],
-            'rgb'    => [ 255,  239,  213  ],
+            'rgb' => [ 255,  239,  213  ],
         ],
         'red' => [
-            'case'   => CssColor::red,
+            'case' => CssColor::red,
             'hexRgb' => [ 'FF', '00', '00' ],
-            'rgb'    => [ 255,  0,    0    ],
+            'rgb' => [ 255,  0,    0    ],
         ],
         'slategray' => [
-            'case'   => CssColor::slategray,
+            'case' => CssColor::slategray,
             'hexRgb' => [ '70', '80', '90' ],
-            'rgb'    => [ 112,  128,  144  ],
+            'rgb' => [ 112,  128,  144  ],
         ],
     ];
 
