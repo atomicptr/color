@@ -1,13 +1,13 @@
 <?php
 
-namespace Atomicptr\Color\colors;
+namespace Atomicptr\Color\Colors;
 
 use       Atomicptr\Color\Color;
 use       Atomicptr\Color\ColorFactory;
 use       Atomicptr\Color\ColorInterface;
 use       Atomicptr\Color\utils;
 
-class      ProPhoto
+class      LinP3
 extends    Color
 implements ColorInterface {
 
@@ -26,14 +26,15 @@ implements ColorInterface {
 
     /* #region Public Static Methods */
     
-    
     public static function aliases(
 
     ) :array {
         return [
-            'prophoto-rgb',
-            'prophoto_rgb',
-            'prophoto',
+            'p3-linear',
+            'p3_linear',
+            'linp3',
+            'lin-p3',
+            'lin_p3',
         ];
     }
 
@@ -48,10 +49,10 @@ implements ColorInterface {
         \Stringable|string|int|float|null $opacity   = null,
         LinP3|null                        $fallback  = null,
         bool|null                         $throw     = null,
-    ) :ProPhoto {
+    ) :LinP3 {
         $changeThrow = $throw ?? true;
 
-        return ColorFactory::newProPhoto(
+        return ColorFactory::newLinP3(
             value    : [
                 utils\changeCoordinate($this->red,     $red,     false, $changeThrow),
                 utils\changeCoordinate($this->green,   $green,   false, $changeThrow),
@@ -65,11 +66,10 @@ implements ColorInterface {
     } 
     
     public function stringify(
-        bool|null $legacy    = null,
         bool|null $alpha     = null,
         int|null  $precision = null,
     ) :string {
-        return utils\proPhoto\stringify(
+        return utils\linP3\stringify(
             red       : $this->red,
             green     : $this->green,
             blue      : $this->blue,

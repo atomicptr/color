@@ -1,13 +1,13 @@
 <?php
 
-namespace Atomicptr\Color\colors;
+namespace Atomicptr\Color\Colors;
 
 use       Atomicptr\Color\Color;
 use       Atomicptr\Color\ColorFactory;
 use       Atomicptr\Color\ColorInterface;
 use       Atomicptr\Color\utils;
 
-class      Hsv
+class      Hsl
 extends    Color
 implements ColorInterface {
 
@@ -16,7 +16,7 @@ implements ColorInterface {
     public function __construct(
         public readonly float $hue        = 0,
         public readonly float $saturation = 0,
-        public readonly float $value      = 0,
+        public readonly float $lightness  = 0,
         public readonly float $opacity    = 100,
     ) {
 
@@ -30,8 +30,8 @@ implements ColorInterface {
 
     ) :array {
         return [
-            'hsv',
-            'hsb',
+            'hsl',
+            'hsla',
         ];
     }
 
@@ -42,18 +42,18 @@ implements ColorInterface {
     public function change(
         \Stringable|string|int|float|null $hue        = null,
         \Stringable|string|int|float|null $saturation = null,
-        \Stringable|string|int|float|null $value      = null,
+        \Stringable|string|int|float|null $lightness  = null,
         \Stringable|string|int|float|null $opacity    = null,
-        Hsv|null                          $fallback   = null,
+        Hsl|null                          $fallback   = null,
         bool|null                         $throw      = null,
-    ) :Hsv {
+    ) :Hsl {
         $changeThrow = $throw ?? true;
 
-        return ColorFactory::newHsv(
+        return ColorFactory::newHsl(
             value    : [
                 utils\changeCoordinate($this->hue,        $hue,        false, $changeThrow),
                 utils\changeCoordinate($this->saturation, $saturation, false, $changeThrow),
-                utils\changeCoordinate($this->value,      $value,      false, $changeThrow),
+                utils\changeCoordinate($this->lightness,  $lightness,  false, $changeThrow),
                 utils\changeCoordinate($this->opacity,    $opacity,    false, $changeThrow),
             ],
             from     : $this::space(),
@@ -67,10 +67,10 @@ implements ColorInterface {
         bool|null $alpha     = null,
         int|null  $precision = null,
     ) :string {
-        return utils\hsv\stringify(
+        return utils\hsl\stringify(
             hue        : $this->hue,
             saturation : $this->saturation,
-            value      : $this->value,
+            lightness  : $this->lightness,
             opacity    : $this->opacity,
             legacy     : $legacy,
             alpha      : $alpha,

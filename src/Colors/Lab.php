@@ -1,13 +1,13 @@
 <?php
 
-namespace Atomicptr\Color\colors;
+namespace Atomicptr\Color\Colors;
 
 use       Atomicptr\Color\Color;
 use       Atomicptr\Color\ColorFactory;
 use       Atomicptr\Color\ColorInterface;
 use       Atomicptr\Color\utils;
 
-class      Lch
+class      Lab
 extends    Color
 implements ColorInterface {
 
@@ -15,8 +15,8 @@ implements ColorInterface {
 
     public function __construct(
         public readonly float $lightness = 0,
-        public readonly float $chroma    = 0,
-        public readonly float $hue       = 0,
+        public readonly float $a         = 0,
+        public readonly float $b         = 0,
         public readonly float $opacity   = 100,
     ) {
 
@@ -30,10 +30,10 @@ implements ColorInterface {
 
     ) :array {
         return [
-            'lch',
-            'cielch',
-            'cie-lch',
-            'cie_lch',
+            'lab',
+            'cielab',
+            'cie-lab',
+            'cie_lab',
         ];
     }
 
@@ -42,37 +42,37 @@ implements ColorInterface {
     /* #region Public Methods */
 
     public function change(
-        \Stringable|string|int|float|null $lightness = null,
-        \Stringable|string|int|float|null $chroma    = null,
-        \Stringable|string|int|float|null $hue       = null,
-        \Stringable|string|int|float|null $opacity   = null,
-        Lch|null                          $fallback  = null,
-        bool|null                         $throw     = null,
-    ) :Lch {
+        \Stringable|string|int|float|null $lightness  = null,
+        \Stringable|string|int|float|null $a          = null,
+        \Stringable|string|int|float|null $b          = null,
+        \Stringable|string|int|float|null $opacity    = null,
+        Lab|null                          $fallback   = null,
+        bool|null                         $throw      = null,
+    ) :Lab {
         $changeThrow = $throw ?? true;
 
-        return ColorFactory::newLch(
+        return ColorFactory::newLab(
             value    : [
                 utils\changeCoordinate($this->lightness, $lightness, false, $changeThrow),
-                utils\changeCoordinate($this->chroma,    $chroma,    false, $changeThrow),
-                utils\changeCoordinate($this->hue,       $hue,       false, $changeThrow),
+                utils\changeCoordinate($this->a,         $a,         false, $changeThrow),
+                utils\changeCoordinate($this->b,         $b,         false, $changeThrow),
                 utils\changeCoordinate($this->opacity,   $opacity,   false, $changeThrow),
             ],
             from     : $this::space(),
             fallback : $fallback,
             throw    : $throw,
         );
-    } 
+    }
     
     public function stringify(
         bool|null $legacy    = null,
         bool|null $alpha     = null,
         int|null  $precision = null,
     ) :string {
-        return utils\lch\stringify(
+        return utils\lab\stringify(
             lightness : $this->lightness,
-            chroma    : $this->chroma,
-            hue       : $this->hue,
+            a         : $this->a,
+            b         : $this->b,
             opacity   : $this->opacity,
             legacy    : $legacy,
             alpha     : $alpha,

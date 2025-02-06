@@ -2,9 +2,9 @@
 
 namespace Atomicptr\Color;
 
-use       Atomicptr\Color\colors\Css;
-use       Atomicptr\Color\colors\HexRgb;
-use       Atomicptr\Color\colors\Rgb;
+use       Atomicptr\Color\Colors\Css;
+use       Atomicptr\Color\Colors\HexRgb;
+use       Atomicptr\Color\Colors\Rgb;
 use       Atomicptr\Color\exceptions\UnsupportedCssColor;
 
 /**
@@ -678,9 +678,9 @@ enum CssColor {
     /* #region Public Methods */
 
     /**
-     * Returns a new instance of Atomicptr\Color\colors\Css corresponding to the current CssColor.
+     * Returns a new instance of Atomicptr\Color\Colors\Css corresponding to the current CssColor.
      *
-     * @param  Css|null     $fallback An instance of Atomicptr\Color\colors\Css used as a fallback in case of error
+     * @param  Css|null     $fallback An instance of Atomicptr\Color\Colors\Css used as a fallback in case of error
      * @param  boolean|null $throw    If false no exception will be thrown, $fallback will be returned instead
      * 
      * @return Css|null
@@ -698,9 +698,9 @@ enum CssColor {
     }
 
     /**
-     * Returns a new instance of Atomicptr\Color\colors\HexRgb corresponding to the current CssColor.
+     * Returns a new instance of Atomicptr\Color\Colors\HexRgb corresponding to the current CssColor.
      *
-     * @param HexRgb|null  $fallback An instance of Atomicptr\Color\colors\HexRgb used as a fallback in case of error
+     * @param HexRgb|null  $fallback An instance of Atomicptr\Color\Colors\HexRgb used as a fallback in case of error
      * @param boolean|null $throw    If false no exception will be thrown, $fallback will be returned instead
      * 
      * @return HexRgb|null
@@ -759,9 +759,9 @@ enum CssColor {
     }
 
     /**
-     * Returns a new instance of Atomicptr\Color\colors\Rgb corresponding to the current CssColor.
+     * Returns a new instance of Atomicptr\Color\Colors\Rgb corresponding to the current CssColor.
      *
-     * @param Rgb|null     $fallback An instance of Atomicptr\Color\colors\Rgb used as a fallback in case of error
+     * @param Rgb|null     $fallback An instance of Atomicptr\Color\Colors\Rgb used as a fallback in case of error
      * @param boolean|null $throw    If false no exception will be thrown, $fallback will be returned instead
      * 
      * @return Rgb|null

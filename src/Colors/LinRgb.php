@@ -1,13 +1,13 @@
 <?php
 
-namespace Atomicptr\Color\colors;
+namespace Atomicptr\Color\Colors;
 
 use       Atomicptr\Color\Color;
 use       Atomicptr\Color\ColorFactory;
 use       Atomicptr\Color\ColorInterface;
 use       Atomicptr\Color\utils;
 
-class      P3
+class      LinRgb
 extends    Color
 implements ColorInterface {
 
@@ -30,9 +30,13 @@ implements ColorInterface {
 
     ) :array {
         return [
-            'display-p3',
-            'display_p3',
-            'p3',
+            'srgb-linear',
+            'linrgb',
+            'lin-rgb',
+            'lin_rgb',            
+            'linsrgb',
+            'lin-srgb',
+            'lin_srgb',            
         ];
     }
 
@@ -47,10 +51,10 @@ implements ColorInterface {
         \Stringable|string|int|float|null $opacity   = null,
         LinP3|null                        $fallback  = null,
         bool|null                         $throw     = null,
-    ) :P3 {
+    ) :LinRgb {
         $changeThrow = $throw ?? true;
 
-        return ColorFactory::newP3(
+        return ColorFactory::newLinRgb(
             value    : [
                 utils\changeCoordinate($this->red,     $red,     false, $changeThrow),
                 utils\changeCoordinate($this->green,   $green,   false, $changeThrow),
@@ -64,10 +68,11 @@ implements ColorInterface {
     } 
     
     public function stringify(
+        bool|null $legacy    = null,
         bool|null $alpha     = null,
         int|null  $precision = null,
     ) :string {
-        return utils\p3\stringify(
+        return utils\linRgb\stringify(
             red       : $this->red,
             green     : $this->green,
             blue      : $this->blue,
