@@ -44,8 +44,8 @@ class Lab extends Color implements ColorInterface
         \Stringable|string|int|float|null $a = null,
         \Stringable|string|int|float|null $b = null,
         \Stringable|string|int|float|null $opacity = null,
-        Lab|null                          $fallback = null,
-        bool|null                         $throw = null,
+        Lab|null $fallback = null,
+        bool|null $throw = null,
     ): Lab {
         $changeThrow = $throw ?? true;
 
@@ -65,7 +65,7 @@ class Lab extends Color implements ColorInterface
     public function stringify(
         bool|null $legacy = null,
         bool|null $alpha = null,
-        int|null  $precision = null,
+        int|null $precision = null,
     ): string {
         return utils\lab\stringify(
             lightness : $this->lightness,

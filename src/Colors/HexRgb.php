@@ -45,8 +45,8 @@ class HexRgb extends Color implements ColorInterface
         \Stringable|string|null $green = null,
         \Stringable|string|null $blue = null,
         \Stringable|string|null $opacity = null,
-        HexRgb|null             $fallback = null,
-        bool|null               $throw = null,
+        HexRgb|null $fallback = null,
+        bool|null $throw = null,
     ): HexRgb {
         $changeThrow = $throw ?? true;
 
@@ -65,9 +65,9 @@ class HexRgb extends Color implements ColorInterface
 
     public function stringify(
         bool|null $alpha = null,
-        bool      $short = true,
+        bool $short = true,
         bool|null $uppercase = null,
-        bool      $sharp = true,
+        bool $sharp = true,
     ): string {
         return utils\hexRgb\stringify(
             red       : $this->red,

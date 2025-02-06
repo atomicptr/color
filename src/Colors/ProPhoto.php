@@ -44,8 +44,8 @@ class ProPhoto extends Color implements ColorInterface
         \Stringable|string|int|float|null $green = null,
         \Stringable|string|int|float|null $blue = null,
         \Stringable|string|int|float|null $opacity = null,
-        LinP3|null                        $fallback = null,
-        bool|null                         $throw = null,
+        LinP3|null $fallback = null,
+        bool|null $throw = null,
     ): ProPhoto {
         $changeThrow = $throw ?? true;
 
@@ -65,7 +65,7 @@ class ProPhoto extends Color implements ColorInterface
     public function stringify(
         bool|null $legacy = null,
         bool|null $alpha = null,
-        int|null  $precision = null,
+        int|null $precision = null,
     ): string {
         return utils\proPhoto\stringify(
             red       : $this->red,

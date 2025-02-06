@@ -43,8 +43,8 @@ class OkLab extends Color implements ColorInterface
         \Stringable|string|int|float|null $a = null,
         \Stringable|string|int|float|null $b = null,
         \Stringable|string|int|float|null $opacity = null,
-        OkLab|null                        $fallback = null,
-        bool|null                         $throw = null,
+        OkLab|null $fallback = null,
+        bool|null $throw = null,
     ): OkLab {
         $changeThrow = $throw ?? true;
 
@@ -64,7 +64,7 @@ class OkLab extends Color implements ColorInterface
     public function stringify(
         bool|null $legacy = null,
         bool|null $alpha = null,
-        int|null  $precision = null,
+        int|null $precision = null,
     ): string {
         return utils\okLab\stringify(
             lightness : $this->lightness,

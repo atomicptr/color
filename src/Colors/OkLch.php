@@ -43,8 +43,8 @@ class OkLch extends Color implements ColorInterface
         \Stringable|string|int|float|null $chroma = null,
         \Stringable|string|int|float|null $hue = null,
         \Stringable|string|int|float|null $opacity = null,
-        OkLch|null                        $fallback = null,
-        bool|null                         $throw = null,
+        OkLch|null $fallback = null,
+        bool|null $throw = null,
     ): OkLch {
         $changeThrow = $throw ?? true;
 
@@ -64,7 +64,7 @@ class OkLch extends Color implements ColorInterface
     public function stringify(
         bool|null $legacy = null,
         bool|null $alpha = null,
-        int|null  $precision = null,
+        int|null $precision = null,
     ): string {
         return utils\okLch\stringify(
             lightness : $this->lightness,

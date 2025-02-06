@@ -34,7 +34,7 @@ enum Constant: int
      */
     public function value(
         int|null $value = null,
-        bool     $create = false,
+        bool $create = false,
     ): int {
         return (int) utils\constant(
             name   : $this->name,

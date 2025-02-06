@@ -41,8 +41,8 @@ class Hwb extends Color implements ColorInterface
         \Stringable|string|int|float|null $whiteness = null,
         \Stringable|string|int|float|null $blackness = null,
         \Stringable|string|int|float|null $opacity = null,
-        Hwb|null                          $fallback = null,
-        bool|null                         $throw = null,
+        Hwb|null $fallback = null,
+        bool|null $throw = null,
     ): Hwb {
         $changeThrow = $throw ?? true;
 
@@ -62,7 +62,7 @@ class Hwb extends Color implements ColorInterface
     public function stringify(
         bool|null $legacy = null,
         bool|null $alpha = null,
-        int|null  $precision = null,
+        int|null $precision = null,
     ): string {
         return utils\hwb\stringify(
             hue       : $this->hue,

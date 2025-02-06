@@ -33,28 +33,28 @@ function toHexRgb(
 }
 
 function toHsl(
-    float    $x = 0,
-    float    $y = 0,
-    float    $z = 0,
-    float    $opacity = 1,
+    float $x = 0,
+    float $y = 0,
+    float $z = 0,
+    float $opacity = 1,
 ): array {
     return rgb\toHsl(... toRgb($x, $y, $z, $opacity));
 }
 
 function toHsv(
-    float    $x = 0,
-    float    $y = 0,
-    float    $z = 0,
-    float    $opacity = 1,
+    float $x = 0,
+    float $y = 0,
+    float $z = 0,
+    float $opacity = 1,
 ): array {
     return hsl\toHsv(... toHsl($x, $y, $z, $opacity));
 }
 
 function toHwb(
-    float    $x = 0,
-    float    $y = 0,
-    float    $z = 0,
-    float    $opacity = 1,
+    float $x = 0,
+    float $y = 0,
+    float $z = 0,
+    float $opacity = 1,
 ): array {
     return hsv\toHwb(... toHsv($x, $y, $z, $opacity));
 }

@@ -88,8 +88,8 @@ enum ColorSpace: string
      */
     public static function fromAlias(
         \Stringable|string $name,
-        ColorSpace|null    $fallback = null,
-        bool|null          $throw = null,
+        ColorSpace|null $fallback = null,
+        bool|null $throw = null,
     ): static|null {
         $lcName = \strtolower((string) $name);
         $throw ??= !$fallback;

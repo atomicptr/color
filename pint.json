@@ -1,3 +1,14 @@
 {
-    "preset": "psr12"
+    "preset": "psr12",
+    "rules": {
+        "spaces_inside_parentheses": {
+            "space": "none"
+        },
+        "type_declaration_spaces": {
+            "elements": [
+                "function",
+                "property"
+            ]
+        }
+    }
 }

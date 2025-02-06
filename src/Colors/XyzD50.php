@@ -43,8 +43,8 @@ class XyzD50 extends Color implements ColorInterface
         \Stringable|string|int|float|null $y = null,
         \Stringable|string|int|float|null $z = null,
         \Stringable|string|int|float|null $opacity = null,
-        XyzD50|null                       $fallback = null,
-        bool|null                         $throw = null,
+        XyzD50|null $fallback = null,
+        bool|null $throw = null,
     ): XyzD50 {
         $changeThrow = $throw ?? true;
 
@@ -64,7 +64,7 @@ class XyzD50 extends Color implements ColorInterface
     public function stringify(
         bool|null $legacy = null,
         bool|null $alpha = null,
-        int|null  $precision = null,
+        int|null $precision = null,
     ): string {
         return utils\xyzD50\stringify(
             x         : $this->x,

@@ -43,8 +43,8 @@ class P3 extends Color implements ColorInterface
         \Stringable|string|int|float|null $green = null,
         \Stringable|string|int|float|null $blue = null,
         \Stringable|string|int|float|null $opacity = null,
-        LinP3|null                        $fallback = null,
-        bool|null                         $throw = null,
+        LinP3|null $fallback = null,
+        bool|null $throw = null,
     ): P3 {
         $changeThrow = $throw ?? true;
 
@@ -63,7 +63,7 @@ class P3 extends Color implements ColorInterface
 
     public function stringify(
         bool|null $alpha = null,
-        int|null  $precision = null,
+        int|null $precision = null,
     ): string {
         return utils\p3\stringify(
             red       : $this->red,

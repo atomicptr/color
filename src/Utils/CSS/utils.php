@@ -15,8 +15,8 @@ use Atomicptr\Color\Utils;
  * @return CssColor
  */
 function clean(
-    mixed    $value,
-    bool     $throw = true,
+    mixed $value,
+    bool $throw = true,
 ): CssColor {
     if (\is_array($value)) {
         $value = $value[0] ?? 'black';
@@ -29,10 +29,10 @@ function clean(
 }
 
 function from(
-    mixed                              $value,
+    mixed $value,
     ColorSpace|\Stringable|string|null $from = null,
-    array|null                         $fallback = null,
-    bool|null                          $throw = null,
+    array|null $fallback = null,
+    bool|null $throw = null,
 ): array {
     return utils\to(
         value    : $value,

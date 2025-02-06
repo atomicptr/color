@@ -54,10 +54,10 @@ function addLeadingZero(
  * @return \Stringable|string|integer|float
  */
 function changeCoordinate(
-    \Stringable|string|int|float      $value,
+    \Stringable|string|int|float $value,
     \Stringable|string|int|float|null $new = null,
-    bool                              $hex = false,
-    bool                              $throw = true,
+    bool $hex = false,
+    bool $throw = true,
 ): \Stringable|string|int|float {
     if ($new === null) {
         return $value;
@@ -146,13 +146,13 @@ function changeCoordinate(
  */
 function cleanCoordinate(
     \Stringable|string|int|float $value,
-    float|null                   $min = 0,
-    float|null                   $max = 100,
-    bool                         $loop = false,
-    int|null                     $precision = null,
-    bool                         $round = false,
-    \Stringable|string|null      $padLeft = null,
-    int                          $length = null,
+    float|null $min = 0,
+    float|null $max = 100,
+    bool $loop = false,
+    int|null $precision = null,
+    bool $round = false,
+    \Stringable|string|null $padLeft = null,
+    int $length = null,
 ): float {
     if (isStringable($value)) {
         $value = addLeadingZero((string) $value);
@@ -228,8 +228,8 @@ function cleanPrecision(
  */
 function constant(
     \Stringable|string $name,
-    mixed              $value = null,
-    bool               $create = false,
+    mixed $value = null,
+    bool $create = false,
 ): mixed {
     $name = \strtoupper((string) $name);
 
@@ -267,8 +267,8 @@ function constant(
  */
 function cleanHexValue(
     \Stringable|string $value,
-    int                $length = 2,
-    bool|null          $uppercase = null,
+    int $length = 2,
+    bool|null $uppercase = null,
     \Stringable|string $prefix = null,
 ): string {
     $value = (string) $value;
@@ -301,8 +301,8 @@ function cleanHexValue(
  * @return string
  */
 function decToHex(
-    float     $number,
-    int       $length = 2,
+    float $number,
+    int $length = 2,
     bool|null $uppercase = null,
 ): string {
     return cleanHexValue(
@@ -333,9 +333,9 @@ function decToHex(
  * @return ColorSpace|null          The ColorSpace instance corresponding to $value, $fallback otherwise
  */
 function findColorSpace(
-    mixed           $value,
+    mixed $value,
     ColorSpace|null $fallback = null,
-    bool|null       $throw = null,
+    bool|null $throw = null,
 ): ColorSpace|null {
     $throw ??= !$fallback;
 
@@ -376,10 +376,10 @@ function findColorSpace(
  * @return array
  */
 function findFromAndTo(
-    mixed                              $value,
+    mixed $value,
     ColorSpace|\Stringable|string|null $to = null,
     ColorSpace|\Stringable|string|null $from = null,
-    bool|null                          $throw = true,
+    bool|null $throw = true,
 ): array {
     $from = toColorSpace(
         value : $from ??= findColorSpace(
@@ -427,7 +427,7 @@ function hexToDec(
  * @return boolean
  */
 function isColorString(
-    mixed                               $value,
+    mixed $value,
     ColorSpace|\Stringable|string|array $spaces = null,
 ): bool {
     if (!isStringable($value)) {
@@ -580,7 +580,7 @@ function multiplyMatrices(
  * @return array
  */
 function parseColorValue(
-    mixed          $value,
+    mixed $value,
     int|float|null $opacityFactor = null,
 ): array {
     return isStringable($value)
@@ -600,8 +600,8 @@ function parseColorValue(
  */
 function parseStringColorValue(
     \Stringable|string $value,
-    int|float|null     $opacityFactor = null,
-    int                $opacityIndex = 3,
+    int|float|null $opacityFactor = null,
+    int $opacityIndex = 3,
 ): array {
     $replace = \array_merge(
         \array_keys(ColorSpace::allAliases()),
@@ -677,10 +677,10 @@ function parseStringColorValue(
  * @return array
  */
 function push(
-    mixed           $value,
-    array           $array,
+    mixed $value,
+    array $array,
     string|int|null $index = null,
-    bool            $replace = false,
+    bool $replace = false,
 ): array {
     if ($index === null) {
         $array[] = $value;
@@ -705,10 +705,10 @@ function push(
  * @return array
  */
 function setFromAndTo(
-    mixed                               $value,
+    mixed $value,
     ColorSpace|\Stringable|string|null &$to = null,
     ColorSpace|\Stringable|string|null &$from = null,
-    bool|null                           $throw = true,
+    bool|null $throw = true,
 ): array {
     $results = findFromAndTo(
         value    : $value,
@@ -739,9 +739,9 @@ function setFromAndTo(
  * @return string|boolean
  */
 function startsWith(
-    \Stringable|string          $haystack,
+    \Stringable|string $haystack,
     \Stringable|string|iterable $needles,
-    bool                        $returnNeedle = true,
+    bool $returnNeedle = true,
 ): string|bool {
     $haystack = (string) $haystack;
 
@@ -780,11 +780,11 @@ function startsWith(
  * @return array
  */
 function to(
-    mixed                              $value,
+    mixed $value,
     ColorSpace|\Stringable|string|null $to = null,
     ColorSpace|\Stringable|string|null $from = null,
-    array|null                         $fallback = null,
-    bool|null                          $throw = null,
+    array|null $fallback = null,
+    bool|null $throw = null,
 ): array {
     setFromAndTo(
         value    : $value,
@@ -821,7 +821,7 @@ function to(
  */
 function toArray(
     mixed $value,
-    bool  $keep = true,
+    bool $keep = true,
 ): array {
     return \is_array($value)
         ? $value
@@ -848,7 +848,7 @@ function toArray(
  */
 function toIterable(
     mixed $value,
-    bool  $keep = true,
+    bool $keep = true,
 ): iterable {
     return isIterable($value)
         ? $value
@@ -874,11 +874,11 @@ function toIterable(
  * @return array
  */
 function toColor(
-    mixed      $value,
+    mixed $value,
     ColorSpace $to,
     ColorSpace $from = null,
     array|null $fallback = null,
-    bool|null  $throw = null,
+    bool|null $throw = null,
 ): array {
     $throw ??= ($fallback === null);
     $from ??= $to;
@@ -931,8 +931,8 @@ function toColor(
  */
 function toColorSpace(
     ColorSpace|\Stringable|string|null $value,
-    ColorSpace|null                    $fallback = null,
-    bool|null                          $throw = null,
+    ColorSpace|null $fallback = null,
+    bool|null $throw = null,
 ): ColorSpace|null {
     if ($value === null) {
         return ($throw ?? !$fallback)
@@ -959,7 +959,7 @@ function toColorSpace(
  * @return boolean          True if $value is an array and if all of its values are validated using $filter, false otherwise
  */
 function validateArray(
-    mixed    $value,
+    mixed $value,
     callable $filter,
 ): bool {
     return \is_array($value) && (\array_filter($value, $filter) === $value);

@@ -36,11 +36,11 @@ abstract class ColorFactory
      * @return ColorInterface|null
      */
     public static function new(
-        mixed                              $value,
+        mixed $value,
         ColorSpace|\Stringable|string|null $to = null,
         ColorSpace|\Stringable|string|null $from = null,
-        ColorInterface|null                $fallback = null,
-        bool|null                          $throw = null,
+        ColorInterface|null $fallback = null,
+        bool|null $throw = null,
     ): ColorInterface|null {
         $throw ??= !$fallback;
 
@@ -76,10 +76,10 @@ abstract class ColorFactory
      * @return Css|null
      */
     public static function newCss(
-        mixed                              $value,
+        mixed $value,
         ColorSpace|\Stringable|string|null $from = null,
-        Css|null                           $fallback = null,
-        bool|null                          $throw = null,
+        Css|null $fallback = null,
+        bool|null $throw = null,
     ): Css|null {
         return static::new(
             value     : $value,
@@ -101,10 +101,10 @@ abstract class ColorFactory
      * @return HexRgb|null
      */
     public static function newHexRgb(
-        mixed                              $value,
+        mixed $value,
         ColorSpace|\Stringable|string|null $from = null,
-        HexRgb|null                        $fallback = null,
-        bool|null                          $throw = null,
+        HexRgb|null $fallback = null,
+        bool|null $throw = null,
     ): HexRgb|null {
         return static::new(
             value     : $value,
@@ -126,10 +126,10 @@ abstract class ColorFactory
      * @return Hsl|null
      */
     public static function newHsl(
-        mixed                              $value,
+        mixed $value,
         ColorSpace|\Stringable|string|null $from = null,
-        Hsl|null                           $fallback = null,
-        bool|null                          $throw = null,
+        Hsl|null $fallback = null,
+        bool|null $throw = null,
     ): Hsl|null {
         return static::new(
             value     : $value,
@@ -151,10 +151,10 @@ abstract class ColorFactory
      * @return Hsv|null
      */
     public static function newHsv(
-        mixed                              $value,
+        mixed $value,
         ColorSpace|\Stringable|string|null $from = null,
-        Hsv|null                           $fallback = null,
-        bool|null                          $throw = null,
+        Hsv|null $fallback = null,
+        bool|null $throw = null,
     ): Hsv|null {
         return static::new(
             value     : $value,
@@ -176,10 +176,10 @@ abstract class ColorFactory
      * @return Hwb|null
      */
     public static function newHwb(
-        mixed                              $value,
+        mixed $value,
         ColorSpace|\Stringable|string|null $from = null,
-        Hwb|null                           $fallback = null,
-        bool|null                          $throw = null,
+        Hwb|null $fallback = null,
+        bool|null $throw = null,
     ): Hwb|null {
         return static::new(
             value     : $value,
@@ -201,10 +201,10 @@ abstract class ColorFactory
      * @return Lab|null
      */
     public static function newLab(
-        mixed                              $value,
+        mixed $value,
         ColorSpace|\Stringable|string|null $from = null,
-        Lab|null                           $fallback = null,
-        bool|null                          $throw = null,
+        Lab|null $fallback = null,
+        bool|null $throw = null,
     ): Lab|null {
         return static::new(
             value     : $value,
@@ -226,10 +226,10 @@ abstract class ColorFactory
      * @return Lch|null
      */
     public static function newLch(
-        mixed                              $value,
+        mixed $value,
         ColorSpace|\Stringable|string|null $from = null,
-        Lch|null                           $fallback = null,
-        bool|null                          $throw = null,
+        Lch|null $fallback = null,
+        bool|null $throw = null,
     ): Lch|null {
         return static::new(
             value     : $value,
@@ -251,10 +251,10 @@ abstract class ColorFactory
      * @return LinP3|null
      */
     public static function newLinP3(
-        mixed                              $value,
+        mixed $value,
         ColorSpace|\Stringable|string|null $from = null,
-        LinP3|null                         $fallback = null,
-        bool|null                          $throw = null,
+        LinP3|null $fallback = null,
+        bool|null $throw = null,
     ): LinP3|null {
         return static::new(
             value     : $value,
@@ -276,10 +276,10 @@ abstract class ColorFactory
      * @return LinProPhoto|null
      */
     public static function newLinProPhoto(
-        mixed                              $value,
+        mixed $value,
         ColorSpace|\Stringable|string|null $from = null,
-        LinProPhoto|null                   $fallback = null,
-        bool|null                          $throw = null,
+        LinProPhoto|null $fallback = null,
+        bool|null $throw = null,
     ): LinProPhoto|null {
         return static::new(
             value     : $value,
@@ -301,10 +301,10 @@ abstract class ColorFactory
      * @return LinRgb|null
      */
     public static function newLinRgb(
-        mixed                              $value,
+        mixed $value,
         ColorSpace|\Stringable|string|null $from = null,
-        LinRgb|null                        $fallback = null,
-        bool|null                          $throw = null,
+        LinRgb|null $fallback = null,
+        bool|null $throw = null,
     ): LinRgb|null {
         return static::new(
             value     : $value,
@@ -326,10 +326,10 @@ abstract class ColorFactory
      * @return OkLab|null
      */
     public static function newOkLab(
-        mixed                              $value,
+        mixed $value,
         ColorSpace|\Stringable|string|null $from = null,
-        OkLab|null                         $fallback = null,
-        bool|null                          $throw = null,
+        OkLab|null $fallback = null,
+        bool|null $throw = null,
     ): OkLab|null {
         return static::new(
             value     : $value,
@@ -351,10 +351,10 @@ abstract class ColorFactory
      * @return OkLch|null
      */
     public static function newOkLch(
-        mixed                              $value,
+        mixed $value,
         ColorSpace|\Stringable|string|null $from = null,
-        OkLch|null                         $fallback = null,
-        bool|null                          $throw = null,
+        OkLch|null $fallback = null,
+        bool|null $throw = null,
     ): OkLch|null {
         return static::new(
             value     : $value,
@@ -376,10 +376,10 @@ abstract class ColorFactory
      * @return P3|null
      */
     public static function newP3(
-        mixed                              $value,
+        mixed $value,
         ColorSpace|\Stringable|string|null $from = null,
-        P3|null                            $fallback = null,
-        bool|null                          $throw = null,
+        P3|null $fallback = null,
+        bool|null $throw = null,
     ): P3|null {
         return static::new(
             value     : $value,
@@ -401,10 +401,10 @@ abstract class ColorFactory
      * @return ProPhoto|null
      */
     public static function newProPhoto(
-        mixed                              $value,
+        mixed $value,
         ColorSpace|\Stringable|string|null $from = null,
-        ProPhoto|null                      $fallback = null,
-        bool|null                          $throw = null,
+        ProPhoto|null $fallback = null,
+        bool|null $throw = null,
     ): ProPhoto|null {
         return static::new(
             value     : $value,
@@ -426,10 +426,10 @@ abstract class ColorFactory
      * @return Rgb|null
      */
     public static function newRgb(
-        mixed                              $value,
+        mixed $value,
         ColorSpace|\Stringable|string|null $from = null,
-        Rgb|null                           $fallback = null,
-        bool|null                          $throw = null,
+        Rgb|null $fallback = null,
+        bool|null $throw = null,
     ): Rgb|null {
         return static::new(
             value     : $value,
@@ -451,10 +451,10 @@ abstract class ColorFactory
      * @return XyzD50|null
      */
     public static function newXyzD50(
-        mixed                              $value,
+        mixed $value,
         ColorSpace|\Stringable|string|null $from = null,
-        XyzD50|null                        $fallback = null,
-        bool|null                          $throw = null,
+        XyzD50|null $fallback = null,
+        bool|null $throw = null,
     ): XyzD50|null {
         return static::new(
             value     : $value,
@@ -476,10 +476,10 @@ abstract class ColorFactory
      * @return XyzD65|null
      */
     public static function newXyzD65(
-        mixed                              $value,
+        mixed $value,
         ColorSpace|\Stringable|string|null $from = null,
-        XyzD65|null                        $fallback = null,
-        bool|null                          $throw = null,
+        XyzD65|null $fallback = null,
+        bool|null $throw = null,
     ): XyzD65|null {
         return static::new(
             value     : $value,

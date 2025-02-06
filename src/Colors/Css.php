@@ -38,8 +38,8 @@ class Css extends Color implements ColorInterface
 
     public function change(
         CssColor|\Stringable|string|null $color = null,
-        Css|null                         $fallback = null,
-        bool|null                        $throw = null,
+        Css|null $fallback = null,
+        bool|null $throw = null,
     ): self {
         return ColorFactory::newCss(
             value    : $color ?? $this->color,

@@ -518,8 +518,8 @@ enum CssColor
      */
     public static function fromCss(
         \Stringable|string $name,
-        CssColor|null      $fallback = null,
-        bool|null          $throw = null,
+        CssColor|null $fallback = null,
+        bool|null $throw = null,
     ): static|null {
         $throw ??= !((bool) $fallback);
         $name = \strtolower(\trim((string) $name));
@@ -555,12 +555,12 @@ enum CssColor
      * @return static|null
      */
     public static function fromHexRgb(
-        string        $red,
-        string        $green,
-        string        $blue,
-        bool          $closest = true,
+        string $red,
+        string $green,
+        string $blue,
+        bool $closest = true,
         CssColor|null $fallback = null,
-        bool|null     $throw = null,
+        bool|null $throw = null,
     ): static|null {
         $red = utils\cleanHexValue($red);
         $green = utils\cleanHexValue($green);
@@ -618,12 +618,12 @@ enum CssColor
      * @return static|null
      */
     public static function fromRgb(
-        int           $red,
-        int           $green,
-        int           $blue,
-        bool          $closest = true,
+        int $red,
+        int $green,
+        int $blue,
+        bool $closest = true,
         CssColor|null $fallback = null,
-        bool|null     $throw = null,
+        bool|null $throw = null,
     ): static|null {
         $array = [ $red, $green, $blue ];
         $distances = [];
@@ -686,7 +686,7 @@ enum CssColor
      * @return Css|null
      */
     public function toCss(
-        Css|null  $fallback = null,
+        Css|null $fallback = null,
         bool|null $throw = null,
     ): Css|null {
         return ColorFactory::newCss(
@@ -707,7 +707,7 @@ enum CssColor
      */
     public function toHexRgb(
         HexRgb|null $fallback = null,
-        bool|null   $throw = null,
+        bool|null $throw = null,
     ): HexRgb|null {
         return ColorFactory::newHexRgb(
             value     : $this->toHexRgbCoordinates(),
@@ -740,9 +740,9 @@ enum CssColor
      */
     public function toHexRgbString(
         bool|null $alpha = null,
-        bool      $short = true,
-        bool      $uppercase = true,
-        bool      $sharp = true,
+        bool $short = true,
+        bool $uppercase = true,
+        bool $sharp = true,
     ): string {
         $values = $this->toHexRgbCoordinates();
 
@@ -767,7 +767,7 @@ enum CssColor
      * @return Rgb|null
      */
     public function toRgb(
-        Rgb|null  $fallback = null,
+        Rgb|null $fallback = null,
         bool|null $throw = null,
     ): Rgb|null {
         return ColorFactory::newRgb(

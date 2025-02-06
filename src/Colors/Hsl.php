@@ -42,8 +42,8 @@ class Hsl extends Color implements ColorInterface
         \Stringable|string|int|float|null $saturation = null,
         \Stringable|string|int|float|null $lightness = null,
         \Stringable|string|int|float|null $opacity = null,
-        Hsl|null                          $fallback = null,
-        bool|null                         $throw = null,
+        Hsl|null $fallback = null,
+        bool|null $throw = null,
     ): Hsl {
         $changeThrow = $throw ?? true;
 
@@ -63,7 +63,7 @@ class Hsl extends Color implements ColorInterface
     public function stringify(
         bool|null $legacy = null,
         bool|null $alpha = null,
-        int|null  $precision = null,
+        int|null $precision = null,
     ): string {
         return utils\hsl\stringify(
             hue        : $this->hue,

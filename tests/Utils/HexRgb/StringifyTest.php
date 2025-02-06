@@ -28,7 +28,7 @@ class StringifyTest extends TestCase
     }
 
     protected function randomNumber(
-        bool        $same = false,
+        bool $same = false,
         string|null $not = null,
     ): string {
         $c1 = $this->randomChar();

@@ -44,8 +44,8 @@ class Lch extends Color implements ColorInterface
         \Stringable|string|int|float|null $chroma = null,
         \Stringable|string|int|float|null $hue = null,
         \Stringable|string|int|float|null $opacity = null,
-        Lch|null                          $fallback = null,
-        bool|null                         $throw = null,
+        Lch|null $fallback = null,
+        bool|null $throw = null,
     ): Lch {
         $changeThrow = $throw ?? true;
 
@@ -65,7 +65,7 @@ class Lch extends Color implements ColorInterface
     public function stringify(
         bool|null $legacy = null,
         bool|null $alpha = null,
-        int|null  $precision = null,
+        int|null $precision = null,
     ): string {
         return utils\lch\stringify(
             lightness : $this->lightness,

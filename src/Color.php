@@ -98,8 +98,8 @@ abstract class Color
      */
     public function to(
         ColorSpace|\Stringable|string|null $to = null,
-        ColorInterface|null                $fallback = null,
-        bool|null                          $throw = null,
+        ColorInterface|null $fallback = null,
+        bool|null $throw = null,
     ): ColorInterface {
         return ColorFactory::new(
             value    : $this->coordinates(),
@@ -119,7 +119,7 @@ abstract class Color
      * @return Css                    The converted color object
      */
     public function toCss(
-        Css|null  $fallback = null,
+        Css|null $fallback = null,
         bool|null $throw = null,
     ): Css {
         return $this->to(
@@ -139,7 +139,7 @@ abstract class Color
      */
     public function toHexRgb(
         HexRgb|null $fallback = null,
-        bool|null   $throw = null,
+        bool|null $throw = null,
     ): HexRgb {
         return $this->to(
             to       : ColorSpace::HexRgb,
@@ -157,7 +157,7 @@ abstract class Color
      * @return Hsl                    The converted color object
      */
     public function toHsl(
-        Hsl|null  $fallback = null,
+        Hsl|null $fallback = null,
         bool|null $throw = null,
     ): Hsl {
         return $this->to(
@@ -176,7 +176,7 @@ abstract class Color
      * @return Hsv                    The converted color object
      */
     public function toHsv(
-        Hsv|null  $fallback = null,
+        Hsv|null $fallback = null,
         bool|null $throw = null,
     ): Hsv {
         return $this->to(
@@ -195,7 +195,7 @@ abstract class Color
      * @return Hwb                    The converted color object
      */
     public function toHwb(
-        Hwb|null  $fallback = null,
+        Hwb|null $fallback = null,
         bool|null $throw = null,
     ): Hwb {
         return $this->to(
@@ -214,7 +214,7 @@ abstract class Color
      * @return Lab                    The converted color object
      */
     public function toLab(
-        Lab|null  $fallback = null,
+        Lab|null $fallback = null,
         bool|null $throw = null,
     ): Lab {
         return $this->to(
@@ -233,7 +233,7 @@ abstract class Color
      * @return Lch                    The converted color object
      */
     public function toLch(
-        Lch|null  $fallback = null,
+        Lch|null $fallback = null,
         bool|null $throw = null,
     ): Lch {
         return $this->to(
@@ -253,7 +253,7 @@ abstract class Color
      */
     public function toLinP3(
         LinP3|null $fallback = null,
-        bool|null  $throw = null,
+        bool|null $throw = null,
     ): LinP3 {
         return $this->to(
             to       : ColorSpace::LinP3,
@@ -272,7 +272,7 @@ abstract class Color
      */
     public function toLinProPhoto(
         LinProPhoto|null $fallback = null,
-        bool|null        $throw = null,
+        bool|null $throw = null,
     ): LinProPhoto {
         return $this->to(
             to       : ColorSpace::LinProPhoto,
@@ -291,7 +291,7 @@ abstract class Color
      */
     public function toLinRgb(
         LinRgb|null $fallback = null,
-        bool|null   $throw = null,
+        bool|null $throw = null,
     ): LinRgb {
         return $this->to(
             to       : ColorSpace::LinRgb,
@@ -310,7 +310,7 @@ abstract class Color
      */
     public function toOkLab(
         OkLab|null $fallback = null,
-        bool|null  $throw = null,
+        bool|null $throw = null,
     ): OkLab {
         return $this->to(
             to       : ColorSpace::OkLab,
@@ -329,7 +329,7 @@ abstract class Color
      */
     public function toOkLch(
         OkLch|null $fallback = null,
-        bool|null  $throw = null,
+        bool|null $throw = null,
     ): OkLch {
         return $this->to(
             to       : ColorSpace::OkLch,
@@ -347,7 +347,7 @@ abstract class Color
      * @return P3                     The converted color object
      */
     public function toP3(
-        P3|null   $fallback = null,
+        P3|null $fallback = null,
         bool|null $throw = null,
     ): P3 {
         return $this->to(
@@ -367,7 +367,7 @@ abstract class Color
      */
     public function toProPhoto(
         ProPhoto|null $fallback = null,
-        bool|null     $throw = null,
+        bool|null $throw = null,
     ): ProPhoto {
         return $this->to(
             to       : ColorSpace::ProPhoto,
@@ -385,7 +385,7 @@ abstract class Color
      * @return Rgb                    The converted color object
      */
     public function toRgb(
-        Rgb|null  $fallback = null,
+        Rgb|null $fallback = null,
         bool|null $throw = null,
     ): Rgb {
         return $this->to(
@@ -405,7 +405,7 @@ abstract class Color
      */
     public function toXyzD50(
         XyzD50|null $fallback = null,
-        bool|null   $throw = null,
+        bool|null $throw = null,
     ): XyzD50 {
         return $this->to(
             to       : ColorSpace::XyzD50,
@@ -424,7 +424,7 @@ abstract class Color
      */
     public function toXyzD65(
         XyzD65|null $fallback = null,
-        bool|null   $throw = null,
+        bool|null $throw = null,
     ): XyzD65 {
         return $this->to(
             to       : ColorSpace::XyzD65,

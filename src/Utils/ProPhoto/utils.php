@@ -8,7 +8,7 @@ use Atomicptr\Color\Exceptions\MissingColorValue;
 use Atomicptr\Color\Utils;
 
 function clean(
-    mixed     $value,
+    mixed $value,
     bool|null $throw = null,
 ): array {
     $values = utils\parseColorValue($value, 1);
@@ -32,10 +32,10 @@ function clean(
 }
 
 function from(
-    mixed                              $value,
+    mixed $value,
     ColorSpace|\Stringable|string|null $from = null,
-    array|null                         $fallback = null,
-    bool|null                          $throw = null,
+    array|null $fallback = null,
+    bool|null $throw = null,
 ): array {
     return utils\to(
         value    : $value,
@@ -47,12 +47,12 @@ function from(
 }
 
 function stringify(
-    float     $red,
-    float     $green,
-    float     $blue,
-    float     $opacity = 1,
+    float $red,
+    float $green,
+    float $blue,
+    float $opacity = 1,
     bool|null $alpha = null,
-    int|null  $precision = null,
+    int|null $precision = null,
 ): string {
     $legacy ??= Constant::LEGACY->value();
     $precision ??= Constant::PRECISION->value();

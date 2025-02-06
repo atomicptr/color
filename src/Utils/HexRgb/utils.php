@@ -6,8 +6,8 @@ use Atomicptr\Color\ColorSpace;
 use Atomicptr\Color\Utils;
 
 function clean(
-    mixed    $value,
-    bool     $throw = true,
+    mixed $value,
+    bool $throw = true,
 ): array {
     $values = [];
 
@@ -33,10 +33,10 @@ function clean(
 }
 
 function from(
-    mixed                              $value,
+    mixed $value,
     ColorSpace|\Stringable|string|null $from = null,
-    array|null                         $fallback = null,
-    bool|null                          $throw = null,
+    array|null $fallback = null,
+    bool|null $throw = null,
 ): array {
     return utils\to(
         value    : $value,
@@ -48,14 +48,14 @@ function from(
 }
 
 function stringify(
-    string    $red,
-    string    $green,
-    string    $blue,
-    string    $opacity = 'FF',
+    string $red,
+    string $green,
+    string $blue,
+    string $opacity = 'FF',
     bool|null $alpha = null,
-    bool      $short = true,
+    bool $short = true,
     bool|null $uppercase = null,
-    bool      $sharp = true,
+    bool $sharp = true,
 ): string {
     $red = utils\cleanHexValue($red);
     $green = utils\cleanHexValue($green);
