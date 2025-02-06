@@ -2,15 +2,13 @@
 
 namespace Atomicptr\Color\Colors;
 
-use       Atomicptr\Color\Color;
-use       Atomicptr\Color\ColorFactory;
-use       Atomicptr\Color\ColorInterface;
-use       Atomicptr\Color\Utils;
+use Atomicptr\Color\Color;
+use Atomicptr\Color\ColorFactory;
+use Atomicptr\Color\ColorInterface;
+use Atomicptr\Color\Utils;
 
-class      HexRgb
-extends    Color
-implements ColorInterface {
-
+class HexRgb extends Color implements ColorInterface
+{
     /* #region Constructor */
 
     public function __construct(
@@ -23,12 +21,12 @@ implements ColorInterface {
     }
 
     /* #endregion */
-    
-    /* #region Public Static Methods */    
-    
+
+    /* #region Public Static Methods */
+
     public static function aliases(
 
-    ) :array {
+    ): array {
         return [
             'hex',
             'hexrgb',
@@ -39,7 +37,7 @@ implements ColorInterface {
     }
 
     /* #endregion */
-    
+
     /* #region Public Methods */
 
     public function change(
@@ -49,28 +47,28 @@ implements ColorInterface {
         \Stringable|string|null $opacity   = null,
         HexRgb|null             $fallback  = null,
         bool|null               $throw     = null,
-    ) :HexRgb {
+    ): HexRgb {
         $changeThrow = $throw ?? true;
 
         return ColorFactory::newHexRgb(
             value    : [
-                utils\changeCoordinate($this->red,     $red,     true, $changeThrow),
-                utils\changeCoordinate($this->green,   $green,   true, $changeThrow),
-                utils\changeCoordinate($this->blue,    $blue,    true, $changeThrow),
+                utils\changeCoordinate($this->red, $red, true, $changeThrow),
+                utils\changeCoordinate($this->green, $green, true, $changeThrow),
+                utils\changeCoordinate($this->blue, $blue, true, $changeThrow),
                 utils\changeCoordinate($this->opacity, $opacity, true, $changeThrow),
             ],
             from     : $this::space(),
             fallback : $fallback,
             throw    : $throw,
         );
-    } 
-    
+    }
+
     public function stringify(
         bool|null $alpha     = null,
         bool      $short     = true,
         bool|null $uppercase = null,
         bool      $sharp     = true,
-    ) :string {        
+    ): string {
         return utils\hexRgb\stringify(
             red       : $this->red,
             green     : $this->green,
@@ -84,5 +82,5 @@ implements ColorInterface {
     }
 
     /* #endregion */
-    
+
 }

@@ -2,31 +2,29 @@
 
 namespace Atomicptr\Color\Colors;
 
-use       Atomicptr\Color\Color;
-use       Atomicptr\Color\ColorFactory;
-use       Atomicptr\Color\ColorInterface;
-use       Atomicptr\Color\CssColor;
-use       Atomicptr\Color\Utils;
+use Atomicptr\Color\Color;
+use Atomicptr\Color\ColorFactory;
+use Atomicptr\Color\ColorInterface;
+use Atomicptr\Color\CssColor;
+use Atomicptr\Color\Utils;
 
-class      Css
-extends    Color
-implements ColorInterface {
-
+class Css extends Color implements ColorInterface
+{
     /* #region Constructor */
-    
+
     public function __construct(
         public readonly CssColor|\Stringable|string $color,
     ) {
-        
+
     }
 
     /* #endregion */
-    
+
     /* #region Public Static Methods */
-    
+
     public static function aliases(
 
-    ) :array {
+    ): array {
         return [
             'css',
             'html',
@@ -42,7 +40,7 @@ implements ColorInterface {
         CssColor|\Stringable|string|null $color     = null,
         Css|null                         $fallback  = null,
         bool|null                        $throw     = null,
-    ) :self {
+    ): self {
         return ColorFactory::newCss(
             value    : $color ?? $this->color,
             from     : $this::space(),
@@ -53,10 +51,10 @@ implements ColorInterface {
 
     public function stringify(
 
-    ) :string {
+    ): string {
         return utils\css\stringify($this->color);
-    } 
+    }
 
     /* #endregion */
-        
-} 
+
+}

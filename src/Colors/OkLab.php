@@ -2,15 +2,13 @@
 
 namespace Atomicptr\Color\Colors;
 
-use       Atomicptr\Color\Color;
-use       Atomicptr\Color\ColorFactory;
-use       Atomicptr\Color\ColorInterface;
-use       Atomicptr\Color\Utils;
+use Atomicptr\Color\Color;
+use Atomicptr\Color\ColorFactory;
+use Atomicptr\Color\ColorInterface;
+use Atomicptr\Color\Utils;
 
-class      OkLab
-extends    Color
-implements ColorInterface {
-
+class OkLab extends Color implements ColorInterface
+{
     /* #region Constructor */
 
     public function __construct(
@@ -25,10 +23,10 @@ implements ColorInterface {
     /* #endregion */
 
     /* #region Public Static Methods */
-    
+
     public static function aliases(
 
-    ) :array {
+    ): array {
         return [
             'oklab',
             'ok-lab',
@@ -37,7 +35,7 @@ implements ColorInterface {
     }
 
     /* #endregion */
-    
+
     /* #region Public Methods */
 
     public function change(
@@ -47,27 +45,27 @@ implements ColorInterface {
         \Stringable|string|int|float|null $opacity    = null,
         OkLab|null                        $fallback   = null,
         bool|null                         $throw      = null,
-    ) :OkLab {
+    ): OkLab {
         $changeThrow = $throw ?? true;
 
         return ColorFactory::newOkLab(
             value    : [
                 utils\changeCoordinate($this->lightness, $lightness, false, $changeThrow),
-                utils\changeCoordinate($this->a,         $a,         false, $changeThrow),
-                utils\changeCoordinate($this->b,         $b,         false, $changeThrow),
-                utils\changeCoordinate($this->opacity,   $opacity,   false, $changeThrow),
+                utils\changeCoordinate($this->a, $a, false, $changeThrow),
+                utils\changeCoordinate($this->b, $b, false, $changeThrow),
+                utils\changeCoordinate($this->opacity, $opacity, false, $changeThrow),
             ],
             from     : $this::space(),
             fallback : $fallback,
             throw    : $throw,
         );
     }
-    
+
     public function stringify(
         bool|null $legacy    = null,
         bool|null $alpha     = null,
         int|null  $precision = null,
-    ) :string {
+    ): string {
         return utils\okLab\stringify(
             lightness : $this->lightness,
             a         : $this->a,

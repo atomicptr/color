@@ -2,15 +2,15 @@
 
 namespace Atomicptr\Color\Utils\LinProPhoto;
 
-use       Atomicptr\Color\ColorSpace;
-use       Atomicptr\Color\Constant;
-use       Atomicptr\Color\Exceptions\MissingColorValue;
-use       Atomicptr\Color\Utils;
+use Atomicptr\Color\ColorSpace;
+use Atomicptr\Color\Constant;
+use Atomicptr\Color\Exceptions\MissingColorValue;
+use Atomicptr\Color\Utils;
 
 function clean(
     mixed     $value,
     bool|null $throw = null,
-) :array {
+): array {
     $values  = utils\parseColorValue($value, 1);
     $red     = $values['red']     ?? $values['r'] ?? $values[0] ?? null;
     $green   = $values['green']   ?? $values['g'] ?? $values[1] ?? null;
@@ -36,13 +36,13 @@ function from(
     ColorSpace|\Stringable|string|null $from     = null,
     array|null                         $fallback = null,
     bool|null                          $throw    = null,
-) :array {
+): array {
     return utils\to(
-        value    : $value, 
-        to       : ColorSpace::LinProPhoto, 
-        from     : $from, 
-        fallback : $fallback, 
-        throw    : $throw, 
+        value    : $value,
+        to       : ColorSpace::LinProPhoto,
+        from     : $from,
+        fallback : $fallback,
+        throw    : $throw,
     );
 }
 
@@ -53,7 +53,7 @@ function stringify(
     float     $opacity   = 1,
     bool|null $alpha     = null,
     int|null  $precision = null,
-) :string {
+): string {
     $legacy    ??= Constant::LEGACY->value();
     $precision ??= Constant::PRECISION->value();
     $alpha     ??= ($opacity !== (float) 1);
@@ -79,6 +79,6 @@ function stringify(
 
 function verify(
     mixed $value,
-) :bool {
+): bool {
     return utils\isColorString($value, ColorSpace::LinProPhoto);
 }

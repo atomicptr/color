@@ -2,24 +2,24 @@
 
 namespace Atomicptr\Color\Utils\XyzD65;
 
-use       Atomicptr\Color\CssColor;
-use       Atomicptr\Color\Utils;
-use       Atomicptr\Color\Utils\HSL;
-use       Atomicptr\Color\Utils\HSV;
-use       Atomicptr\Color\Utils\Lab;
-use       Atomicptr\Color\Utils\LinP3;
-use       Atomicptr\Color\Utils\LinProPhoto;
-use       Atomicptr\Color\Utils\LinRGB;
-use       Atomicptr\Color\Utils\OkLab;
-use       Atomicptr\Color\Utils\RGB;
-use       Atomicptr\Color\Utils\XyzD50;
+use Atomicptr\Color\CssColor;
+use Atomicptr\Color\Utils;
+use Atomicptr\Color\Utils\HSL;
+use Atomicptr\Color\Utils\HSV;
+use Atomicptr\Color\Utils\Lab;
+use Atomicptr\Color\Utils\LinP3;
+use Atomicptr\Color\Utils\LinProPhoto;
+use Atomicptr\Color\Utils\LinRGB;
+use Atomicptr\Color\Utils\OkLab;
+use Atomicptr\Color\Utils\RGB;
+use Atomicptr\Color\Utils\XyzD50;
 
 function toCss(
     float $x       = 0,
     float $y       = 0,
     float $z       = 0,
     float $opacity = 1,
-) :CssColor {
+): CssColor {
     return rgb\toCss(... toRgb($x, $y, $z, $opacity));
 }
 
@@ -28,7 +28,7 @@ function toHexRgb(
     float $y       = 0,
     float $z       = 0,
     float $opacity = 1,
-) :array {
+): array {
     return rgb\toHexRgb(... toRgb($x, $y, $z, $opacity));
 }
 
@@ -37,7 +37,7 @@ function toHsl(
     float    $y       = 0,
     float    $z       = 0,
     float    $opacity = 1,
-) :array {
+): array {
     return rgb\toHsl(... toRgb($x, $y, $z, $opacity));
 }
 
@@ -46,7 +46,7 @@ function toHsv(
     float    $y       = 0,
     float    $z       = 0,
     float    $opacity = 1,
-) :array {
+): array {
     return hsl\toHsv(... toHsl($x, $y, $z, $opacity));
 }
 
@@ -55,7 +55,7 @@ function toHwb(
     float    $y       = 0,
     float    $z       = 0,
     float    $opacity = 1,
-) :array {
+): array {
     return hsv\toHwb(... toHsv($x, $y, $z, $opacity));
 }
 
@@ -64,7 +64,7 @@ function toLab(
     float $y       = 0,
     float $z       = 0,
     float $opacity = 1,
-) :array {
+): array {
     return xyzD50\toLab(... toXyzD50($x, $y, $z, $opacity));
 }
 
@@ -73,7 +73,7 @@ function toLch(
     float $y       = 0,
     float $z       = 0,
     float $opacity = 1,
-) :array {
+): array {
     return lab\toLch(... toLab($x, $y, $z, $opacity));
 }
 
@@ -82,7 +82,7 @@ function toLinP3(
     float $y       = 0,
     float $z       = 0,
     float $opacity = 1,
-) :array {
+): array {
     return utils\push(
         value : $opacity,
         array : utils\multiplyMatrices(
@@ -101,7 +101,7 @@ function toLinProPhoto(
     float $y       = 0,
     float $z       = 0,
     float $opacity = 1,
-) :array {
+): array {
     return xyzD50\toLinProPhoto(... toXyzD50($x, $y, $z, $opacity));
 }
 
@@ -110,7 +110,7 @@ function toLinRgb(
     float $y       = 0,
     float $z       = 0,
     float $opacity = 1,
-) :array {
+): array {
     return utils\push(
         value : $opacity,
         array : utils\multiplyMatrices(
@@ -129,7 +129,7 @@ function toOkLab(
     float $y       = 0,
     float $z       = 0,
     float $opacity = 1,
-) :array {
+): array {
     $okLab = utils\push(
         value : $opacity * 100,
         array : utils\multiplyMatrices(
@@ -139,7 +139,7 @@ function toOkLab(
                 [  0.0259040371,  0.7827717662, -0.8086757660 ],
             ],
             b : \array_map(
-                callback : fn ($v) => \pow($v, 1/3),
+                callback : fn ($v) => \pow($v, 1 / 3),
                 array    : utils\multiplyMatrices(
                     a : [
                         [ 0.8190224432164319,   0.3619062562801221,  -0.12887378261216414 ],
@@ -163,7 +163,7 @@ function toOkLch(
     float $y       = 0,
     float $z       = 0,
     float $opacity = 1,
-) :array {
+): array {
     return okLab\toOkLch(... toOkLab($x, $y, $z, $opacity));
 }
 
@@ -172,7 +172,7 @@ function toP3(
     float $y       = 0,
     float $z       = 0,
     float $opacity = 1,
-) :array {
+): array {
     return linP3\toP3(... toLinP3($x, $y, $z, $opacity));
 }
 
@@ -181,7 +181,7 @@ function toProPhoto(
     float $y       = 0,
     float $z       = 0,
     float $opacity = 1,
-) :array {
+): array {
     return linProPhoto\toProPhoto(... toLinProPhoto($x, $y, $z, $opacity));
 }
 
@@ -190,7 +190,7 @@ function toRgb(
     float $y       = 0,
     float $z       = 0,
     float $opacity = 1,
-) :array {
+): array {
     return linRgb\toRgb(... toLinRgb($x, $y, $z, $opacity));
 }
 
@@ -199,7 +199,7 @@ function toXyzD50(
     float $y       = 0,
     float $z       = 0,
     float $opacity = 1,
-) :array {
+): array {
     return utils\push(
         value : $opacity,
         array : utils\multiplyMatrices(

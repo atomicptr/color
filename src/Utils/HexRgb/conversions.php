@@ -2,25 +2,25 @@
 
 namespace Atomicptr\Color\Utils\HexRGB;
 
-use       Atomicptr\Color\CssColor;
-use       Atomicptr\Color\Utils;
-use       Atomicptr\Color\Utils\HSL;
-use       Atomicptr\Color\Utils\HSV;
-use       Atomicptr\Color\Utils\Lab;
-use       Atomicptr\Color\Utils\LinP3;
-use       Atomicptr\Color\Utils\LinProPhoto;
-use       Atomicptr\Color\Utils\LinRGB;
-use       Atomicptr\Color\Utils\OkLab;
-use       Atomicptr\Color\Utils\RGB;
-use       Atomicptr\Color\Utils\XyzD50;
-use       Atomicptr\Color\Utils\XyzD65;
+use Atomicptr\Color\CssColor;
+use Atomicptr\Color\Utils;
+use Atomicptr\Color\Utils\HSL;
+use Atomicptr\Color\Utils\HSV;
+use Atomicptr\Color\Utils\Lab;
+use Atomicptr\Color\Utils\LinP3;
+use Atomicptr\Color\Utils\LinProPhoto;
+use Atomicptr\Color\Utils\LinRGB;
+use Atomicptr\Color\Utils\OkLab;
+use Atomicptr\Color\Utils\RGB;
+use Atomicptr\Color\Utils\XyzD50;
+use Atomicptr\Color\Utils\XyzD65;
 
 function toCss(
     string $red     = '00',
     string $green   = '00',
     string $blue    = '00',
     string $opacity = 'FF',
-) :CssColor {
+): CssColor {
     return CssColor::fromHexRgb($red, $green, $blue);
 }
 
@@ -29,7 +29,7 @@ function toHsl(
     string $green   = '00',
     string $blue    = '00',
     string $opacity = 'FF',
-) :array {
+): array {
     return rgb\toHsl(... toRgb($red, $green, $blue, $opacity));
 }
 
@@ -38,7 +38,7 @@ function toHsv(
     string $green   = '00',
     string $blue    = '00',
     string $opacity = 'FF',
-) :array {
+): array {
     return hsl\toHsv(... toHsl($red, $green, $blue, $opacity));
 }
 
@@ -47,7 +47,7 @@ function toHwb(
     string $green   = '00',
     string $blue    = '00',
     string $opacity = 'FF',
-) :array {
+): array {
     return hsv\toHwb(... toHsv($red, $green, $blue, $opacity));
 }
 
@@ -56,7 +56,7 @@ function toLab(
     string $green   = '00',
     string $blue    = '00',
     string $opacity = 'FF',
-) :array {
+): array {
     return xyzD50\toLab(... toXyzD50($red, $green, $blue, $opacity));
 }
 
@@ -65,7 +65,7 @@ function toLch(
     string $green   = '00',
     string $blue    = '00',
     string $opacity = 'FF',
-) :array {
+): array {
     return lab\toLch(... toLab($red, $green, $blue, $opacity));
 }
 
@@ -74,7 +74,7 @@ function toLinP3(
     string $green   = '00',
     string $blue    = '00',
     string $opacity = 'FF',
-) :array {
+): array {
     return xyzD65\toLinP3(... toXyzD65($red, $green, $blue, $opacity));
 }
 
@@ -83,7 +83,7 @@ function toLinProPhoto(
     string $green   = '00',
     string $blue    = '00',
     string $opacity = 'FF',
-) :array {
+): array {
     return xyzD50\toLinProPhoto(... toXyzD50($red, $green, $blue, $opacity));
 }
 
@@ -92,7 +92,7 @@ function toLinRgb(
     string $green   = '00',
     string $blue    = '00',
     string $opacity = 'FF',
-) :array {
+): array {
     return rgb\toLinRgb(... toRgb($red, $green, $blue, $opacity));
 }
 
@@ -101,7 +101,7 @@ function toOkLab(
     string $green   = '00',
     string $blue    = '00',
     string $opacity = 'FF',
-) :array {
+): array {
     return xyzD65\toOkLab(... toXyzD65($red, $green, $blue, $opacity));
 }
 
@@ -110,7 +110,7 @@ function toOkLch(
     string $green   = '00',
     string $blue    = '00',
     string $opacity = 'FF',
-) :array {
+): array {
     return okLab\toOkLch(... toOkLab($red, $green, $blue, $opacity));
 }
 
@@ -119,7 +119,7 @@ function toP3(
     string $green   = '00',
     string $blue    = '00',
     string $opacity = 'FF',
-) :array {
+): array {
     return linP3\toP3(... toLinP3($red, $green, $blue, $opacity));
 }
 
@@ -128,7 +128,7 @@ function toProPhoto(
     string $green   = '00',
     string $blue    = '00',
     string $opacity = 'FF',
-) :array {
+): array {
     return linProPhoto\toProPhoto(... toLinProPhoto($red, $green, $blue, $opacity));
 }
 
@@ -137,7 +137,7 @@ function toRgb(
     string $green   = '00',
     string $blue    = '00',
     string $opacity = 'FF',
-) :array {
+): array {
     return [
         utils\hexToDec($red),
         utils\hexToDec($green),
@@ -151,7 +151,7 @@ function toXyzD50(
     string $green   = '00',
     string $blue    = '00',
     string $opacity = 'FF',
-) :array {
+): array {
     return xyzD65\toXyzD50(... toXyzD65($red, $green, $blue, $opacity));
 }
 
@@ -160,6 +160,6 @@ function toXyzD65(
     string $green   = '00',
     string $blue    = '00',
     string $opacity = 'FF',
-) :array {
+): array {
     return linRgb\toXyzD65(... toLinRgb($red, $green, $blue, $opacity));
 }

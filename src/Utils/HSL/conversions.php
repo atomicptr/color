@@ -2,23 +2,23 @@
 
 namespace Atomicptr\Color\Utils\HSL;
 
-use       Atomicptr\Color\CssColor;
-use       Atomicptr\Color\Utils\HSV;
-use       Atomicptr\Color\Utils\Lab;
-use       Atomicptr\Color\Utils\LinP3;
-use       Atomicptr\Color\Utils\LinProPhoto;
-use       Atomicptr\Color\Utils\LinRGB;
-use       Atomicptr\Color\Utils\OkLab;
-use       Atomicptr\Color\Utils\RGB;
-use       Atomicptr\Color\Utils\XyzD50;
-use       Atomicptr\Color\Utils\XyzD65;
+use Atomicptr\Color\CssColor;
+use Atomicptr\Color\Utils\HSV;
+use Atomicptr\Color\Utils\Lab;
+use Atomicptr\Color\Utils\LinP3;
+use Atomicptr\Color\Utils\LinProPhoto;
+use Atomicptr\Color\Utils\LinRGB;
+use Atomicptr\Color\Utils\OkLab;
+use Atomicptr\Color\Utils\RGB;
+use Atomicptr\Color\Utils\XyzD50;
+use Atomicptr\Color\Utils\XyzD65;
 
 function toCss(
     float $hue        = 0,
     float $saturation = 0,
     float $lightness  = 0,
     float $opacity    = 100,
-) :CssColor {
+): CssColor {
     return rgb\toCss(... toRgb($hue, $saturation, $lightness, $opacity));
 }
 
@@ -27,7 +27,7 @@ function toHexRgb(
     float $saturation = 0,
     float $lightness  = 0,
     float $opacity    = 100,
-) :array {
+): array {
     return rgb\toHexRgb(... toRgb($hue, $saturation, $lightness, $opacity));
 }
 
@@ -36,7 +36,7 @@ function toHsv(
     float $saturation = 0,
     float $lightness  = 0,
     float $opacity    = 100,
-) :array {
+): array {
     $saturation /= 100;
     $lightness  /= 100;
     $value       = $lightness + $saturation * \min($lightness, 1 - $lightness);
@@ -44,7 +44,7 @@ function toHsv(
         ? 0
         : 200 * (1 - $lightness / $value)
     ;
-    
+
     return [
         $hue,
         $saturation,
@@ -58,7 +58,7 @@ function toHwb(
     float $saturation = 0,
     float $lightness  = 0,
     float $opacity    = 100,
-) :array {
+): array {
     return hsv\toHwb(... toHsv($hue, $saturation, $lightness, $opacity));
 }
 
@@ -67,7 +67,7 @@ function toLab(
     float $saturation = 0,
     float $lightness  = 0,
     float $opacity    = 100,
-) :array {
+): array {
     return xyzD50\toLab(... toXyzD50($hue, $saturation, $lightness, $opacity));
 }
 
@@ -76,7 +76,7 @@ function toLch(
     float $saturation = 0,
     float $lightness  = 0,
     float $opacity    = 100,
-) :array {
+): array {
     return lab\toLch(... toLab($hue, $saturation, $lightness, $opacity));
 }
 
@@ -85,7 +85,7 @@ function toLinP3(
     float $saturation = 0,
     float $lightness  = 0,
     float $opacity    = 100,
-) :array {
+): array {
     return xyzD65\toLinP3(... toXyzD65($hue, $saturation, $lightness, $opacity));
 }
 
@@ -94,7 +94,7 @@ function toLinProPhoto(
     float $saturation = 0,
     float $lightness  = 0,
     float $opacity    = 100,
-) :array {
+): array {
     return xyzD50\toLinProPhoto(... toXyzD50($hue, $saturation, $lightness, $opacity));
 }
 
@@ -103,7 +103,7 @@ function toLinRgb(
     float $saturation = 0,
     float $lightness  = 0,
     float $opacity    = 100,
-) :array {
+): array {
     return rgb\toLinRgb(... toRgb($hue, $saturation, $lightness, $opacity));
 }
 
@@ -112,7 +112,7 @@ function toOkLab(
     float $saturation = 0,
     float $lightness  = 0,
     float $opacity    = 100,
-) :array {
+): array {
     return xyzD65\toOkLab(... toXyzD65($hue, $saturation, $lightness, $opacity));
 }
 
@@ -121,7 +121,7 @@ function toOkLch(
     float $saturation = 0,
     float $lightness  = 0,
     float $opacity    = 100,
-) :array {
+): array {
     return okLab\toOkLch(... toOkLab($hue, $saturation, $lightness, $opacity));
 }
 
@@ -130,7 +130,7 @@ function toP3(
     float $saturation = 0,
     float $lightness  = 0,
     float $opacity    = 100,
-) :array {
+): array {
     return linP3\toP3(... toLinP3($hue, $saturation, $lightness, $opacity));
 }
 
@@ -139,7 +139,7 @@ function toProPhoto(
     float $saturation = 0,
     float $lightness  = 0,
     float $opacity    = 100,
-) :array {
+): array {
     return linProPhoto\toProPhoto(... toLinProPhoto($hue, $saturation, $lightness, $opacity));
 }
 
@@ -148,14 +148,14 @@ function toRgb(
     float $saturation = 0,
     float $lightness  = 0,
     float $opacity    = 100,
-) :array {
+): array {
     $precision ??= 0;
     $hue        /= 60;
 
     if ($hue < 0) {
         $hue = 6 - \fmod(-$hue, 6);
     }
-    
+
     $hue        = \fmod($hue, 6);
     $saturation = \max(0, \min(1, $saturation / 100));
     $lightness  = \max(0, \min(1, $lightness / 100));
@@ -166,28 +166,23 @@ function toRgb(
         $red   = $c;
         $green = $x;
         $blue  = 0;
-    } 
-    else if ($hue < 2) {
+    } elseif ($hue < 2) {
         $red   = $x;
         $green = $c;
         $blue  = 0;
-    } 
-    else if ($hue < 3) {
+    } elseif ($hue < 3) {
         $red   = 0;
         $green = $c;
         $blue  = $x;
-    } 
-    else if ($hue < 4) {
+    } elseif ($hue < 4) {
         $red   = 0;
         $green = $x;
         $blue  = $c;
-    } 
-    else if ($hue < 5) {
+    } elseif ($hue < 5) {
         $red   = $x;
         $green = 0;
         $blue  = $c;
-    } 
-    else {
+    } else {
         $red   = $c;
         $green = 0;
         $blue  = $x;
@@ -212,7 +207,7 @@ function toXyzD50(
     float $saturation = 0,
     float $lightness  = 0,
     float $opacity    = 100,
-) :array {
+): array {
     return xyzD65\toXyzD50(... toXyzD65($hue, $saturation, $lightness, $opacity));
 }
 
@@ -221,6 +216,6 @@ function toXyzD65(
     float $saturation = 0,
     float $lightness  = 0,
     float $opacity    = 100,
-) :array {
+): array {
     return linRgb\toXyzD65(... toLinRgb($hue, $saturation, $lightness, $opacity));
 }

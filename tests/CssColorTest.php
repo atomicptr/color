@@ -2,13 +2,12 @@
 
 namespace Atomicptr\Color\Tests;
 
-use       Atomicptr\Color\CssColor;
-use       PHPUnit\Framework\TestCase;
+use Atomicptr\Color\CssColor;
+use PHPUnit\Framework\TestCase;
 
-class   CssColorTest 
-extends TestCase {
-
-    const COLORS = [        
+class CssColorTest extends TestCase
+{
+    public const COLORS = [
         'lightpink' => [
             'case'   => CssColor::lightpink,
             'hexRgb' => [ 'FF', 'B6', 'C1' ],
@@ -43,13 +42,13 @@ extends TestCase {
 
     public function test_cases_returns148Cases(
 
-    ) :void {
+    ): void {
         $this->assertCount(148, CssColor::cases());
     }
 
     public function test_names_returns148ExistingCssColorNames(
 
-    ) :void {
+    ): void {
         $names = CssColor::names();
 
         $this->assertCount(148, $names);
@@ -61,7 +60,7 @@ extends TestCase {
 
     public function test_allHexRgbCoordinates_returnsAnArrayOfHexRgbCoordinatesMatchingCssNamedColors(
 
-    ) :void {
+    ): void {
         $coordinates = CssColor::allHexRgbCoordinates();
 
         foreach ($this::COLORS as $name => $data) {
@@ -72,7 +71,7 @@ extends TestCase {
 
     public function test_allRgbCoordinates_returnsAnArrayOfRgbCoordinatesMatchingCssNamedColors(
 
-    ) :void {
+    ): void {
         $coordinates = CssColor::allRgbCoordinates();
 
         foreach ($this::COLORS as $name => $data) {
@@ -83,7 +82,7 @@ extends TestCase {
 
     public function test_exists_returnsTrueForExistingCssColorNames(
 
-    ) :void {
+    ): void {
         foreach (\array_keys($this::COLORS) as $name) {
             $this->assertTrue(CssColor::exists($name));
         }
@@ -91,7 +90,7 @@ extends TestCase {
 
     public function test_fromCss_returnsTheCssColorInstanceMatchingProvidedName(
 
-    ) :void {
+    ): void {
         foreach ($this::COLORS as $name => $data) {
             $this->assertSame($data['case'], CssColor::fromCss($name));
         }
@@ -99,7 +98,7 @@ extends TestCase {
 
     public function test_fromHexRgb_returnsTheCssColorInstanceMatchingProvidedHexRgbCoordinates(
 
-    ) :void {
+    ): void {
         foreach ($this::COLORS as $name => $data) {
             $this->assertSame($data['case'], CssColor::fromHexRgb(... $data['hexRgb']));
         }
@@ -107,7 +106,7 @@ extends TestCase {
 
     public function test_fromRgb_returnsTheCssColorInstanceMatchingProvidedRgbCoordinates(
 
-    ) :void {
+    ): void {
         foreach ($this::COLORS as $name => $data) {
             $this->assertSame($data['case'], CssColor::fromRgb(... $data['rgb']));
         }
@@ -115,7 +114,7 @@ extends TestCase {
 
     public function test_toHexRgbCoordinates_returnsAnArrayOfHexRgbCoordinatesMatchingTheCurrentColor(
 
-    ) :void {
+    ): void {
         foreach ($this::COLORS as $name => $data) {
             $this->assertSame($data['hexRgb'], $data['case']->toHexRgbCoordinates());
         }
@@ -123,7 +122,7 @@ extends TestCase {
 
     public function test_toRgbCoordinates_returnsAnArrayOfRgbCoordinatesMatchingTheCurrentColor(
 
-    ) :void {
+    ): void {
         foreach ($this::COLORS as $name => $data) {
             $this->assertSame($data['rgb'], $data['case']->toRgbCoordinates());
         }

@@ -2,15 +2,13 @@
 
 namespace Atomicptr\Color\Colors;
 
-use       Atomicptr\Color\Color;
-use       Atomicptr\Color\ColorFactory;
-use       Atomicptr\Color\ColorInterface;
-use       Atomicptr\Color\Utils;
+use Atomicptr\Color\Color;
+use Atomicptr\Color\ColorFactory;
+use Atomicptr\Color\ColorInterface;
+use Atomicptr\Color\Utils;
 
-class      XyzD50
-extends    Color
-implements ColorInterface {
-
+class XyzD50 extends Color implements ColorInterface
+{
     /* #region Constructor */
 
     public function __construct(
@@ -23,21 +21,21 @@ implements ColorInterface {
     }
 
     /* #endregion */
-    
+
     /* #region Public Static Methods */
-    
+
     public static function aliases(
 
-    ) :array {
+    ): array {
         return [
             'xyz-d50',
             'xyz_d50',
             'xyzd50',
         ];
     }
-    
+
     /* #endregion */
-    
+
     /* #region Public Methods */
 
     public function change(
@@ -47,14 +45,14 @@ implements ColorInterface {
         \Stringable|string|int|float|null $opacity  = null,
         XyzD50|null                       $fallback = null,
         bool|null                         $throw    = null,
-    ) :XyzD50 {
+    ): XyzD50 {
         $changeThrow = $throw ?? true;
 
         return ColorFactory::newXyzD50(
             value    : [
-                utils\changeCoordinate($this->x,       $y,       false, $changeThrow),
-                utils\changeCoordinate($this->y,       $y,       false, $changeThrow),
-                utils\changeCoordinate($this->z,       $z,       false, $changeThrow),
+                utils\changeCoordinate($this->x, $y, false, $changeThrow),
+                utils\changeCoordinate($this->y, $y, false, $changeThrow),
+                utils\changeCoordinate($this->z, $z, false, $changeThrow),
                 utils\changeCoordinate($this->opacity, $opacity, false, $changeThrow),
             ],
             from     : $this::space(),
@@ -62,12 +60,12 @@ implements ColorInterface {
             throw    : $throw,
         );
     }
-    
+
     public function stringify(
         bool|null $legacy    = null,
         bool|null $alpha     = null,
         int|null  $precision = null,
-    ) :string {
+    ): string {
         return utils\xyzD50\stringify(
             x         : $this->x,
             y         : $this->y,

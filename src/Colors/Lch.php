@@ -2,15 +2,13 @@
 
 namespace Atomicptr\Color\Colors;
 
-use       Atomicptr\Color\Color;
-use       Atomicptr\Color\ColorFactory;
-use       Atomicptr\Color\ColorInterface;
-use       Atomicptr\Color\Utils;
+use Atomicptr\Color\Color;
+use Atomicptr\Color\ColorFactory;
+use Atomicptr\Color\ColorInterface;
+use Atomicptr\Color\Utils;
 
-class      Lch
-extends    Color
-implements ColorInterface {
-
+class Lch extends Color implements ColorInterface
+{
     /* #region Constructor */
 
     public function __construct(
@@ -25,10 +23,10 @@ implements ColorInterface {
     /* #endregion */
 
     /* #region Public Static Methods */
-    
+
     public static function aliases(
 
-    ) :array {
+    ): array {
         return [
             'lch',
             'cielch',
@@ -38,7 +36,7 @@ implements ColorInterface {
     }
 
     /* #endregion */
-    
+
     /* #region Public Methods */
 
     public function change(
@@ -48,27 +46,27 @@ implements ColorInterface {
         \Stringable|string|int|float|null $opacity   = null,
         Lch|null                          $fallback  = null,
         bool|null                         $throw     = null,
-    ) :Lch {
+    ): Lch {
         $changeThrow = $throw ?? true;
 
         return ColorFactory::newLch(
             value    : [
                 utils\changeCoordinate($this->lightness, $lightness, false, $changeThrow),
-                utils\changeCoordinate($this->chroma,    $chroma,    false, $changeThrow),
-                utils\changeCoordinate($this->hue,       $hue,       false, $changeThrow),
-                utils\changeCoordinate($this->opacity,   $opacity,   false, $changeThrow),
+                utils\changeCoordinate($this->chroma, $chroma, false, $changeThrow),
+                utils\changeCoordinate($this->hue, $hue, false, $changeThrow),
+                utils\changeCoordinate($this->opacity, $opacity, false, $changeThrow),
             ],
             from     : $this::space(),
             fallback : $fallback,
             throw    : $throw,
         );
-    } 
-    
+    }
+
     public function stringify(
         bool|null $legacy    = null,
         bool|null $alpha     = null,
         int|null  $precision = null,
-    ) :string {
+    ): string {
         return utils\lch\stringify(
             lightness : $this->lightness,
             chroma    : $this->chroma,

@@ -2,15 +2,13 @@
 
 namespace Atomicptr\Color\Colors;
 
-use       Atomicptr\Color\Color;
-use       Atomicptr\Color\ColorFactory;
-use       Atomicptr\Color\ColorInterface;
-use       Atomicptr\Color\Utils;
+use Atomicptr\Color\Color;
+use Atomicptr\Color\ColorFactory;
+use Atomicptr\Color\ColorInterface;
+use Atomicptr\Color\Utils;
 
-class      Hsv
-extends    Color
-implements ColorInterface {
-
+class Hsv extends Color implements ColorInterface
+{
     /* #region Constructor */
 
     public function __construct(
@@ -25,10 +23,10 @@ implements ColorInterface {
     /* #endregion */
 
     /* #region Public Static Methods */
-    
+
     public static function aliases(
 
-    ) :array {
+    ): array {
         return [
             'hsv',
             'hsb',
@@ -36,7 +34,7 @@ implements ColorInterface {
     }
 
     /* #endregion */
-    
+
     /* #region Public Methods */
 
     public function change(
@@ -46,27 +44,27 @@ implements ColorInterface {
         \Stringable|string|int|float|null $opacity    = null,
         Hsv|null                          $fallback   = null,
         bool|null                         $throw      = null,
-    ) :Hsv {
+    ): Hsv {
         $changeThrow = $throw ?? true;
 
         return ColorFactory::newHsv(
             value    : [
-                utils\changeCoordinate($this->hue,        $hue,        false, $changeThrow),
+                utils\changeCoordinate($this->hue, $hue, false, $changeThrow),
                 utils\changeCoordinate($this->saturation, $saturation, false, $changeThrow),
-                utils\changeCoordinate($this->value,      $value,      false, $changeThrow),
-                utils\changeCoordinate($this->opacity,    $opacity,    false, $changeThrow),
+                utils\changeCoordinate($this->value, $value, false, $changeThrow),
+                utils\changeCoordinate($this->opacity, $opacity, false, $changeThrow),
             ],
             from     : $this::space(),
             fallback : $fallback,
             throw    : $throw,
         );
-    } 
-    
+    }
+
     public function stringify(
         bool|null $legacy    = null,
         bool|null $alpha     = null,
         int|null  $precision = null,
-    ) :string {
+    ): string {
         return utils\hsv\stringify(
             hue        : $this->hue,
             saturation : $this->saturation,

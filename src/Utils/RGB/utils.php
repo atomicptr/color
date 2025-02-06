@@ -2,15 +2,15 @@
 
 namespace Atomicptr\Color\Utils\RGB;
 
-use       Atomicptr\Color\ColorSpace;
-use       Atomicptr\Color\Constant;
-use       Atomicptr\Color\Exceptions\MissingColorValue;
-use       Atomicptr\Color\Utils;
+use Atomicptr\Color\ColorSpace;
+use Atomicptr\Color\Constant;
+use Atomicptr\Color\Exceptions\MissingColorValue;
+use Atomicptr\Color\Utils;
 
 function clean(
     mixed     $value,
     bool|null $throw = null,
-) :array {
+): array {
     $values  = utils\parseColorValue($value, 255);
     $red     = $values['red']     ?? $values['r'] ?? $values[0] ?? null;
     $green   = $values['green']   ?? $values['g'] ?? $values[1] ?? null;
@@ -24,9 +24,9 @@ function clean(
         ($blue  === null) => throw new MissingColorValue('blue'),
         default           => null,
     } ?? [
-        utils\cleanCoordinate($red     ?? 0,   0, 255),
-        utils\cleanCoordinate($green   ?? 0,   0, 255),
-        utils\cleanCoordinate($blue    ?? 0,   0, 255),
+        utils\cleanCoordinate($red     ?? 0, 0, 255),
+        utils\cleanCoordinate($green   ?? 0, 0, 255),
+        utils\cleanCoordinate($blue    ?? 0, 0, 255),
         utils\cleanCoordinate($opacity ?? 255, 0, 255),
     ];
 }
@@ -36,13 +36,13 @@ function from(
     ColorSpace|\Stringable|string|null $from     = null,
     array|null                         $fallback = null,
     bool|null                          $throw    = null,
-) :array {
+): array {
     return utils\to(
-        value    : $value, 
-        to       : ColorSpace::Rgb, 
-        from     : $from, 
-        fallback : $fallback, 
-        throw    : $throw, 
+        value    : $value,
+        to       : ColorSpace::Rgb,
+        from     : $from,
+        fallback : $fallback,
+        throw    : $throw,
     );
 }
 
@@ -54,7 +54,7 @@ function stringify(
     bool|null $legacy    = null,
     bool|null $alpha     = null,
     int|null  $precision = null,
-) :string {
+): string {
     $legacy    ??= Constant::LEGACY->value();
     $precision ??= Constant::PRECISION->value();
     $function    = 'rgb';
@@ -73,8 +73,7 @@ function stringify(
         $unit     = '';
         $s1       =
         $s2       = ',';
-    }
-    else {
+    } else {
         $red     /= 2.55;
         $green   /= 2.55;
         $blue    /= 2.55;
@@ -107,10 +106,10 @@ function stringify(
 
 function verify(
     mixed $value,
-) :bool {
+): bool {
     return utils\isColorString($value, ColorSpace::Rgb)
         || utils\validateArray(
-            value  : $value, 
+            value  : $value,
             filter : fn ($v) => !\is_object($v) && ((int) $v >= 0) && ((int) $v <= 255)
         )
     ;

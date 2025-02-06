@@ -2,17 +2,17 @@
 
 namespace Atomicptr\Color;
 
-use       Atomicptr\Color\Colors\Css;
-use       Atomicptr\Color\Colors\HexRgb;
-use       Atomicptr\Color\Colors\Rgb;
-use       Atomicptr\Color\Exceptions\UnsupportedCssColor;
+use Atomicptr\Color\Colors\Css;
+use Atomicptr\Color\Colors\HexRgb;
+use Atomicptr\Color\Colors\Rgb;
+use Atomicptr\Color\Exceptions\UnsupportedCssColor;
 
 /**
  * Represents a named color according to the CSS specification (https://drafts.csswg.org/css-color-4/#named-colors).
  * It can be converted to RGB or Hexadecimal RGB coordinates, or directly to an instance of colors\Rgb or colors\HexRgb.
  */
-enum CssColor {
-    
+enum CssColor
+{
     /* #region Cases */
 
     case aliceblue;
@@ -165,7 +165,7 @@ enum CssColor {
     case yellowgreen;
 
     /* #endregion */
-    
+
     /* #region Public Static Methods */
 
     /**
@@ -175,7 +175,7 @@ enum CssColor {
      */
     public static function allHexRgbCoordinates(
 
-    ) :array {
+    ): array {
         return [
             static::aliceblue->name            => [ 'F0', 'F8', 'FF' ],
             static::antiquewhite->name         => [ 'FA', 'EB', 'D7' ],
@@ -327,7 +327,7 @@ enum CssColor {
             static::yellowgreen->name          => [ '9A', 'CD', '32' ],
         ];
     }
-    
+
     /**
      * Returns an array containing RGB coordinates for all supported CSS colors.
      *
@@ -335,7 +335,7 @@ enum CssColor {
      */
     public static function allRgbCoordinates(
 
-    ) :array {
+    ): array {
         return [
             static::aliceblue->name            => [ 240, 248, 255 ],
             static::antiquewhite->name         => [ 250, 235, 215 ],
@@ -492,12 +492,12 @@ enum CssColor {
      * Returns true if the $name CSS color exists, false otherwise.
      *
      * @param  \Stringable|string $name The named CSS color you're looking for
-     * 
+     *
      * @return boolean                  True if $name is an existing CSS color, false otherwise
      */
     public static function exists(
         \Stringable|string $name,
-    ) :bool {
+    ): bool {
         return \in_array(
             needle   : (string) $name,
             haystack : static::names(),
@@ -505,22 +505,22 @@ enum CssColor {
     }
 
     /**
-     * Returns the instance of the CssColor enum corresponding to the color $name if it exists. 
-     * 
-     * If $name does not correspond to an existing CSS color, a new UnsupportedCssColor Exception will be thrown by default, 
+     * Returns the instance of the CssColor enum corresponding to the color $name if it exists.
+     *
+     * If $name does not correspond to an existing CSS color, a new UnsupportedCssColor Exception will be thrown by default,
      * except if a $fallback is provided or if the $throw parameter is set to false. In that case, the method will retun $fallback.
      *
      * @param  \Stringable|string $name     Name of the desired CSS color. It should correspond to one of the enum's cases
      * @param  CssColor|null      $fallback Instance of the CssColor enum to return in case of failure (null by default)
      * @param  boolean|null       $throw    If false the method will not throw exceptions, $fallback will be returned instead
-     * 
+     *
      * @return static|null
      */
     public static function fromCss(
         \Stringable|string $name,
         CssColor|null      $fallback = null,
         bool|null          $throw    = null,
-    ) :static|null {
+    ): static|null {
         $throw ??= !((bool) $fallback);
         $name    = \strtolower(\trim((string) $name));
 
@@ -538,11 +538,11 @@ enum CssColor {
 
     /**
      * Returns the instance of the CssColor enum corresponding to the provided Hexadecimal RGB coordinates, if it exists.
-     * 
-     * By default and if the $closest parameter is true, the supported color which has the closest coordinates will be returned. 
-     * 
-     * If $closest is false and no supported color matches the provided coordinates, a new UnsupportedCssColor Exception will be 
-     * thrown by default, except if a $fallback is provided or if the $throw parameter is set to false. In that case, the 
+     *
+     * By default and if the $closest parameter is true, the supported color which has the closest coordinates will be returned.
+     *
+     * If $closest is false and no supported color matches the provided coordinates, a new UnsupportedCssColor Exception will be
+     * thrown by default, except if a $fallback is provided or if the $throw parameter is set to false. In that case, the
      * method will return $fallback.
      *
      * @param  string        $red      Red coordinate of the desired CSS color. It should be a string containing an hexadecimal number between '00' and 'FF'
@@ -551,7 +551,7 @@ enum CssColor {
      * @param  boolean       $closest  If true, returns the supported CSS color which is the closest from provided coordinates. If false, throws an Exception or returns $fallback
      * @param  CssColor|null $fallback Instance of the CssColor enum to return in case of failure (null by default)
      * @param  boolean|null  $throw    If false the method will not throw exceptions, $fallback will be returned instead
-     * 
+     *
      * @return static|null
      */
     public static function fromHexRgb(
@@ -561,14 +561,14 @@ enum CssColor {
         bool          $closest  = true,
         CssColor|null $fallback = null,
         bool|null     $throw    = null,
-    ) :static|null {
+    ): static|null {
         $red       = utils\cleanHexValue($red);
         $green     = utils\cleanHexValue($green);
         $blue      = utils\cleanHexValue($blue);
         $array     = [ $red, $green, $blue ];
         $distances = [];
         $value     = null;
-        
+
         foreach (static::allHexRgbCoordinates() as $color => $values) {
             if ($array === $values) {
                 $value = $color;
@@ -584,28 +584,28 @@ enum CssColor {
                 + \abs(\hexDec($values[2]) - \hexDec($blue))
             ;
         }
-        
+
         if (\count($distances)) {
             $value ??= \array_search(
                 needle   : \min($distances),
                 haystack : $distances,
             );
         }
-        
+
         if (!$value) {
             $value = '#'.\implode('', $array);
         }
 
         return static::fromCss($value, $fallback, $throw);
-    }  
+    }
 
     /**
      * Returns the instance of the CssColor enum corresponding to the provided RGB coordinates, if it exists.
-     * 
-     * By default and if the $closest parameter is true, the supported color which has the closest coordinates will be returned. 
-     * 
-     * If $closest is false and no supported color matches the provided coordinates, a new UnsupportedCssColor Exception will be 
-     * thrown by default, except if a $fallback is provided or if the $throw parameter is set to false. In that case, the 
+     *
+     * By default and if the $closest parameter is true, the supported color which has the closest coordinates will be returned.
+     *
+     * If $closest is false and no supported color matches the provided coordinates, a new UnsupportedCssColor Exception will be
+     * thrown by default, except if a $fallback is provided or if the $throw parameter is set to false. In that case, the
      * method will return $fallback.
      *
      * @param  string        $red      Red coordinate of the desired CSS color. It should be a number between 0 and 255
@@ -614,7 +614,7 @@ enum CssColor {
      * @param  boolean       $closest  If true, returns the supported CSS color which is the closest from provided coordinates. If false, throws an Exception or returns $fallback
      * @param  CssColor|null $fallback Instance of the CssColor enum to return in case of failure (null by default)
      * @param  boolean|null  $throw    If false the method will not throw exceptions, $fallback will be returned instead
-     * 
+     *
      * @return static|null
      */
     public static function fromRgb(
@@ -624,11 +624,11 @@ enum CssColor {
         bool          $closest  = true,
         CssColor|null $fallback = null,
         bool|null     $throw    = null,
-    ) :static|null {
+    ): static|null {
         $array     = [ $red, $green, $blue ];
         $distances = [];
         $value     = null;
-        
+
         foreach (static::allRgbCoordinates() as $color => $values) {
             if ($array === $values) {
                 $value = $color;
@@ -644,14 +644,14 @@ enum CssColor {
                 + \abs($values[2] - $blue)
             ;
         }
-        
+
         if (\count($distances)) {
             $value ??= \array_search(
                 needle   : \min($distances),
                 haystack : $distances,
             );
         }
-        
+
         if (!$value) {
             $value = 'rgb('.\implode(',', $array).')';
         }
@@ -666,7 +666,7 @@ enum CssColor {
      */
     public static function names(
 
-    ) :array {
+    ): array {
         return \array_map(
             callback : fn ($color) => $color->name,
             array    : static::cases(),
@@ -674,7 +674,7 @@ enum CssColor {
     }
 
     /* #endregion */
-    
+
     /* #region Public Methods */
 
     /**
@@ -682,13 +682,13 @@ enum CssColor {
      *
      * @param  Css|null     $fallback An instance of Atomicptr\Color\Colors\Css used as a fallback in case of error
      * @param  boolean|null $throw    If false no exception will be thrown, $fallback will be returned instead
-     * 
+     *
      * @return Css|null
      */
     public function toCss(
         Css|null  $fallback  = null,
         bool|null $throw     = null,
-    ) :Css|null {
+    ): Css|null {
         return ColorFactory::newCss(
             value     : $this->name,
             from      : ColorSpace::Css,
@@ -702,13 +702,13 @@ enum CssColor {
      *
      * @param HexRgb|null  $fallback An instance of Atomicptr\Color\Colors\HexRgb used as a fallback in case of error
      * @param boolean|null $throw    If false no exception will be thrown, $fallback will be returned instead
-     * 
+     *
      * @return HexRgb|null
      */
     public function toHexRgb(
         HexRgb|null $fallback  = null,
         bool|null   $throw     = null,
-    ) :HexRgb|null {
+    ): HexRgb|null {
         return ColorFactory::newHexRgb(
             value     : $this->toHexRgbCoordinates(),
             from      : ColorSpace::HexRgb,
@@ -716,7 +716,7 @@ enum CssColor {
             throw     : $throw,
         );
     }
-    
+
     /**
      * Return an array containing Hexadecimal RGB coordinates corresponding to the current CssColor.
      *
@@ -724,18 +724,18 @@ enum CssColor {
      */
     public function toHexRgbCoordinates(
 
-    ) :array {
+    ): array {
         return static::allHexRgbCoordinates()[$this->name];
     }
-    
+
     /**
      * Returns a string corresponding to the current CssColor exprimed in Hexadecimal RGB according to the CSS syntax.
      *
      * @param  boolean|null $alpha     If true opacity will always be included, if false it will never be included, if null it will be included only if different from FF
      * @param  boolean      $short     If true a short value (like #F00) will be returned if possible, if false the method will always return a long value (like #FF0000)
      * @param  boolean      $uppercase If true the returned string will be in uppercase, if false in lowercase
-     * @param  boolean      $sharp     If true the returned string will start with a sharp character (#), if false it won't 
-     * 
+     * @param  boolean      $sharp     If true the returned string will start with a sharp character (#), if false it won't
+     *
      * @return string
      */
     public function toHexRgbString(
@@ -743,9 +743,9 @@ enum CssColor {
         bool      $short     = true,
         bool      $uppercase = true,
         bool      $sharp     = true,
-    ) :string {
+    ): string {
         $values = $this->toHexRgbCoordinates();
-        
+
         return utils\hexRgb\stringify(
             red       : $values[0],
             green     : $values[1],
@@ -763,13 +763,13 @@ enum CssColor {
      *
      * @param Rgb|null     $fallback An instance of Atomicptr\Color\Colors\Rgb used as a fallback in case of error
      * @param boolean|null $throw    If false no exception will be thrown, $fallback will be returned instead
-     * 
+     *
      * @return Rgb|null
      */
     public function toRgb(
         Rgb|null  $fallback  = null,
         bool|null $throw     = null,
-    ) :Rgb|null {
+    ): Rgb|null {
         return ColorFactory::newRgb(
             value     : $this->toRgbCoordinates(),
             from      : ColorSpace::Rgb,
@@ -777,7 +777,7 @@ enum CssColor {
             throw     : $throw,
         );
     }
-    
+
     /**
      * Return an array containing RGB coordinates corresponding to the current CssColor.
      *
@@ -785,22 +785,22 @@ enum CssColor {
      */
     public function toRgbCoordinates(
 
-    ) :array {
+    ): array {
         return static::allRgbCoordinates()[$this->name];
     }
-    
+
     /**
      * Returns a string corresponding to the current CssColor exprimed in RGB according to the CSS syntax.
      *
      * @param  boolean|null $legacy    If true the returned string will use the old CSS syntax (like rgb(255,0,0)), if false the modern one (rgb(100% 0% 0% / 100%)), if null it will depend on the value of the COULEUR_LEGACY constant
      * @param  boolean|null $alpha     If true opacity will always be included, if false it will never be included, if null it will be included only if different from FF
-     * 
+     *
      * @return string
      */
     public function toRgbString(
         bool|null $legacy = null,
         bool|null $alpha  = null,
-    ) :string {
+    ): string {
         $values = $this->toRgbCoordinates();
 
         return utils\rgb\stringify(
@@ -815,5 +815,5 @@ enum CssColor {
     }
 
     /* #endregion */
-    
+
 }
