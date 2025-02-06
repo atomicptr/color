@@ -1,6 +1,6 @@
 <?php
 
-namespace Atomicptr\Color\tests;
+namespace Atomicptr\Color\Tests;
 
 use       Atomicptr\Color\CssColor;
 use       PHPUnit\Framework\TestCase;
